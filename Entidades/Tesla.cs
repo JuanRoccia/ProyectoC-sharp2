@@ -16,7 +16,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     public class Tesla : Vehiculo
     {
         #region Proiedades
-        private static int contadorId = 0;
+        private static int contadorId = 1;
         private int id;
         private int kmActual;
         private int kmService;
@@ -34,7 +34,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         /// <param name="duenio"></param>
         /// <param name="autonomia"></param>
         /// <param name="asientos"></param>
-        public Tesla(string modelo, int anio, int kmActual, int kmService, string color, string duenio, int autonomia, int asientos, int service)
+        public Tesla(string modelo, int anio, int kmActual, string color, string duenio, int autonomia, int asientos, int service)
         {
             id = contadorId++;
             Marca = "TESLA";
@@ -72,9 +72,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         }
         #endregion
 
-        #region Constructor
-
-        #endregion
+        
 
         #region Funcionalidades
         /// <summary>

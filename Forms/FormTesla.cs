@@ -29,8 +29,177 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             InitializeComponent();
             lista = listaTeslas;
+            dgv_tesla.DataSource = lista;
+            popularModelos();
+            popularAnios();
+            popularColores();
+        }
+
+        /// <summary>
+        /// Agrega los modelos disponibles al ComboBox "modelos".
+        /// </summary>
+        private void popularModelos()
+        {
+            foreach (string modelo in modelos_disponibles)
+            {
+                modelos.Items.Add(modelo);
+            }
+        }
+        /// <summary>
+        /// Agrega los años disponibles al ComboBox "anios".
+        /// </summary>
+        private void popularAnios()
+        {
+            foreach (int anio in anios_disponibles)
+            {
+                anios.Items.Add(anio);
+            }
+        }
+
+        /// <summary>
+        /// Agrega los colores disponibles al ComboBox "colores".
+        /// </summary>
+        private void popularColores()
+        {
+            foreach (string color in colores_disponibles)
+            {
+                colores.Items.Add(color);
+            }
+        }
+        #endregion
+
+        #region Boton crear tesla y funcion guardarTesla
+        /// <summary>
+        /// El boton crear tesla sera el encargado de hacer todas las validaciones
+        /// de campos, sino no se podra llamar al metodo guardarTesla() que es quien 
+        /// permite la instanciacion de la clase Tesla, y agrega el objeto a la lista principal de Teslas.
+        /// Estos valores se asignaran automaticamente dependiendo del modelo seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCrearTesla_Click(object sender, EventArgs e)
+        {
+            if ((modelos.SelectedIndex >= 0) && (anios.SelectedIndex >= 0) &&
+                !string.IsNullOrEmpty(kmActuales.Text) && kmActuales.Text.All(Char.IsDigit)
+                && (kmActuales.Text.Length > 0) && (kmActuales.Text.Length < 8)
+                && (colores.SelectedIndex >= 0) && (duenio.Text.Trim() != string.Empty) && (duenio.Text.All(Char.IsLetter)
+                || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length > 4))
+            {
+                guardarTesla();
+
+                string mensaje = $"Creó un Tesla correctamente y se agregó a la lista con el ID: {lista.Count.ToString()}";
+                MessageBoxButtons botones = MessageBoxButtons.OK;
+                MessageBox.Show(mensaje, "Genial", botones);
+                errorProvider1.SetError(panelDatos, "");
+
+            }
+            else
+            {
+                errorProvider1.SetError(panelDatos, "Error: todos los campos deben estar completos y deben ser del tipo correcto.\n" +
+                                                "! Kms. Actuales: sólo puede contener numeros positivos entre 0 y 10millones\n" +
+                                                "! Dueño: sólo puede contener letras y espacios, debe contener como mínimo 5 caracteres");
+                panelDatos.Focus();
+            }
+        }
+
+        /// <summary>
+        /// Esta funcion tendra un condicional para evaluar que modelo de Tesla se eligió
+        /// para asi asignar la autonomia(int), asientos(int), service(int) y asi no 
+        /// se creen modelos con datos erroneos. Tambien obtendra los datos
+        /// de los textbox y los combobox.
+        /// "Modelo X: 560, 7, 1000"
+        /// "Modelo S: 650, 5, 2000"
+        /// "Cybertruck: 800, 6, 3000"
+        /// </summary>
+        private void guardarTesla()
+        {
+
+            string modelo = modelos.SelectedItem.ToString();
+            int asientos;
+            int autonomia;
+            int service;
+            //condicion para asignar asientos y autonomia del Tesla segun modelo
+            if (modelo == "Model X")
+            {
+                autonomia = 560;
+                asientos = 7;
+                service = 1000;
+            }
+            else if (modelo == "Model S")
+            {
+                autonomia = 650;
+                asientos = 5;
+                service = 2000;
+            }
+            else
+            {
+                autonomia = 800;
+                asientos = 6;
+                service = 3000;
+            }
+
+            int anio = Convert.ToInt32(anios.SelectedItem);
+            int kmActual = Convert.ToInt32(kmActuales.Text);
+            string color = colores.SelectedItem.ToString();
+            string nombre = duenio.Text.Trim().ToUpper();
+
+            Tesla tesla = new Tesla(modelo, anio, kmActual, color, nombre, autonomia, asientos, service);
+            lista.Add(tesla);
+
+            //Reset clear
+
+            dgv_tesla.DataSource = null;
+            dgv_tesla.DataSource = lista;
+
+            modelos.SelectedIndex = -1;
+            anios.SelectedIndex = -1;
+            kmActuales.Clear();
+            colores.SelectedIndex = -1;
+            duenio.Clear();
+        }
+        #endregion
+
+        #region Boton Eliminar y funcionalidad
+
+        /// <summary>
+        /// Funcion para obtener informacion y poder eliminar elementos de la lista
+        /// mostrada en el datagridview, para eso se usa la funcion 
+        /// CellClick del datagrid para obtener el indice
+        /// del elemento que queremos eliminar, y eliminamos por indice = id
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private int indiceFila;
+        private int idc;
+
+        private void dgv_tesla_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            indiceFila = e.RowIndex;
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            
+            if (indiceFila != -1)
+            {
+                idc = (int)dgv_tesla.Rows[indiceFila].Cells[0].Value;
+
+                DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el tesla ID: {idc}?"
+                                        , "Eliminar tesla", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    lista.RemoveAt(indiceFila);
+                    dgv_tesla.DataSource = null;
+                    dgv_tesla.DataSource = lista;
+
+                }
+            }
         }
 
         #endregion
+
+
     }
 }
+

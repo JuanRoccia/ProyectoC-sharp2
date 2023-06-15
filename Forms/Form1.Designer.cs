@@ -40,19 +40,26 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnMaximizar = new System.Windows.Forms.PictureBox();
+            this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             this.SuspendLayout();
             // 
             // BarraTitulo
             // 
             this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.BarraTitulo.Controls.Add(this.btnRestaurar);
+            this.BarraTitulo.Controls.Add(this.btnMaximizar);
             this.BarraTitulo.Controls.Add(this.btnMinimizar);
             this.BarraTitulo.Controls.Add(this.btnCerrar);
+            this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Name = "BarraTitulo";
             this.BarraTitulo.Size = new System.Drawing.Size(1300, 38);
@@ -63,12 +70,11 @@
             // 
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.minimizar_ventana_24;
-            this.btnMinimizar.Location = new System.Drawing.Point(1221, 7);
+            this.btnMinimizar.Location = new System.Drawing.Point(1201, 7);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.TabStop = false;
-            
             // 
             // btnCerrar
             // 
@@ -91,9 +97,10 @@
             this.MenuVertical.Controls.Add(this.btnTesla);
             this.MenuVertical.Controls.Add(this.pictureBox2);
             this.MenuVertical.Controls.Add(this.pictureBox1);
+            this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 38);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(220, 700);
+            this.MenuVertical.Size = new System.Drawing.Size(220, 612);
             this.MenuVertical.TabIndex = 1;
             // 
             // panel2
@@ -115,9 +122,9 @@
             this.btnSpaceX.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnSpaceX.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.cohete_24;
             this.btnSpaceX.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSpaceX.Location = new System.Drawing.Point(3, 297);
+            this.btnSpaceX.Location = new System.Drawing.Point(5, 297);
             this.btnSpaceX.Name = "btnSpaceX";
-            this.btnSpaceX.Size = new System.Drawing.Size(217, 32);
+            this.btnSpaceX.Size = new System.Drawing.Size(215, 32);
             this.btnSpaceX.TabIndex = 4;
             this.btnSpaceX.Text = "SpaceX";
             this.btnSpaceX.UseVisualStyleBackColor = false;
@@ -142,9 +149,9 @@
             this.btnTesla.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTesla.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.coche_32;
             this.btnTesla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTesla.Location = new System.Drawing.Point(3, 259);
+            this.btnTesla.Location = new System.Drawing.Point(5, 259);
             this.btnTesla.Name = "btnTesla";
-            this.btnTesla.Size = new System.Drawing.Size(220, 32);
+            this.btnTesla.Size = new System.Drawing.Size(215, 32);
             this.btnTesla.TabIndex = 2;
             this.btnTesla.Text = "Tesla";
             this.btnTesla.UseVisualStyleBackColor = false;
@@ -174,10 +181,35 @@
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.panelContenedor.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(220, 38);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1080, 700);
+            this.panelContenedor.Size = new System.Drawing.Size(1080, 612);
             this.panelContenedor.TabIndex = 2;
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.maximizar_ventana_24;
+            this.btnMaximizar.Location = new System.Drawing.Point(1232, 7);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(25, 25);
+            this.btnMaximizar.TabIndex = 3;
+            this.btnMaximizar.TabStop = false;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurar.ErrorImage = null;
+            this.btnRestaurar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.restaurar_ventana_24;
+            this.btnRestaurar.Location = new System.Drawing.Point(1232, 7);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(25, 25);
+            this.btnRestaurar.TabIndex = 4;
+            this.btnRestaurar.TabStop = false;
+            this.btnRestaurar.Visible = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // Form1
             // 
@@ -197,6 +229,8 @@
             this.MenuVertical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,6 +248,8 @@
         private System.Windows.Forms.Button btnTesla;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSpaceX;
+        private System.Windows.Forms.PictureBox btnRestaurar;
+        private System.Windows.Forms.PictureBox btnMaximizar;
     }
 }
 

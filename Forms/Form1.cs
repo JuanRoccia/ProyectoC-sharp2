@@ -29,7 +29,7 @@ namespace FERNANDES_ROCCIA_TAPIA
     /// el programa inicialmente tendra dos listas una correspondiente a cada empresa
     /// estas listas simulan que los datos estan guardados en una base de datos,
     ///  las listas seran enviadas como argumentos del constructor de cada formulario hijo.
-    ///  Cada formulario hijo  trabajará y manipulará estas listas,
+    ///  Cada formulario hijo  trabajará y manipulará estas listas
     ///  dando de alta o eliminando algun elemento de dicha lista.
     ///  
     /// La defincion e instancia de clases es para pruebas de testeo, pero no es la idea
@@ -41,10 +41,10 @@ namespace FERNANDES_ROCCIA_TAPIA
         public List<Tesla> listaTesla;
         public List<SpaceX> listaSpaceX;
 
-        Tesla tesla1 = new Tesla("Model S", 2015, 2300, 3000, "Blue", "Juan Ramirez", 650, 5, 2000);
-        Tesla tesla2 = new Tesla("Model S", 2015, 2300, 3000, "Blue", "Juan Ramirez", 650, 5, 2000);
-        Tesla tesla3 = new Tesla("Model S", 2015, 2300, 3000, "Blue", "Juan Ramirez", 650, 5, 2000);
-        Tesla tesla4 = new Tesla("Model S", 2015, 2300, 3000, "Blue", "Juan Ramirez", 650, 5, 2000);
+        Tesla tesla1 = new Tesla("Model S", 2015, 2300,  "Blue", "Juan Ramirez", 650, 5, 2000);
+        Tesla tesla2 = new Tesla("Model S", 2015, 2300,  "Blue", "Juan Ramirez", 650, 5, 2000);
+        Tesla tesla3 = new Tesla("Model S", 2015, 2300,  "Blue", "Juan Ramirez", 650, 5, 2000);
+        Tesla tesla4 = new Tesla("Model S", 2015, 2300,  "Blue", "Juan Ramirez", 650, 5, 2000);
         /// <summary>
         /// Constructor del formulario principal, se inicia la lista cuando se inicia el programa
         /// </summary>
@@ -64,12 +64,39 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        #region Control botones salir, minimizar, maximizar       
+        #region Control botones salir, minimizar , maximizar    
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Boton maximizar, con logica para que se vea
+        /// unicamente cuando la ventana este en modo normal,
+        /// de otro modo este boton estará invisible
+        /// y  se verá el boton de Restaurar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMaximizar.Visible = false;
+            btnRestaurar.Visible = true;
+        }
+
+        /// <summary>
+        /// Boton restaurar, con la logica inversa del boton maximizar,
+        /// el boton estara disponible solo si la ventana esta maximizada.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnMaximizar.Visible = true;
+            btnRestaurar.Visible = false;
+        }
 
         /// <summary>
         /// Boton minimizar, me cambia el estado del formulario principal a minimizado
@@ -147,5 +174,7 @@ namespace FERNANDES_ROCCIA_TAPIA
             AbrirFormHijo(new FormSpaceX(listaSpaceX));
         }
         #endregion
+
+        
     }
 }
