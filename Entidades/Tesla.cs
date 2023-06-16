@@ -13,7 +13,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     /// las propiedades asientos, autonomia y service ya que las mismas dependen del modelo.
     /// Para la correcta instanciación de los Tesla se crea un constructor
     /// </summary>
-    public class Tesla : Vehiculo
+    public class Tesla : Vehicle
     {
         #region Proiedades
         private static int contadorId = 1;

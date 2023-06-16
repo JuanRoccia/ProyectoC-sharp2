@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FERNANDES_ROCCIA_TAPIA.Entidades
 {
-    public class SpaceX : Vehiculo
+    public class SpaceX : Vehicle
     {
 
         #region Propiedades
