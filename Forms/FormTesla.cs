@@ -14,9 +14,25 @@ namespace FERNANDES_ROCCIA_TAPIA
 {
 
     /// <summary>
+    /// 
     /// En este formulario, se gestionara todo lo relacionado a la clase Tesla.
     /// Se podran dar de alta y eliminar objetos Tesla, en la lista recibida
-    /// del formulario principal que es donde se van a ir almacenando 
+    /// del formulario principal que es donde se van a ir almacenando los teslas.
+    /// Tambien contendra toda la funcionalidad, y toda la logica necesaria
+    /// para que la instancia de un nuevo objeto Tesla sea correcta.
+    /// Se tendran en cuenta los datos ingresados/seleccionados
+    /// por el usuario y dependiendo de ellos, se haran calculos para 
+    /// implentar lo solicitado en el proyecto.
+    /// Se tendra la vista de la lista actual de teslas en un DataGridView
+    /// y se podran dar de alta, o eliminar teslas de esta lista.
+    /// Se usara una funcion para asignar todos los datos y dar de alta un tesla,
+    /// se implementera la logica necesaria para que cada modelo de Tesla se cree
+    /// con las propiedades particulares del modelo seleccionado en un comboBox por el usuario.
+    /// Esto evita que se creen modelos que no existen, o designados por un usuario normal.
+    /// Las opciones de modelos, anios y colores solo podran modificarlo los desarrolladores,
+    /// a traves de las listas estaticas correspondientes, como asi tambien la asignacion
+    /// de las propiedades particulares, asientos, autonomia y service.
+    /// 
     /// </summary>
     public partial class FormTesla : Form
     {
@@ -77,12 +93,13 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCrearTesla_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             if ((modelos.SelectedIndex >= 0) && (anios.SelectedIndex >= 0) &&
                 !string.IsNullOrEmpty(kmActuales.Text) && kmActuales.Text.All(Char.IsDigit)
                 && (kmActuales.Text.Length > 0) && (kmActuales.Text.Length < 8)
-                && (colores.SelectedIndex >= 0) && (duenio.Text.Trim() != string.Empty) && (duenio.Text.All(Char.IsLetter)
+                && (colores.SelectedIndex >= 0) && (duenio.Text.Trim() != string.Empty)
+                && (duenio.Text.All(Char.IsLetter)
                 || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length > 4))
             {
                 guardarTesla();
@@ -90,15 +107,15 @@ namespace FERNANDES_ROCCIA_TAPIA
                 string mensaje = $"Creó un Tesla correctamente y se agregó a la lista con el ID: {lista.Count.ToString()}";
                 MessageBoxButtons botones = MessageBoxButtons.OK;
                 MessageBox.Show(mensaje, "Genial", botones);
-                errorProvider1.SetError(panelDatos, "");
+                errorProvider1.SetError(grupoDatos, "");
 
             }
             else
             {
-                errorProvider1.SetError(panelDatos, "Error: todos los campos deben estar completos y deben ser del tipo correcto.\n" +
+                errorProvider1.SetError(grupoDatos, "Error: todos los campos deben estar completos y deben ser del tipo correcto.\n" +
                                                 "! Kms. Actuales: sólo puede contener numeros positivos entre 0 y 10millones\n" +
                                                 "! Dueño: sólo puede contener letras y espacios, debe contener como mínimo 5 caracteres");
-                panelDatos.Focus();
+                grupoDatos.Focus();
             }
         }
 
@@ -165,7 +182,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// Funcion para obtener informacion y poder eliminar elementos de la lista
         /// mostrada en el datagridview, para eso se usa la funcion 
         /// CellClick del datagrid para obtener el indice
-        /// del elemento que queremos eliminar, y eliminamos por indice = id
+        /// del elemento que queremos eliminar, y eliminamos por indice = id.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -178,26 +195,29 @@ namespace FERNANDES_ROCCIA_TAPIA
             indiceFila = e.RowIndex;
         }
 
-        private void btnEliminar_Click_1(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
             if (indiceFila != -1)
             {
                 idc = (int)dgv_tesla.Rows[indiceFila].Cells[0].Value;
-
-                DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el tesla ID: {idc}?"
+                DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el tesla ID: {idc} ?"
                                         , "Eliminar tesla", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     lista.RemoveAt(indiceFila);
                     dgv_tesla.DataSource = null;
                     dgv_tesla.DataSource = lista;
-
+                    indiceFila = -1;
                 }
             }
         }
 
+
         #endregion
+
+
+
+
 
 
     }

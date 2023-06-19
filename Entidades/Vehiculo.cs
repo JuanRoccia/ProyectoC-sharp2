@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FERNANDES_ROCCIA_TAPIA.Entidades
 {
@@ -25,6 +26,9 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     /// se cargaron. Pero estos valores no van a poder ser modificados, sino que
     /// seran asignados automaticamente, acorde a las solicitudes y resultantes
     /// de las cuentas correspondientes.
+    /// Todos los atributos de la clase Vehiculo son declarados privados
+    /// para que unicamente puedan ser accedidos mediante sus metodos.
+    /// Con esto cumplimos con la encapsulación de la POO.
     /// </summary>
     #region Propiedades
     public abstract class Vehiculo
@@ -39,11 +43,18 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         private int cantCargas;
 
         //GETTERS & SETTERS
-        public string Marca
+
+        public int CantidadCargas
         {
-            get { return marca; }
-            set { marca = value; }
+            get { return cantCargas; }
+            set { cantCargas = value; }
         }
+        public int Service
+        {
+            get { return service; }
+            set { service = value; }
+        }
+
 
         public string Modelo
         {
@@ -75,12 +86,13 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             get { return duenio; }
             set { duenio = value; }
         }
-
-        public int Service
+        public string Marca
         {
-            get { return service; }
-            set { service = value; }
+            get { return marca; }
+            set { marca = value; }
         }
+
+
         #endregion
 
         /// <summary>
@@ -89,6 +101,8 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         /// </summary>
         /// <returns></returns>
         public abstract override string ToString();
+
+        public abstract string Escaneo();
 
     }
 }
