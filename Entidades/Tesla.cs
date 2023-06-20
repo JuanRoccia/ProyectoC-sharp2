@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,8 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         private int kmService;
         private int asientos;
 
+        
+        
         /// <summary>
         /// Contructor, se tiene en cuenta que el modelo es de tipo string,
         /// la unidad de medida de la autonomia es en Kms
@@ -47,7 +50,8 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         /// <param name="autonomia">cantidad de kilometros que el vehiculo puede recorrer con una carga completa de batería</param>
         /// <param name="asientos">cantidad de asientos del vehiculo</param>
         /// <param name="service">cantidad de services que se le realizaron al vehiculo(depende del kmActual)</param>
-
+        /// $"Service {numService} : ({VAR})Control de cinturones
+        ///                            ({VAR})Control de Propulsion "
         public Tesla(string modelo, int anio, int kmActual, string color, string duenio, int autonomia, int asientos, int service)
         {
             id = contadorId++;
@@ -86,8 +90,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         //}
         #endregion
 
-        
-
         #region Funcionalidades
         /// <summary>
         /// Metodo abstracto de la clase padre Vehiculo, que es sobreescrito
@@ -97,11 +99,23 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         {
             return $"ID: {id}, Marca:{Marca}, Modelo: {Modelo}, Año: {Anio}, Kilometraje Actual: {KmActual}, Kilometraje Service: {ProximoService}, Color: {Color}, Dueño: {Duenio}";
         }
+        private int controlCinturones = 1000;
+        private int controlBaterias = 2000;
+        private int sistemaNavegacion = 2500;
+        private int cantCinturones;
+        private int cantBaterias;
+        private int cantSistema;
 
         public override string Escaneo()
         {
+            cantCinturones = kmActual / controlCinturones;
+            cantBaterias = kmActual / controlBaterias;
+            cantSistema = kmActual / sistemaNavegacion;
 
-            return $"Estoy escaneando un Tesla";
+
+            return $"Se realizaron {Service} services." +
+                $"Control de cinturones  ({cantCinturones})" +
+                $"Control de baterias ({cantBaterias})";
         }
         #endregion
     }

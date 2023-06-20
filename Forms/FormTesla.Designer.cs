@@ -51,6 +51,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelEscaneo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tesla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.grupoDatos.SuspendLayout();
@@ -73,6 +74,7 @@
             this.duenio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.duenio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.duenio.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorProvider1.SetIconAlignment(this.duenio, System.Windows.Forms.ErrorIconAlignment.BottomRight);
             this.duenio.Location = new System.Drawing.Point(410, 31);
             this.duenio.Name = "duenio";
             this.duenio.Size = new System.Drawing.Size(243, 22);
@@ -174,7 +176,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.label2.Location = new System.Drawing.Point(10, 32);
+            this.label2.Location = new System.Drawing.Point(10, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 0;
@@ -208,6 +210,7 @@
             this.btnEscanear.TabIndex = 11;
             this.btnEscanear.Text = "Escanear";
             this.btnEscanear.UseVisualStyleBackColor = false;
+            this.btnEscanear.Click += new System.EventHandler(this.btnEscanear_Click);
             // 
             // btnGuardar
             // 
@@ -261,6 +264,7 @@
             this.grupoDatos.Controls.Add(this.modelos);
             this.grupoDatos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grupoDatos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.errorProvider1.SetIconAlignment(this.grupoDatos, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this.grupoDatos.Location = new System.Drawing.Point(12, 12);
             this.grupoDatos.Name = "grupoDatos";
             this.grupoDatos.Size = new System.Drawing.Size(715, 100);
@@ -286,17 +290,18 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelEscaneo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.panel3);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnEscanear);
             this.groupBox1.Controls.Add(this.dgv_tesla);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.groupBox1.Location = new System.Drawing.Point(12, 118);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1005, 429);
+            this.groupBox1.Size = new System.Drawing.Size(1005, 443);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
@@ -309,6 +314,14 @@
             this.label1.Size = new System.Drawing.Size(154, 19);
             this.label1.TabIndex = 19;
             this.label1.Text = "Sistema de Gestión";
+            // 
+            // labelEscaneo
+            // 
+            this.labelEscaneo.Location = new System.Drawing.Point(72, 382);
+            this.labelEscaneo.Name = "labelEscaneo";
+            this.labelEscaneo.Size = new System.Drawing.Size(837, 25);
+            this.labelEscaneo.TabIndex = 20;
+            this.labelEscaneo.Text = "label7";
             // 
             // FormTesla
             // 
@@ -354,5 +367,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelEscaneo;
     }
 }

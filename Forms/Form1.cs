@@ -38,6 +38,7 @@ namespace FERNANDES_ROCCIA_TAPIA
     /// </summary>
     public partial class Form1 : Form
     {
+        #region Inicio del formulario principal
         public List<Tesla> listaTesla;
         public List<SpaceX> listaSpaceX;
 
@@ -61,12 +62,16 @@ namespace FERNANDES_ROCCIA_TAPIA
             } 
         }
 
+        #endregion
+
+
+        #region Control botones salir, minimizar , maximizar    
         /// <summary>
         /// Boton cerrar, me cierra este formulario principal. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        #region Control botones salir, minimizar , maximizar    
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();

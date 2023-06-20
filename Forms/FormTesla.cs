@@ -211,15 +211,15 @@ namespace FERNANDES_ROCCIA_TAPIA
                 }
             }
         }
-
-
         #endregion
 
+        private void btnEscanear_Click(object sender, EventArgs e)
+        {
+            Tesla teslac = (Tesla)dgv_tesla.CurrentRow.DataBoundItem;
 
+            labelEscaneo.Text = teslac.Escaneo();
 
-
-
-
+        }
     }
 }
 
