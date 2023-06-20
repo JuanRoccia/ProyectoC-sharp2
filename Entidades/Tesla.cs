@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FERNANDES_ROCCIA_TAPIA.Entidades
 {
@@ -27,15 +29,18 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     /// </summary>
     public class Tesla : Vehiculo
     {
-        #region Proiedades
+        #region Propiedades
         private static int contadorId = 1;
         private int id;
         private int kmActual;
         private int kmService;
         private int asientos;
+        private const int controlCinturones = 1000;
+        private const int controlBaterias = 2000;
+        private const int controlSistemaNavegacion = 2500;
+        private const int controlSistemaTraccion = 3000;
+        private const int controlMotor = 3000;
 
-        
-        
         /// <summary>
         /// Contructor, se tiene en cuenta que el modelo es de tipo string,
         /// la unidad de medida de la autonomia es en Kms
@@ -50,8 +55,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         /// <param name="autonomia">cantidad de kilometros que el vehiculo puede recorrer con una carga completa de batería</param>
         /// <param name="asientos">cantidad de asientos del vehiculo</param>
         /// <param name="service">cantidad de services que se le realizaron al vehiculo(depende del kmActual)</param>
-        /// $"Service {numService} : ({VAR})Control de cinturones
-        ///                            ({VAR})Control de Propulsion "
         public Tesla(string modelo, int anio, int kmActual, string color, string duenio, int autonomia, int asientos, int service)
         {
             id = contadorId++;
@@ -99,24 +102,50 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         {
             return $"ID: {id}, Marca:{Marca}, Modelo: {Modelo}, Año: {Anio}, Kilometraje Actual: {KmActual}, Kilometraje Service: {ProximoService}, Color: {Color}, Dueño: {Duenio}";
         }
-        private int controlCinturones = 1000;
-        private int controlBaterias = 2000;
-        private int sistemaNavegacion = 2500;
+
+        
+        /// <summary>
+        /// 
+        /// Escaneo()
+        /// Funcion abstracta heredada de la clase Vehiculo que retorna un string
+        /// Se usan variables para almecenar la cantidad de services
+        /// que se le realizaron al Tesla respecto de su kilometraje actual.
+        /// Y finalmente devuelve un String elaborado con las variables 
+        /// correspondientes a este objeto tesla.
+        /// 
+        /// </summary>
         private int cantCinturones;
         private int cantBaterias;
-        private int cantSistema;
-
+        private int cantNavegacion;
+        private int cantTraccion;
+        private int cantMotor;
         public override string Escaneo()
-        {
+        {            
             cantCinturones = kmActual / controlCinturones;
             cantBaterias = kmActual / controlBaterias;
-            cantSistema = kmActual / sistemaNavegacion;
+            cantNavegacion = kmActual / controlSistemaNavegacion;
+            cantTraccion = kmActual / controlSistemaTraccion;
+            cantMotor = kmActual / controlMotor;
 
-
-            return $"Se realizaron {Service} services." +
-                $"Control de cinturones  ({cantCinturones})" +
-                $"Control de baterias ({cantBaterias})";
+            return $"TESLA ID: {Id}.\n" + 
+                $"Se realizaron [{Service}] services.\n" +
+                $"({cantCinturones}) Controles de cinturones de seguridad.\n" +
+                $"({cantBaterias}) Controles de baterias.\n"+
+                $"({cantNavegacion}) Controles del Sistema de Navegación.\n" +
+                $"({cantTraccion}) Controles del Sistema de Tracción.\n" +
+                $"({cantMotor}) Controles de Motor.\n";
         }
         #endregion
+
+        public static void Eliminar(List<Tesla> lista, int id)
+        {
+            DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el tesla ID: {id} ?"
+                        , "Eliminar tesla", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes & id >=0)
+            {
+                lista.RemoveAt(id);
+
+            }
+        }
     }
 }

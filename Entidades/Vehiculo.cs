@@ -73,8 +73,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             get { return autonomia; }
             set { autonomia = value; }
         }
-
-
         public string Color
         {
             get { return color; }

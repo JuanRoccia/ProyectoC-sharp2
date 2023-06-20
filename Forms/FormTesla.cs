@@ -112,9 +112,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             }
             else
             {
-                errorProvider1.SetError(grupoDatos, "Error: todos los campos deben estar completos y deben ser del tipo correcto.\n" +
-                                                "! Kms. Actuales: sólo puede contener numeros positivos entre 0 y 10millones\n" +
-                                                "! Dueño: sólo puede contener letras y espacios, debe contener como mínimo 5 caracteres");
+                errorProvider1.SetError(grupoDatos, "* Para guardar un tesla todos los campos deben estar completos y deben ser del tipo correcto.\n" +
+                                                "! Kms. Actuales: sólo puede contener numeros positivos entre 0 y 10 millones.\n" +
+                                                "! Dueño: sólo puede contener letras y espacios, debe contener como mínimo 5 caracteres.");
                 grupoDatos.Focus();
             }
         }
@@ -193,6 +193,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         private void dgv_tesla_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             indiceFila = e.RowIndex;
+            labelEscaneo.Visible = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -213,13 +214,16 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
         #endregion
 
+        #region Boton Escanear
         private void btnEscanear_Click(object sender, EventArgs e)
         {
             Tesla teslac = (Tesla)dgv_tesla.CurrentRow.DataBoundItem;
 
             labelEscaneo.Text = teslac.Escaneo();
+            labelEscaneo.Visible = true;
 
         }
+        #endregion
     }
 }
 

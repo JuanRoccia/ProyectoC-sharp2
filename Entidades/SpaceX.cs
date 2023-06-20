@@ -26,6 +26,10 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         private int id;
         private int horasVuelo;
         private int horasService;
+        private const int sistemaPropulsion = 1000;
+        private const int sistemaNavegacion = 500;
+        private int cantPropulsion;
+        private int navegacion;
 
         public SpaceX(string modelo, int anio, int horasVuelo, int horasService, string color, string duenio, int autonomia, int service)
         {
@@ -38,7 +42,8 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             Color = color;
             Duenio = duenio;
             Autonomia = autonomia;
-            Service = service;
+            Service = (horasVuelo / service);
+            CantidadCargas = (horasVuelo / autonomia);
         }
 
 
@@ -61,13 +66,27 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
 
         #endregion
 
+        #region Funcionalidades
         public override string ToString()
         {
             return $"SpaceX";
         }
+
+        /// <summary>
+        /// 
+        /// Escaneo()
+        /// Funcion abstracta heredada de la clase Vehiculo que retorna un string
+        /// Se usan variables para almecenar la cantidad de services
+        /// que se le realizaron al SpaceX respecto del checkeo y su kilometraje actual.
+        /// Y finalmente devuelve un String elaborado con las variables 
+        /// correspondientes a este objeto tesla.
+        /// 
+        /// </summary>
         public override string Escaneo()
         {
-            return $"Estoy escaneando un SpaceX";
+            cantPropulsion = HorasVuelo / sistemaPropulsion;
+            return $"Se realizaron {Service} services.\n";
         }
+        #endregion
     }
 }

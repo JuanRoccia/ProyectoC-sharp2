@@ -53,13 +53,12 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             InitializeComponent();
             listaTesla = new List<Tesla>();
-            for(int i = 0; i < 5; i++)
-            {
-                listaTesla.Add(tesla1);
-                listaTesla.Add(tesla2);
-                listaTesla.Add(tesla3);
-                listaTesla.Add(tesla4);
-            } 
+
+            listaTesla.Add(tesla1);
+            listaTesla.Add(tesla2);
+            listaTesla.Add(tesla3);
+            listaTesla.Add(tesla4);
+
         }
 
         #endregion
