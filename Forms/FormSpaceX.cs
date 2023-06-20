@@ -13,6 +13,7 @@ namespace FERNANDES_ROCCIA_TAPIA
 {
     public partial class FormSpaceX : Form
     {
+        #region Inicio y carga del formulario
         List<SpaceX> lista;
         string[] modelos_disponibles = { "Falcon 9", "Starship" };
         int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
@@ -22,5 +23,6 @@ namespace FERNANDES_ROCCIA_TAPIA
             InitializeComponent();
             lista = listaSpaceX;
         }
+        #endregion
     }
 }

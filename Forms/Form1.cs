@@ -32,19 +32,20 @@ namespace FERNANDES_ROCCIA_TAPIA
     ///  Cada formulario hijo  trabajará y manipulará estas listas
     ///  dando de alta o eliminando algun elemento de dicha lista.
     ///  
-    /// La defincion e instancia de clases es para pruebas de testeo, pero no es la idea
-    /// que se puedan realizar modificaciones de esta manera, sino que realice todo a traves
+    /// La defincion e instancia de clases, como agregar objetos a la lista es para pruebas de testeo, 
+    /// no es la idea que se puedan realizar modificaciones de esta manera, sino que se realice todo a traves
     /// de la interfaz gráfica.
     /// </summary>
     public partial class Form1 : Form
     {
+        #region Inicio del formulario principal
         public List<Tesla> listaTesla;
         public List<SpaceX> listaSpaceX;
 
-        Tesla tesla1 = new Tesla("Model S", 2015, 2300,  "Blue", "Juan Ramirez", 650, 5, 2000);
-        Tesla tesla2 = new Tesla("Model S", 2015, 2300,  "Blue", "Juan Ramirez", 650, 5, 2000);
-        Tesla tesla3 = new Tesla("Model S", 2015, 2300,  "Blue", "Juan Ramirez", 650, 5, 2000);
-        Tesla tesla4 = new Tesla("Model S", 2015, 2300,  "Blue", "Juan Ramirez", 650, 5, 2000);
+        Tesla tesla1 = new Tesla("Model S", 2015, 2300,  "Blue", "pedrito Ramirez", 650, 5, 2000);
+        Tesla tesla2 = new Tesla("Model X", 2015, 23000,  "Blue", "Juan Ramirez", 560, 7, 1000);
+        Tesla tesla3 = new Tesla("Model X", 2015, 250500,  "Blue", "Juan Ramirez", 560, 7, 1000);
+        Tesla tesla4 = new Tesla("Cybertruck", 2015, 90000,  "Red", "pochito", 800, 6, 3000);
         /// <summary>
         /// Constructor del formulario principal, se inicia la lista cuando se inicia el programa
         /// </summary>
@@ -52,19 +53,25 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             InitializeComponent();
             listaTesla = new List<Tesla>();
-
-            listaTesla.Add(tesla1);
-            listaTesla.Add(tesla2);
-            listaTesla.Add(tesla3);
-            listaTesla.Add(tesla4);
+            for(int i = 0; i < 5; i++)
+            {
+                listaTesla.Add(tesla1);
+                listaTesla.Add(tesla2);
+                listaTesla.Add(tesla3);
+                listaTesla.Add(tesla4);
+            } 
         }
 
+        #endregion
+
+
+        #region Control botones salir, minimizar , maximizar    
         /// <summary>
         /// Boton cerrar, me cierra este formulario principal. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        #region Control botones salir, minimizar , maximizar    
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
