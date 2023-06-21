@@ -99,6 +99,7 @@
             this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click_1);
             // 
             // btnCerrar
             // 
@@ -142,12 +143,13 @@
             this.btnSpaceX.FlatAppearance.BorderSize = 0;
             this.btnSpaceX.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnSpaceX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSpaceX.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpaceX.Font = new System.Drawing.Font("Century Gothic", 13F);
             this.btnSpaceX.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnSpaceX.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.cohete_24;
             this.btnSpaceX.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSpaceX.Location = new System.Drawing.Point(5, 297);
             this.btnSpaceX.Name = "btnSpaceX";
+            this.btnSpaceX.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.btnSpaceX.Size = new System.Drawing.Size(215, 32);
             this.btnSpaceX.TabIndex = 4;
             this.btnSpaceX.Text = "SpaceX";
@@ -169,12 +171,13 @@
             this.btnTesla.FlatAppearance.BorderSize = 0;
             this.btnTesla.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnTesla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTesla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTesla.Font = new System.Drawing.Font("Century Gothic", 13F);
             this.btnTesla.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTesla.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.coche_32;
             this.btnTesla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTesla.Location = new System.Drawing.Point(5, 259);
             this.btnTesla.Name = "btnTesla";
+            this.btnTesla.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.btnTesla.Size = new System.Drawing.Size(215, 32);
             this.btnTesla.TabIndex = 2;
             this.btnTesla.Text = "Tesla";

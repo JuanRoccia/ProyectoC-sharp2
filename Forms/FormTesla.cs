@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FERNANDES_ROCCIA_TAPIA.Entidades;
 
 namespace FERNANDES_ROCCIA_TAPIA
 {
@@ -40,7 +39,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         List<Tesla> lista;
         string[] modelos_disponibles = { "Model X", "Model S", "Cybertruck" };
         int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
-        string[] colores_disponibles = { "Black", "Blue", "Gray", "Green", "Red", "White" };
+        string[] colores_disponibles = { "Amarillo", "Azul", "Blanco", "Bordo","Gris", "Marron", "Naranja", "Negro" };
         public FormTesla(List<Tesla> listaTeslas)
         {
             InitializeComponent();
@@ -112,9 +111,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             }
             else
             {
-                errorProvider1.SetError(grupoDatos, "Error: todos los campos deben estar completos y deben ser del tipo correcto.\n" +
-                                                "! Kms. Actuales: sólo puede contener numeros positivos entre 0 y 10millones\n" +
-                                                "! Dueño: sólo puede contener letras y espacios, debe contener como mínimo 5 caracteres");
+                errorProvider1.SetError(grupoDatos, "* Para guardar un tesla todos los campos deben estar completos y deben ser del tipo correcto.\n" +
+                                                "! Kms. Actuales: sólo puede contener numeros positivos entre 0 y 10 millones.\n" +
+                                                "! Dueño: sólo puede contener letras y espacios, debe contener como mínimo 5 caracteres.");
                 grupoDatos.Focus();
             }
         }
@@ -150,6 +149,7 @@ namespace FERNANDES_ROCCIA_TAPIA
             }
             else
             {
+                // Cybertruck
                 autonomia = 800;
                 asientos = 6;
                 service = 3000;
@@ -193,6 +193,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         private void dgv_tesla_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             indiceFila = e.RowIndex;
+            labelEscaneo.Visible = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -213,13 +214,31 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
         #endregion
 
+
+        
+        #region Boton Escanear
         private void btnEscanear_Click(object sender, EventArgs e)
         {
-            Tesla teslac = (Tesla)dgv_tesla.CurrentRow.DataBoundItem;
 
-            labelEscaneo.Text = teslac.Escaneo();
+            
+
+            if(lista.Count > 0)               
+            {
+                Tesla teslac = (Tesla)dgv_tesla.CurrentRow.DataBoundItem;
+                labelEscaneo.Text = teslac.Escaneo();
+                labelEscaneo.Visible = true;
+            }
+            else
+            {
+                errorProvider1.SetError(btnEscanear,"Error la lista esta vacía.");
+                btnEscanear.Focus();
+            }
+
+            
+            
 
         }
+        #endregion
     }
 }
 

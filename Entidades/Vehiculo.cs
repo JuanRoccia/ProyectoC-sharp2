@@ -33,66 +33,72 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     #region Propiedades
     public abstract class Vehiculo
     {
-        private string marca;
-        private string modelo;
-        private int anio;
-        private int autonomia;
-        private string color;
-        private string duenio;
-        private int service;
-        private int cantCargas;
+        //private string marca;
+        //private string modelo;
+        //private int anio;
+        //private int autonomia;
+        //private string color;
+        //private string duenio;
+        //private int service; // es es el elemento que en realidad no estamos usando
+        //private int cantCargas;
 
-        //GETTERS & SETTERS
+        ////GETTERS & SETTERS
 
-        public int CantidadCargas
-        {
-            get { return cantCargas; }
-            set { cantCargas = value; }
-        }
-        public int Service
-        {
-            get { return service; }
-            set { service = value; }
-        }
-
-
-        public string Modelo
-        {
-            get { return modelo; }
-            set { modelo = value; }
-        }
-
-        public int Anio
-        {
-            get { return anio; }
-            set { anio = value; }
-        }
-
-        public int Autonomia
-        {
-            get { return autonomia; }
-            set { autonomia = value; }
-        }
+        //public int CantidadCargas
+        //{
+        //    get { return cantCargas; }
+        //    set { cantCargas = value; }
+        //}
+        //public int Service
+        //{
+        //    get { return service; }
+        //    set { service = value; }
+        //}
 
 
-        public string Color
-        {
-            get { return color; }
-            set { color = value; }
-        }
+        //public string Modelo
+        //{
+        //    get { return modelo; }
+        //    set { modelo = value; }
+        //}
 
-        public string Duenio
-        {
-            get { return duenio; }
-            set { duenio = value; }
-        }
-        public string Marca
-        {
-            get { return marca; }
-            set { marca = value; }
-        }
+        //public int Anio
+        //{
+        //    get { return anio; }
+        //    set { anio = value; }
+        //}
+
+        //public int Autonomia
+        //{
+        //    get { return autonomia; }
+        //    set { autonomia = value; }
+        //}
+        //public string Color
+        //{
+        //    get { return color; }
+        //    set { color = value; }
+        //}
+
+        //public string Duenio
+        //{
+        //    get { return duenio; }
+        //    set { duenio = value; }
+        //}
+        //public string Marca
+        //{
+        //    get { return marca; }
+        //    set { marca = value; }
+        //}
 
 
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public int Anio { get; set; }
+        public int Autonomia { get; set; }
+        public string Color { get; set; }
+        public string Duenio { get; set; }
+        public int Service { get; set; }
+        public int CantidadCargas { get; set; }
         #endregion
 
         /// <summary>

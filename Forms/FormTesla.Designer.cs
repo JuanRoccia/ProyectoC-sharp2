@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTesla));
             this.dgv_tesla = new System.Windows.Forms.DataGridView();
             this.duenio = new System.Windows.Forms.TextBox();
@@ -42,16 +45,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnEscanear = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.grupoDatos = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEscanear = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.labelEscaneo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tesla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.grupoDatos.SuspendLayout();
@@ -61,10 +64,44 @@
             // dgv_tesla
             // 
             this.dgv_tesla.AllowUserToAddRows = false;
-            this.dgv_tesla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_tesla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_tesla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_tesla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.dgv_tesla.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_tesla.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgv_tesla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tesla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_tesla.ColumnHeadersHeight = 30;
+            this.dgv_tesla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv_tesla.EnableHeadersVisualStyles = false;
+            this.dgv_tesla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.dgv_tesla.Location = new System.Drawing.Point(9, 42);
             this.dgv_tesla.Name = "dgv_tesla";
             this.dgv_tesla.ReadOnly = true;
+            this.dgv_tesla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tesla.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_tesla.RowHeadersVisible = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgv_tesla.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_tesla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tesla.Size = new System.Drawing.Size(988, 276);
             this.dgv_tesla.TabIndex = 2;
             this.dgv_tesla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tesla_CellClick_1);
@@ -186,68 +223,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel1.Location = new System.Drawing.Point(846, 324);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 25);
-            this.panel1.TabIndex = 12;
-            // 
-            // btnEscanear
-            // 
-            this.btnEscanear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.btnEscanear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEscanear.FlatAppearance.BorderSize = 0;
-            this.btnEscanear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnEscanear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEscanear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEscanear.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnEscanear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEscanear.Location = new System.Drawing.Point(727, 324);
-            this.btnEscanear.Name = "btnEscanear";
-            this.btnEscanear.Size = new System.Drawing.Size(124, 25);
-            this.btnEscanear.TabIndex = 11;
-            this.btnEscanear.Text = "Escanear";
-            this.btnEscanear.UseVisualStyleBackColor = false;
-            this.btnEscanear.Click += new System.EventHandler(this.btnEscanear_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.Location = new System.Drawing.Point(527, 62);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(124, 25);
-            this.btnGuardar.TabIndex = 13;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.Location = new System.Drawing.Point(873, 324);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(124, 25);
-            this.btnEliminar.TabIndex = 15;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // grupoDatos
             // 
             this.grupoDatos.Controls.Add(this.duenio);
@@ -275,15 +250,78 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel2.Location = new System.Drawing.Point(648, 62);
+            this.panel2.Location = new System.Drawing.Point(531, 61);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(5, 25);
             this.panel2.TabIndex = 17;
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.Location = new System.Drawing.Point(410, 61);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(124, 25);
+            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel1.Location = new System.Drawing.Point(128, 324);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(5, 25);
+            this.panel1.TabIndex = 12;
+            // 
+            // btnEscanear
+            // 
+            this.btnEscanear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.btnEscanear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEscanear.FlatAppearance.BorderSize = 0;
+            this.btnEscanear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnEscanear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEscanear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscanear.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.errorProvider1.SetIconAlignment(this.btnEscanear, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+            this.btnEscanear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEscanear.Location = new System.Drawing.Point(9, 324);
+            this.btnEscanear.Name = "btnEscanear";
+            this.btnEscanear.Size = new System.Drawing.Size(124, 25);
+            this.btnEscanear.TabIndex = 11;
+            this.btnEscanear.Text = "Escanear";
+            this.btnEscanear.UseVisualStyleBackColor = false;
+            this.btnEscanear.Click += new System.EventHandler(this.btnEscanear_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.Location = new System.Drawing.Point(139, 324);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(124, 25);
+            this.btnEliminar.TabIndex = 15;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel3.Location = new System.Drawing.Point(992, 324);
+            this.panel3.Location = new System.Drawing.Point(258, 324);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(5, 25);
             this.panel3.TabIndex = 18;
@@ -297,13 +335,22 @@
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnEscanear);
             this.groupBox1.Controls.Add(this.dgv_tesla);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.groupBox1.Location = new System.Drawing.Point(12, 118);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1005, 443);
+            this.groupBox1.Size = new System.Drawing.Size(1005, 497);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
+            // 
+            // labelEscaneo
+            // 
+            this.labelEscaneo.Location = new System.Drawing.Point(10, 352);
+            this.labelEscaneo.Name = "labelEscaneo";
+            this.labelEscaneo.Size = new System.Drawing.Size(350, 120);
+            this.labelEscaneo.TabIndex = 20;
+            this.labelEscaneo.Text = "Escaneo";
+            this.labelEscaneo.Visible = false;
             // 
             // label1
             // 
@@ -314,14 +361,6 @@
             this.label1.Size = new System.Drawing.Size(154, 19);
             this.label1.TabIndex = 19;
             this.label1.Text = "Sistema de Gestión";
-            // 
-            // labelEscaneo
-            // 
-            this.labelEscaneo.Location = new System.Drawing.Point(72, 382);
-            this.labelEscaneo.Name = "labelEscaneo";
-            this.labelEscaneo.Size = new System.Drawing.Size(837, 25);
-            this.labelEscaneo.TabIndex = 20;
-            this.labelEscaneo.Text = "label7";
             // 
             // FormTesla
             // 

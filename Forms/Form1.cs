@@ -16,25 +16,26 @@ namespace FERNANDES_ROCCIA_TAPIA
     /// El programa principal va a constar de 2 vistas generales. 
     /// Una para la empresa Tesla y otra para la empresa SpaceX.
     /// Se realizaran todas las funcionalidades requeridas en el proyecto más
-    /// funciones adicionales que creimos convenientes para que la interfaz
-    /// se amigable con el usuario.
+    /// funciones adicionales que creímos convenientes para que la interfaz
+    /// sea amigable con el usuario.
     /// Se crearon los botones de minimizar, maximizar, y cerrar el programa
     /// al estilo windows, pero se creó una interfaz moderna que consta
-    /// de un formulario principal, y subformularios hijos que se mostraran
+    /// de un formulario principal, y subformularios hijos que se mostrarán
     /// en un panel secundario el cual se denomina "panelContenedor".
-    /// Se tomo la decisión de implementar este modelo, ya que es facil de escalar.
+    /// Se tomo la decisión de implementar este modelo, ya que es fácil de escalar.
     /// Se tuvo la idea que este código se puede reutilizar para 
     /// diferentes tipos de vehiculos y/o marcas.
     /// En este mismo formulario principal, se podrian agregar mas vistas, funcionalidades y botones.
-    /// el programa inicialmente tendra dos listas una correspondiente a cada empresa
-    /// estas listas simulan que los datos estan guardados en una base de datos,
-    ///  las listas seran enviadas como argumentos del constructor de cada formulario hijo.
-    ///  Cada formulario hijo  trabajará y manipulará estas listas
-    ///  dando de alta o eliminando algun elemento de dicha lista.
+    /// El programa inicialmente tendra dos listas una correspondiente a cada empresa,
+    /// estas listas simulan los datos que estarian guardados en de una base de datos,
+    /// las listas seran enviadas como argumentos del constructor de cada formulario hijo.
+    /// Cada formulario hijo trabajará y manipulará estas listas
+    /// dando de alta o eliminando algun elemento de la misma.
     ///  
-    /// La defincion e instancia de clases, como agregar objetos a la lista es para pruebas de testeo, 
-    /// no es la idea que se puedan realizar modificaciones de esta manera, sino que se realice todo a traves
-    /// de la interfaz gráfica.
+    /// La definción e instancia de clases, y agregar objetos a lista
+    /// cuando se inicial el formulario es para pruebas de testeo,
+    /// pero no es la idea que se puedan realizar modificaciones de esta manera,
+    /// sino que toda alta, baja o modificación se realice a traves de la interfaz gráfica.
     /// </summary>
     public partial class Form1 : Form
     {
@@ -42,10 +43,10 @@ namespace FERNANDES_ROCCIA_TAPIA
         public List<Tesla> listaTesla;
         public List<SpaceX> listaSpaceX;
 
-        Tesla tesla1 = new Tesla("Model S", 2015, 2300,  "Blue", "pedrito Ramirez", 650, 5, 2000);
-        Tesla tesla2 = new Tesla("Model X", 2015, 23000,  "Blue", "Juan Ramirez", 560, 7, 1000);
-        Tesla tesla3 = new Tesla("Model X", 2015, 250500,  "Blue", "Juan Ramirez", 560, 7, 1000);
-        Tesla tesla4 = new Tesla("Cybertruck", 2015, 90000,  "Red", "pochito", 800, 6, 3000);
+        Tesla tesla1 = new Tesla("Model X", 2015, 2300,  "Azul", "ELON MUSK", 650, 5, 2000);
+        Tesla tesla2 = new Tesla("Model X", 2015, 23000,  "Rojo", "ELON MUSK", 560, 7, 1000);
+        Tesla tesla3 = new Tesla("Model X", 2015, 250500,  "Negro", "ELON MUSK", 560, 7, 1000);
+        Tesla tesla4 = new Tesla("Cybertruck", 2015, 90000,  "Bordo", "ELON MUSK", 800, 6, 3000);
         /// <summary>
         /// Constructor del formulario principal, se inicia la lista cuando se inicia el programa
         /// </summary>
@@ -53,13 +54,12 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             InitializeComponent();
             listaTesla = new List<Tesla>();
-            for(int i = 0; i < 5; i++)
-            {
-                listaTesla.Add(tesla1);
-                listaTesla.Add(tesla2);
-                listaTesla.Add(tesla3);
-                listaTesla.Add(tesla4);
-            } 
+
+            listaTesla.Add(tesla1);
+            listaTesla.Add(tesla2);
+            listaTesla.Add(tesla3);
+            listaTesla.Add(tesla4);
+
         }
 
         #endregion
@@ -68,6 +68,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         #region Control botones salir, minimizar , maximizar    
         /// <summary>
         /// Boton cerrar, me cierra este formulario principal. 
+        /// Utilizando la funcion Close() sobre este formulario(FORMULARIO PRINCIPAL DEL PROGRAMA)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -78,7 +79,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
 
         /// <summary>
-        /// Boton maximizar, con logica para que se vea
+        /// Boton maximizar, con lógica para que se vea
         /// unicamente cuando la ventana este en modo normal,
         /// de otro modo este boton estará invisible
         /// y  se verá el boton de Restaurar.
@@ -93,8 +94,8 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
 
         /// <summary>
-        /// Boton restaurar, con la logica inversa del boton maximizar,
-        /// el boton estara disponible solo si la ventana esta maximizada.
+        /// Boton restaurar, con la lógica inversa del botón maximizar,
+        /// el boton estará disponible solo si la ventana esta maximizada.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -110,11 +111,10 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnMinimizar_Click(object sender, EventArgs e)
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
         {
             this.WindowState= FormWindowState.Minimized;
         }
-        
 
         /// <summary>
         /// Se importan las DLL para poder hacer el diseño responsivo, y permitir el desplazamiento
@@ -135,7 +135,7 @@ namespace FERNANDES_ROCCIA_TAPIA
 
         #region Control de botones principales, y creacion de formularios hijos
         /// <summary>
-        /// Abre un formulario hijo dentro de un contenedor.
+        /// Abre un formulario hijo dentro del panelContenedor que esta dentro del formulario principal.
         /// Con el if nos aseguramos de que no haya ningún control previamente agregado 
         /// en el panelContenedor antes de agregar un nuevo control, 
         /// y si hay alguno, lo elimina. Esto es útil si se desea reemplazar 
@@ -158,9 +158,9 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
 
         /// <summary>
-        /// Esta funcion me va a crear y abrir un formulario de la clase
+        /// Esta función me va a crear y abrir un formulario de la clase
         /// FormTesla(), que debe recibir una lista como parametro
-        /// y lo mostrará en el panelContenedor.
+        /// y se mostrará en el panelContenedor.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -172,7 +172,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// <summary>
         /// Esta funcion me va a crear y abrir formulario de la clase
         /// FormSpaceX(), que debe recibir una lista como parametro
-        /// y mostrara el formulario hijo en el panelContenedor
+        /// se mostrara el formulario en el panelContenedor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -180,8 +180,9 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             AbrirFormHijo(new FormSpaceX(listaSpaceX));
         }
+
         #endregion
 
-        
+
     }
 }
