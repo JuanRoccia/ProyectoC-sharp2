@@ -49,9 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Cybertruck.cs" />
+    <Compile Include="Entidades\Falcon9.cs" />
+    <Compile Include="Entidades\ModelS.cs" />
+    <Compile Include="Entidades\ModelX.cs" />
     <Compile Include="Entidades\SpaceX.cs" />
+    <Compile Include="Entidades\Starship.cs" />
     <Compile Include="Entidades\Tesla.cs" />
-    <Compile Include="Entidades\Vehiculo.cs" />
+    <Compile Include="Entidades\Vehicle.cs" />
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

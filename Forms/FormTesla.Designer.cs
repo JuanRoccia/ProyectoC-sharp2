@@ -1,4 +1,9 @@
-﻿namespace FERNANDES_ROCCIA_TAPIA
+﻿using FERNANDES_ROCCIA_TAPIA.Entidades;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+
+namespace FERNANDES_ROCCIA_TAPIA
 {
     partial class FormTesla
     {
@@ -19,6 +24,10 @@
             }
             base.Dispose(disposing);
         }
+
+        // Lista para almacenar los datos ingresado
+        // Crear la lista de vehículos en el ámbito de la clase
+        private List<Tesla> vehiculos = new List<Tesla>();
 
         #region Windows Form Designer generated code
 
@@ -258,5 +267,25 @@
         private System.Windows.Forms.Button btnCrearTesla;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+
+        private void btnCrearTesla_Click_(object sender, EventArgs e)
+        {
+            // Crear un nuevo vehículo Tesla con los valores ingresados por el usuario
+            Tesla newTesla = new Tesla()
+            {
+                Model = modelos.SelectedItem.ToString(),
+                Year = int.Parse(anios.SelectedItem.ToString()),
+                Usage = int.Parse(kmActuales.Text),
+                Color = colores.SelectedItem.ToString(),
+                Owner = duenio.Text
+            };
+
+            // Agregar el nuevo vehículo a la lista de vehículos
+            vehiculos.Add(newTesla);
+
+            // Actualizar el DataGridView para mostrar el nuevo vehículo
+            dgv_tesla.DataSource = null;
+            dgv_tesla.DataSource = vehiculos;
+        }
     }
 }
