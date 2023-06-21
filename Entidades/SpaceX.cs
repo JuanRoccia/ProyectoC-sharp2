@@ -43,7 +43,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             Duenio = duenio;
             Autonomia = autonomia;
             Service = (horasVuelo / service);
-            CantidadCargas = (horasVuelo / autonomia);
+            CantCargas = (horasVuelo / autonomia);
         }
 
 

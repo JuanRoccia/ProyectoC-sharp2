@@ -104,12 +104,7 @@ namespace FERNANDES_ROCCIA_TAPIA
                 || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length > 4))
             {
                 guardarTesla();
-
-                string mensaje = $"Creó un Tesla correctamente y se agregó a la lista con el ID: {lista.Count.ToString()}";
-                MessageBoxButtons botones = MessageBoxButtons.OK;
-                MessageBox.Show(mensaje, "Genial", botones);
                 errorProvider1.SetError(grupoDatos, "");
-
             }
             else
             {
@@ -131,49 +126,60 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// </summary>
         private void guardarTesla()
         {
-
-            string modelo = modelos.SelectedItem.ToString();
-            int asientos;
-            int autonomia;
-            int service;
-            //condicion para asignar asientos y autonomia del Tesla segun modelo
-            if (modelo == "Model X")
+            try
             {
-                autonomia = 560;
-                asientos = 7;
-                service = 1000;
-            }
-            else if (modelo == "Model S")
+                string modelo = modelos.SelectedItem.ToString();
+                int asientos;
+                int autonomia;
+                int service;
+                //condicion para asignar asientos y autonomia del Tesla segun modelo
+                if (modelo == "Model X")
+                {
+                    autonomia = 560;
+                    asientos = 7;
+                    service = 1000;
+                }
+                else if (modelo == "Model S")
+                {
+                    autonomia = 650;
+                    asientos = 5;
+                    service = 2000;
+                }
+                else
+                {
+                    autonomia = 800;
+                    asientos = 6;
+                    service = 3000;
+                }
+
+                int anio = Convert.ToInt32(anios.SelectedItem);
+                int kmActual = Convert.ToInt32(kmActuales.Text);
+                string color = colores.SelectedItem.ToString();
+                string nombre = duenio.Text.Trim().ToUpper();
+
+                Tesla tesla = new Tesla(modelo, anio, kmActual, color, nombre, autonomia, asientos, service);
+                lista.Add(tesla);
+                //
+
+                string mensaje = $"Creó un Tesla correctamente y se agregó a la lista con el ID: {tesla.Id}.";
+                MessageBoxButtons botones = MessageBoxButtons.OK;
+                MessageBox.Show(mensaje, "Genial", botones);
+                //Reset clear
+
+                dgv_tesla.DataSource = null;
+                dgv_tesla.DataSource = lista;
+
+                modelos.SelectedIndex = -1;
+                anios.SelectedIndex = -1;
+                kmActuales.Clear();
+                colores.SelectedIndex = -1;
+                duenio.Clear();
+            }catch(Exception ex)
             {
-                autonomia = 650;
-                asientos = 5;
-                service = 2000;
-            }
-            else
-            {
-                autonomia = 800;
-                asientos = 6;
-                service = 3000;
+                MessageBox.Show("Se produjo un error al crear un tesla" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
 
-            int anio = Convert.ToInt32(anios.SelectedItem);
-            int kmActual = Convert.ToInt32(kmActuales.Text);
-            string color = colores.SelectedItem.ToString();
-            string nombre = duenio.Text.Trim().ToUpper();
-
-            Tesla tesla = new Tesla(modelo, anio, kmActual, color, nombre, autonomia, asientos, service);
-            lista.Add(tesla);
-
-            //Reset clear
-
-            dgv_tesla.DataSource = null;
-            dgv_tesla.DataSource = lista;
-
-            modelos.SelectedIndex = -1;
-            anios.SelectedIndex = -1;
-            kmActuales.Clear();
-            colores.SelectedIndex = -1;
-            duenio.Clear();
         }
         #endregion
 
@@ -199,19 +205,28 @@ namespace FERNANDES_ROCCIA_TAPIA
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (indiceFila != -1)
+            try
             {
-                idc = (int)dgv_tesla.Rows[indiceFila].Cells[0].Value;
-                DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el tesla ID: {idc} ?"
-                                        , "Eliminar tesla", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if (indiceFila != -1)
                 {
-                    lista.RemoveAt(indiceFila);
-                    dgv_tesla.DataSource = null;
-                    dgv_tesla.DataSource = lista;
-                    indiceFila = -1;
+                    idc = (int)dgv_tesla.Rows[indiceFila].Cells[0].Value;
+                    DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el tesla ID: {idc} ?"
+                                            , "Eliminar tesla", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        lista.RemoveAt(indiceFila);
+                        dgv_tesla.DataSource = null;
+                        dgv_tesla.DataSource = lista;
+                        indiceFila = -1;
+                    
+                    }
                 }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al eliminar un tesla" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
+
         }
         #endregion
 
@@ -230,18 +245,26 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// <param name="e"></param>
         private void btnEscanear_Click(object sender, EventArgs e)
         {
-
-            if(lista.Count > 0)               
+            try
             {
-                Tesla teslac = (Tesla)dgv_tesla.CurrentRow.DataBoundItem;
-                labelEscaneo.Text = teslac.Escaneo();
-                labelEscaneo.Visible = true;
+                if(lista.Count > 0)               
+                {
+                    Tesla teslac = (Tesla)dgv_tesla.CurrentRow.DataBoundItem;
+                    labelEscaneo.Text = teslac.Escaneo();
+                    labelEscaneo.Visible = true;
+                }
+                else
+                {
+                    errorProvider1.SetError(btnEscanear, "Error la lista esta vacía.");
+                    btnEscanear.Focus();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                errorProvider1.SetError(btnEscanear,"Error la lista esta vacía.");
-                btnEscanear.Focus();
-            } 
+                // Manejo de la excepción
+                MessageBox.Show("Se produjo un error al escanear un tesla. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         #endregion
 
@@ -262,18 +285,26 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// <param name="e"></param>
         private void btnMostrarTeslaMasKm_Click(object sender, EventArgs e)
         {
-            if(lista.Count > 0)
+            try
             {
-                Tesla tesla = lista.OrderByDescending(t => t.KmActual).FirstOrDefault();
-                string mensaje = $"El tesla con más kilometraje es el: {tesla} ";
-                string titulo = $"Tesla ID: {tesla.Id} ";
-                MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK);
-            }
-            else
+                if(lista.Count > 0)
+                {
+                    Tesla tesla = lista.OrderByDescending(t => t.KmActual).FirstOrDefault();
+                    string mensaje = $"El tesla con más kilometraje es el: {tesla} ";
+                    string titulo = $"Tesla ID: {tesla.Id} ";
+                    MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK);
+                }
+                else
+                {
+                    errorProvider1.SetError(btnMostrarTeslaMasKm, "Error la lista esta vacía.");
+                    btnMostrarTeslaMasKm.Focus();
+                }
+            }catch (Exception ex)
             {
-                errorProvider1.SetError(btnMostrarTeslaMasKm, "Error la lista esta vacía.");
-                btnMostrarTeslaMasKm.Focus();
+                MessageBox.Show("Se produjo un error al mostrar el tesla con más km." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
+
 
         }
         #endregion
