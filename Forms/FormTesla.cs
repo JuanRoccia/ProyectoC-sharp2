@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FERNANDES_ROCCIA_TAPIA.Entidades;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace FERNANDES_ROCCIA_TAPIA
 {
@@ -88,8 +89,8 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// <summary>
         /// El boton crear tesla sera el encargado de hacer todas las validaciones
         /// de campos, sino no se podra llamar al metodo guardarTesla() que es quien 
-        /// permite la instanciacion de la clase Tesla, y agrega el objeto a la lista principal de Teslas.
-        /// Estos valores se asignaran automaticamente dependiendo del modelo seleccionado
+        /// permite la instanciacion de la clase Tesla, y agrega el objeto a la lista principal
+        /// de Teslas. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -215,12 +216,20 @@ namespace FERNANDES_ROCCIA_TAPIA
         #endregion
 
 
-        
         #region Boton Escanear
+        /// <summary>
+        /// Este boton va a realizar el escaneo del tesla que se seleccione
+        /// del DataGridView, haciendo referencia al objeto que se encuentra 
+        /// guardado en la lista de teslas del prgorama principal.
+        /// Para evitar errores de ejecucion se valida que la lista no este vacía,
+        /// y en el DataGridView unicamente se permite la seleccion de filas.
+        /// Si el DTG esta vacío se mostrará un error al costado derecho 
+        /// del botón.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEscanear_Click(object sender, EventArgs e)
         {
-
-            
 
             if(lista.Count > 0)               
             {
@@ -232,10 +241,39 @@ namespace FERNANDES_ROCCIA_TAPIA
             {
                 errorProvider1.SetError(btnEscanear,"Error la lista esta vacía.");
                 btnEscanear.Focus();
-            }
+            } 
+        }
+        #endregion
 
-            
-            
+
+        #region Boton Mostrar Tesla con mas kilometraje
+        /// <summary>
+        /// Esta función va a comprobar que lista no este vacia, y si no lo esta
+        /// va a mostrar un messageBox, que contendra los datos del tesla con mayor
+        /// kilometraje. Se obtiene el tesla con mayor kilometraje buscando en la lista
+        /// principal de teslas y guardando a este objeto en la variable tesla.
+        /// Objeto que se utiliza para mostrar todos los datos a traves del 
+        /// metodo sobreescrito ToString() y en el titulo de la ventana
+        /// se mostrara el tesla y su ID correspondiente.
+        /// Caso que la lista este vacía se mostrara un error 
+        /// al costado derecho del boton "Mostrar el tesla con más kilometraje"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMostrarTeslaMasKm_Click(object sender, EventArgs e)
+        {
+            if(lista.Count > 0)
+            {
+                Tesla tesla = lista.OrderByDescending(t => t.KmActual).FirstOrDefault();
+                string mensaje = $"El tesla con más kilometraje es el: {tesla} ";
+                string titulo = $"Tesla ID: {tesla.Id} ";
+                MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK);
+            }
+            else
+            {
+                errorProvider1.SetError(btnMostrarTeslaMasKm, "Error la lista esta vacía.");
+                btnMostrarTeslaMasKm.Focus();
+            }
 
         }
         #endregion

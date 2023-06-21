@@ -53,6 +53,8 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnMostrarTeslaMasKm = new System.Windows.Forms.Button();
             this.labelEscaneo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tesla)).BeginInit();
@@ -222,6 +224,7 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
             // grupoDatos
             // 
@@ -239,10 +242,9 @@
             this.grupoDatos.Controls.Add(this.modelos);
             this.grupoDatos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grupoDatos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.errorProvider1.SetIconAlignment(this.grupoDatos, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this.grupoDatos.Location = new System.Drawing.Point(12, 12);
             this.grupoDatos.Name = "grupoDatos";
-            this.grupoDatos.Size = new System.Drawing.Size(715, 100);
+            this.grupoDatos.Size = new System.Drawing.Size(658, 100);
             this.grupoDatos.TabIndex = 16;
             this.grupoDatos.TabStop = false;
             this.grupoDatos.Text = "Dar de alta un Tesla";
@@ -290,7 +292,6 @@
             this.btnEscanear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEscanear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEscanear.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.errorProvider1.SetIconAlignment(this.btnEscanear, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this.btnEscanear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEscanear.Location = new System.Drawing.Point(9, 324);
             this.btnEscanear.Name = "btnEscanear";
@@ -305,12 +306,13 @@
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.Location = new System.Drawing.Point(139, 324);
+            this.btnEliminar.Location = new System.Drawing.Point(156, 324);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(124, 25);
             this.btnEliminar.TabIndex = 15;
@@ -321,13 +323,15 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel3.Location = new System.Drawing.Point(258, 324);
+            this.panel3.Location = new System.Drawing.Point(275, 324);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(5, 25);
             this.panel3.TabIndex = 18;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Controls.Add(this.btnMostrarTeslaMasKm);
             this.groupBox1.Controls.Add(this.labelEscaneo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.panel3);
@@ -342,6 +346,33 @@
             this.groupBox1.Size = new System.Drawing.Size(1005, 497);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel4.Location = new System.Drawing.Point(586, 324);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(5, 25);
+            this.panel4.TabIndex = 22;
+            // 
+            // btnMostrarTeslaMasKm
+            // 
+            this.btnMostrarTeslaMasKm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.btnMostrarTeslaMasKm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarTeslaMasKm.FlatAppearance.BorderSize = 0;
+            this.btnMostrarTeslaMasKm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnMostrarTeslaMasKm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarTeslaMasKm.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.btnMostrarTeslaMasKm.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnMostrarTeslaMasKm.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMostrarTeslaMasKm.Location = new System.Drawing.Point(302, 324);
+            this.btnMostrarTeslaMasKm.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMostrarTeslaMasKm.Name = "btnMostrarTeslaMasKm";
+            this.btnMostrarTeslaMasKm.Size = new System.Drawing.Size(289, 25);
+            this.btnMostrarTeslaMasKm.TabIndex = 21;
+            this.btnMostrarTeslaMasKm.Text = "Mostrar Tesla con más Kilometraje";
+            this.btnMostrarTeslaMasKm.UseVisualStyleBackColor = false;
+            this.btnMostrarTeslaMasKm.Click += new System.EventHandler(this.btnMostrarTeslaMasKm_Click);
             // 
             // labelEscaneo
             // 
@@ -407,5 +438,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelEscaneo;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnMostrarTeslaMasKm;
     }
 }
