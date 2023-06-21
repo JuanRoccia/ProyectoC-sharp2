@@ -40,7 +40,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         List<Tesla> lista;
         string[] modelos_disponibles = { "Model X", "Model S", "Cybertruck" };
         int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
-        string[] colores_disponibles = { "Black", "Blue", "Gray", "Green", "Red", "White" };
+        string[] colores_disponibles = { "Amarillo", "Azul", "Blanco", "Bordo","Gris", "Marron", "Naranja", "Negro" };
         public FormTesla(List<Tesla> listaTeslas)
         {
             InitializeComponent();
@@ -214,13 +214,28 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
         #endregion
 
+
+        
         #region Boton Escanear
         private void btnEscanear_Click(object sender, EventArgs e)
         {
-            Tesla teslac = (Tesla)dgv_tesla.CurrentRow.DataBoundItem;
 
-            labelEscaneo.Text = teslac.Escaneo();
-            labelEscaneo.Visible = true;
+            
+
+            if(lista.Count > 0)               
+            {
+                Tesla teslac = (Tesla)dgv_tesla.CurrentRow.DataBoundItem;
+                labelEscaneo.Text = teslac.Escaneo();
+                labelEscaneo.Visible = true;
+            }
+            else
+            {
+                errorProvider1.SetError(btnEscanear,"Error la lista esta vacía.");
+                btnEscanear.Focus();
+            }
+
+            
+            
 
         }
         #endregion
