@@ -24,26 +24,28 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         #region Propiedades
         private static int contadorId = 0;
         private int id;
-        private int horasVuelo;
+        private int HsVueloActual;
         private int horasService;
         private const int sistemaPropulsion = 1000;
         private const int sistemaNavegacion = 500;
         private int cantPropulsion;
-        private int navegacion;
+        private int cantNavegacion;
+        //private int navegacion;
 
-        public SpaceX(string modelo, int anio, int horasVuelo, int horasService, string color, string duenio, int autonomia, int service)
+        public SpaceX(string modelo, int anio, int hsVueloActual, string color, string duenio, int autonomia, int service)
         {
             id = contadorId++;
             Marca = "SpaceX";
             Modelo = modelo;
             Anio = anio;
-            HorasVuelo = horasVuelo;
-            HorasService = horasService;
+            HsVueloActual = hsVueloActual;
+            horasService = (hsVueloActual + service); // Para calcular el proximo service
             Color = color;
             Duenio = duenio;
             Autonomia = autonomia;
-            Service = (horasVuelo / service);
-            CantCargas = (horasVuelo / autonomia);
+            CantServices = (HsVueloActual / service); // Para mostrar la  cantidad de service total realizados
+            CantCargas = (HsVueloActual / autonomia);
+            IntervaloService = service; // Para mostrar el intervalo de service corrspondiente a cada modelo
         }
 
 
@@ -51,16 +53,15 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         {
             get { return id; }
         }
-        public int HorasVuelo
+        public int HorasVueloActual
         {
-            get { return horasVuelo; }
-            set { horasVuelo = value; }
+            get { return HsVueloActual; }
+            set { HsVueloActual = value; }
         }
 
-        public int HorasService
+        public int ProximoService // para obtener el proximo service
         {
-            get { return horasVuelo; }
-            set { horasVuelo = value; }
+            get { return horasService; }
         }
 
 
@@ -84,8 +85,19 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         /// </summary>
         public override string Escaneo()
         {
-            cantPropulsion = HorasVuelo / sistemaPropulsion;
-            return $"Se realizaron {Service} services.\n";
+            cantPropulsion = HsVueloActual / sistemaPropulsion;
+            cantNavegacion = HsVueloActual / sistemaNavegacion;
+
+            string reporte = 
+
+                $"SpaceX {Modelo} | ID: {Id} | Horas de vuelo: {HorasVueloActual}hs | Service cada: {IntervaloService}hs\n" +
+                $"Control del Sistema de Propulsion: cada 1000Hs\n" +
+                $"Control del Sistema de Navegacion: cada 500Hs\n\n" +
+                $"Cuenta con {CantServices} Servicios.\n" +
+                $"Se realizaron {cantPropulsion} Controles del Sistema de Propulsión.\n" +
+                $"Se realizaron {cantNavegacion} Controles del Sistema de Navegación.";
+
+            return reporte;
         }
         #endregion
     }

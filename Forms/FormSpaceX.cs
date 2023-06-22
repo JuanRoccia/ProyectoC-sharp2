@@ -74,8 +74,8 @@ namespace FERNANDES_ROCCIA_TAPIA
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if ((modelos.SelectedIndex >= 0) && (anios.SelectedIndex >= 0) &&
-                !string.IsNullOrEmpty(hsActual.Text) && hsActual.Text.All(Char.IsDigit)
-                && (hsActual.Text.Length > 0) && (hsActual.Text.Length < 8)
+                !string.IsNullOrEmpty(hsVueloActual.Text) && hsVueloActual.Text.All(Char.IsDigit)
+                && (hsVueloActual.Text.Length > 0) && (hsVueloActual.Text.Length < 8)
                 && (colores.SelectedIndex >= 0) && (duenio.Text.Trim() != string.Empty)
                 && (duenio.Text.All(Char.IsLetter)
                 || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length > 4))
@@ -92,13 +92,10 @@ namespace FERNANDES_ROCCIA_TAPIA
             }
         }
         /// <summary>
-        /// Esta funcion tendra un condicional para evaluar que modelo de Tesla se eligió
-        /// para asi asignar la autonomia(int), asientos(int), service(int) y asi no 
+        /// Esta funcion tendra un condicional para evaluar que modelo de SpaceX se eligió
+        /// para asi asignar las horas de autonomia(int) y service(int) y asi no 
         /// se creen modelos con datos erroneos. Tambien obtendra los datos
         /// de los textbox y los combobox.
-        /// "Modelo X: 560, 7, 1000"
-        /// "Modelo S: 650, 5, 2000"
-        /// "Cybertruck: 800, 6, 3000"
         /// </summary>
         /// 
         private void guardarSpaceX()
@@ -108,24 +105,25 @@ namespace FERNANDES_ROCCIA_TAPIA
                 string modelo = modelos.SelectedItem.ToString();
                 int autonomia;
                 int service;
-                //condicion para asignar asientos y autonomia del Tesla segun modelo
+                //condicion para asignar service y autonomia del SpaceX segun modelo
                 if (modelo == "Falcon 9")
                 {
-                    autonomia = 560;
-                    service = 1000;
+                    autonomia = 200;
+                    service = 400;
                 }
-                else if (modelo == "Starship")
+                else
                 {
-                    autonomia = 650;
-                    service = 2000;
+                    // Starship
+                    autonomia = 500;
+                    service = 1000;
                 }
 
                 int anio = Convert.ToInt32(anios.SelectedItem);
-                int horasVuelo = Convert.ToInt32(hsActual.Text);
+                int HsVueloActual = Convert.ToInt32(hsVueloActual.Text);
                 string color = colores.SelectedItem.ToString();
                 string nombre = duenio.Text.Trim().ToUpper();
-
-                SpaceX spaceX = new SpaceX(modelo, anio, horasVuelo, horasService, color, duenio, autonomia, service);
+                
+                SpaceX spaceX = new SpaceX(modelo, anio, HsVueloActual, color, nombre, autonomia, service);
                 lista.Add(spaceX);
                 // public FormSpaceX(List<SpaceX> listaSpaceX)
 
@@ -139,7 +137,7 @@ namespace FERNANDES_ROCCIA_TAPIA
 
                 modelos.SelectedIndex = -1;
                 anios.SelectedIndex = -1;
-                hsActual.Clear();
+                hsVueloActual.Clear();
                 colores.SelectedIndex = -1;
                 duenio.Clear();
             }
@@ -148,6 +146,90 @@ namespace FERNANDES_ROCCIA_TAPIA
                 MessageBox.Show("Se produjo un error al crear un tesla" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+        #endregion
+
+        #region Boton eliminar y funcionalidad
+        /// <summary>
+        /// Funcion para obtener informacion y poder eliminar elementos de la lista
+        /// mostrada en el datagridview, para eso se usa la funcion 
+        /// CellClick del datagrid para obtener el indice
+        /// del elemento que queremos eliminar, y eliminamos por indice = id.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
+        private int indiceFila;
+        private int idc;
+        private void dgv_tesla_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            indiceFila = e.RowIndex;
+            labelEscaneo.Visible = false;
+        }
+        // Funcion para el boton eliminar
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (indiceFila != -1)
+                {
+                    idc = (int)dgv_tesla.Rows[indiceFila].Cells[0].Value;
+                    DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el SpaceX ID: {idc} ?"
+                                            , "Eliminar SpaceX", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        lista.RemoveAt(indiceFila);
+                        dgv_tesla.DataSource = null;
+                        dgv_tesla.DataSource = lista;
+                        indiceFila = -1;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al eliminar un tesla" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+        #endregion
+
+        #region Boton Escanear
+        /// <summary>
+        /// Este boton va a realizar el escaneo del SpaceX que se seleccione
+        /// del DataGridView, haciendo referencia al objeto que se encuentra 
+        /// guardado en la lista del prgorama principal.
+        /// Para evitar errores de ejecucion se valida que la lista no este vacía,
+        /// y en el DataGridView unicamente se permite la seleccion de filas.
+        /// Si el DTG esta vacío se mostrará un error al costado derecho 
+        /// del botón.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
+        private void btnEscanear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lista.Count > 0)
+                {
+                    SpaceX teslac = (SpaceX)dgv_tesla.CurrentRow.DataBoundItem;
+                    labelEscaneo.Text = teslac.Escaneo();
+                    labelEscaneo.Visible = true;
+                }
+                else
+                {
+                    errorProvider1.SetError(btnEscanear, "Error la lista esta vacía.");
+                    btnEscanear.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de la excepción
+                MessageBox.Show("Se produjo un error al escanear un tesla. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         #endregion
     }

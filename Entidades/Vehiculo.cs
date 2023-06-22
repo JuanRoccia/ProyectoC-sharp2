@@ -31,12 +31,11 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     /// Con esto cumplimos con la encapsulación de la POO.
     /// </summary>
     #region Propiedades
-    public abstract class Vehiculo
+    public abstract class Vehiculo // Clase padre
     {
-        //GETTERS & SETTERS
         public int CantCargas { get; set; }
         public int CantServices { get; set; }
-        public int Service { get; set; }
+        public int IntervaloService { get; set; }
         public string Modelo { get; set; }
         public int Anio { get; set; }
         public int Autonomia { get; set; }

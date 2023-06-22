@@ -41,12 +41,15 @@ namespace FERNANDES_ROCCIA_TAPIA
     {
         #region Inicio del formulario principal
         public List<Tesla> listaTesla;
-        public List<SpaceX> listaSpaceX;
-
         Tesla tesla1 = new Tesla("Model S", 2015, 2300,  "Azul", "ELON MUSK", 650, 5, 2000);
         Tesla tesla2 = new Tesla("Model X", 2015, 23000,  "Rojo", "ELON MUSK", 560, 7, 1000);
         Tesla tesla3 = new Tesla("Model X", 2015, 250500,  "Negro", "ELON MUSK", 560, 7, 1000);
         Tesla tesla4 = new Tesla("Cybertruck", 2015, 90000,  "Bordo", "ELON MUSK", 800, 6, 3000);
+        public List<SpaceX> listaSpaceX;
+        SpaceX space1 = new SpaceX("Falcon 9", 2015, 2300, "Azul", "ELON MUSK", 650, 400);
+        SpaceX space2 = new SpaceX("Starship", 2015, 23000, "Rojo", "ELON MUSK", 560, 1000);
+        SpaceX space3 = new SpaceX("Falcon 9", 2015, 250500, "Negro", "ELON MUSK", 560, 400);
+        SpaceX space4 = new SpaceX("Starship", 2015, 90000, "Bordo", "ELON MUSK", 800, 1000);
         /// <summary>
         /// Constructor del formulario principal, se inicia la lista cuando se inicia el programa
         /// </summary>
@@ -54,16 +57,17 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             InitializeComponent();
             listaTesla = new List<Tesla>();
-
             listaTesla.Add(tesla1);
             listaTesla.Add(tesla2);
             listaTesla.Add(tesla3);
             listaTesla.Add(tesla4);
-
+            listaSpaceX = new List<SpaceX>();
+            listaSpaceX.Add(space1);
+            listaSpaceX.Add(space2);
+            listaSpaceX.Add(space3);
+            listaSpaceX.Add(space4);
         }
-
         #endregion
-
 
         #region Control botones salir, minimizar , maximizar    
         /// <summary>
@@ -132,7 +136,6 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
         #endregion
 
-
         #region Control de botones principales, y creacion de formularios hijos
         /// <summary>
         /// Abre un formulario hijo dentro del panelContenedor que esta dentro del formulario principal.
@@ -182,7 +185,5 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
 
         #endregion
-
-
     }
 }

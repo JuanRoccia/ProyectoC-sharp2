@@ -201,7 +201,7 @@ namespace FERNANDES_ROCCIA_TAPIA
             indiceFila = e.RowIndex;
             labelEscaneo.Visible = false;
         }
-
+        // Funcion para el boton eliminar
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -228,7 +228,6 @@ namespace FERNANDES_ROCCIA_TAPIA
 
         }
         #endregion
-
 
         #region Boton Escanear
         /// <summary>
@@ -266,7 +265,6 @@ namespace FERNANDES_ROCCIA_TAPIA
 
         }
         #endregion
-
 
         #region Boton Mostrar Tesla con mas kilometraje
         /// <summary>

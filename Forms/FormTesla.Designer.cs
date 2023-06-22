@@ -416,6 +416,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.DataGridView dgv_tesla;
         private System.Windows.Forms.TextBox duenio;
         private System.Windows.Forms.ComboBox colores;

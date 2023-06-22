@@ -62,12 +62,12 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             Modelo = modelo;
             Anio = anio;
             KmActual = kmActual;
-            kmService = ((kmActual / service) + 1) * service;
+            kmService = (kmActual + service);
             Color = color;
             Duenio = duenio;
             Autonomia = autonomia;
             this.asientos = asientos;
-            Service =  service;
+            IntervaloService =  service;
             CantServices = (kmActual/ service);
             CantCargas = (kmActual / autonomia);
         }
