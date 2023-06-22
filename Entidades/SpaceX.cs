@@ -62,12 +62,14 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         {
             get { return horasService; }
         }
+
+
         #endregion
 
         #region Funcionalidades
         public override string ToString()
         {
-            return $"ID: {ID}, Marca:{CompanyLabel}, Modelo: {Model}, Año: {Year}, Horas de Vuelo Actual: {Usage}, Service: {ServiceInterval}, Color: {Color}, Empresa: {Owner}";
+            return $"SpaceX";
         }
 
         /// <summary>
@@ -85,7 +87,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             cantPropulsion = HsVueloActual / sistemaPropulsion;
             cantNavegacion = HsVueloActual / sistemaNavegacion;
 
-            string reporte = 
+            string reporte =
 
                 $"SpaceX {Modelo} | ID: {Id} | Horas de vuelo: {HorasVueloActual}hs | Service cada: {IntervaloService}hs\n" +
                 $"Control del Sistema de Propulsion: cada 1000Hs\n" +

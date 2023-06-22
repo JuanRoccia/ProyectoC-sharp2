@@ -34,3 +34,6 @@ C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNA
 C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.csproj.CoreCompileInputs.cache
 C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.exe
 C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.pdb
+C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\bin\Debug\FERNANDES_ROCCIA_TAPIA.exe.config
+C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\bin\Debug\FERNANDES_ROCCIA_TAPIA.exe
+C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\bin\Debug\FERNANDES_ROCCIA_TAPIA.pdb
