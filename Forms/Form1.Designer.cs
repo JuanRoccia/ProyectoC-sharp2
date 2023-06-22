@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.btnRestaurar = new System.Windows.Forms.PictureBox();
+            this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.MenuVertical = new System.Windows.Forms.Panel();
@@ -40,16 +42,14 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.btnMaximizar = new System.Windows.Forms.PictureBox();
-            this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.BarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             this.SuspendLayout();
             // 
             // BarraTitulo
@@ -61,29 +61,58 @@
             this.BarraTitulo.Controls.Add(this.btnCerrar);
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1300, 38);
+            this.BarraTitulo.Size = new System.Drawing.Size(1733, 47);
             this.BarraTitulo.TabIndex = 0;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
+            // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurar.ErrorImage = null;
+            this.btnRestaurar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.restaurar_ventana_24;
+            this.btnRestaurar.Location = new System.Drawing.Point(1643, 9);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(33, 31);
+            this.btnRestaurar.TabIndex = 4;
+            this.btnRestaurar.TabStop = false;
+            this.btnRestaurar.Visible = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.Location = new System.Drawing.Point(1643, 9);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(33, 31);
+            this.btnMaximizar.TabIndex = 3;
+            this.btnMaximizar.TabStop = false;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
             // 
             // btnMinimizar
             // 
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.minimizar_ventana_24;
-            this.btnMinimizar.Location = new System.Drawing.Point(1201, 7);
+            this.btnMinimizar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.boton_minimizar;
+            this.btnMinimizar.Location = new System.Drawing.Point(1601, 9);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
+            this.btnMinimizar.Size = new System.Drawing.Size(33, 31);
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click_1);
             // 
             // btnCerrar
             // 
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.rectangulo_xmark1_24;
-            this.btnCerrar.Location = new System.Drawing.Point(1263, 7);
+            this.btnCerrar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.boton_cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(1684, 9);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
+            this.btnCerrar.Size = new System.Drawing.Size(33, 31);
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -98,17 +127,19 @@
             this.MenuVertical.Controls.Add(this.pictureBox2);
             this.MenuVertical.Controls.Add(this.pictureBox1);
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
-            this.MenuVertical.Location = new System.Drawing.Point(0, 38);
+            this.MenuVertical.Location = new System.Drawing.Point(0, 47);
+            this.MenuVertical.Margin = new System.Windows.Forms.Padding(4);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(220, 612);
+            this.MenuVertical.Size = new System.Drawing.Size(293, 753);
             this.MenuVertical.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel2.Location = new System.Drawing.Point(0, 297);
+            this.panel2.Location = new System.Drawing.Point(0, 366);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(5, 32);
+            this.panel2.Size = new System.Drawing.Size(7, 39);
             this.panel2.TabIndex = 5;
             // 
             // btnSpaceX
@@ -118,13 +149,15 @@
             this.btnSpaceX.FlatAppearance.BorderSize = 0;
             this.btnSpaceX.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnSpaceX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSpaceX.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpaceX.Font = new System.Drawing.Font("Century Gothic", 13F);
             this.btnSpaceX.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnSpaceX.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.cohete_24;
             this.btnSpaceX.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSpaceX.Location = new System.Drawing.Point(5, 297);
+            this.btnSpaceX.Location = new System.Drawing.Point(7, 366);
+            this.btnSpaceX.Margin = new System.Windows.Forms.Padding(4);
             this.btnSpaceX.Name = "btnSpaceX";
-            this.btnSpaceX.Size = new System.Drawing.Size(215, 32);
+            this.btnSpaceX.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
+            this.btnSpaceX.Size = new System.Drawing.Size(287, 39);
             this.btnSpaceX.TabIndex = 4;
             this.btnSpaceX.Text = "SpaceX";
             this.btnSpaceX.UseVisualStyleBackColor = false;
@@ -133,9 +166,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel1.Location = new System.Drawing.Point(0, 259);
+            this.panel1.Location = new System.Drawing.Point(0, 319);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 32);
+            this.panel1.Size = new System.Drawing.Size(7, 39);
             this.panel1.TabIndex = 3;
             // 
             // btnTesla
@@ -145,13 +179,15 @@
             this.btnTesla.FlatAppearance.BorderSize = 0;
             this.btnTesla.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnTesla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTesla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTesla.Font = new System.Drawing.Font("Century Gothic", 13F);
             this.btnTesla.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTesla.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.coche_32;
             this.btnTesla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTesla.Location = new System.Drawing.Point(5, 259);
+            this.btnTesla.Location = new System.Drawing.Point(7, 319);
+            this.btnTesla.Margin = new System.Windows.Forms.Padding(4);
             this.btnTesla.Name = "btnTesla";
-            this.btnTesla.Size = new System.Drawing.Size(215, 32);
+            this.btnTesla.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
+            this.btnTesla.Size = new System.Drawing.Size(287, 39);
             this.btnTesla.TabIndex = 2;
             this.btnTesla.Text = "Tesla";
             this.btnTesla.UseVisualStyleBackColor = false;
@@ -160,9 +196,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.spacex_logo_512;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 491);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 604);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(220, 121);
+            this.pictureBox2.Size = new System.Drawing.Size(293, 149);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -171,66 +208,47 @@
             // 
             this.pictureBox1.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.tesla_logo_512;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 121);
+            this.pictureBox1.Size = new System.Drawing.Size(293, 149);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // panelContenedor
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.panelContenedor.BackgroundImage = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.backg_img;
+            this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelContenedor.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(220, 38);
+            this.panelContenedor.Location = new System.Drawing.Point(293, 47);
+            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1080, 612);
+            this.panelContenedor.Size = new System.Drawing.Size(1440, 753);
             this.panelContenedor.TabIndex = 2;
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximizar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.maximizar_ventana_24;
-            this.btnMaximizar.Location = new System.Drawing.Point(1232, 7);
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(25, 25);
-            this.btnMaximizar.TabIndex = 3;
-            this.btnMaximizar.TabStop = false;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
-            // 
-            // btnRestaurar
-            // 
-            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestaurar.ErrorImage = null;
-            this.btnRestaurar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.restaurar_ventana_24;
-            this.btnRestaurar.Location = new System.Drawing.Point(1232, 7);
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(25, 25);
-            this.btnRestaurar.TabIndex = 4;
-            this.btnRestaurar.TabStop = false;
-            this.btnRestaurar.Visible = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 650);
+            this.ClientSize = new System.Drawing.Size(1733, 800);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.BarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Tesla | SpaceX";
             this.BarraTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.MenuVertical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             this.ResumeLayout(false);
 
         }
