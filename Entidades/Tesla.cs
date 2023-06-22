@@ -33,8 +33,8 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         private static int contadorId = 1;
         private int id;
         private int kmActual;
-        public int kmService;
-        public int asientos;
+        private int kmService;
+        private int asientos;
         private const int controlCinturones = 1000;
         private const int controlBaterias = 2000;
         private const int controlSistemaNavegacion = 2500;
@@ -67,10 +67,11 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             Duenio = duenio;
             Autonomia = autonomia;
             this.asientos = asientos;
-            Service = (kmActual / service);
-            CantidadCargas = (kmActual / autonomia);
-
+            Service =  service;
+            CantServices = (kmActual/ service);
+            CantCargas = (kmActual / autonomia);
         }
+
         public int Id
         {
             get { return id; }
@@ -100,7 +101,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         /// <returns></returns>
         public override string ToString()
         {
-            return $"ID: {id}, Marca:{Marca}, Modelo: {Modelo}, Año: {Anio}, Kilometraje Actual: {KmActual}, Kilometraje Service: {ProximoService}, Color: {Color}, Dueño: {Duenio}";
+            return $"ID: {id}, Marca:{Marca}, Modelo: {Modelo}, Año: {Anio}, Kilometraje Actual: {KmActual}, Kilometraje Service: {ProximoService}, Color: {Color}, Dueño: {Duenio}.";
         }
 
         
@@ -128,7 +129,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             cantMotor = kmActual / controlMotor;
 
             return $"TESLA ID: {Id}.\n" + 
-                $"Se realizaron [{Service}] services.\n" +
+                $"Se realizaron [{CantServices}] services.\n" +
                 $"({cantCinturones}) Controles de cinturones de seguridad.\n" +
                 $"({cantBaterias}) Controles de baterias.\n"+
                 $"({cantNavegacion}) Controles del Sistema de Navegación.\n" +
@@ -136,16 +137,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
                 $"({cantMotor}) Controles de Motor.\n";
         }
         #endregion
-
-        //public static void Eliminar(List<Tesla> lista, int id)
-        //{
-        //    DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el tesla ID: {id} ?"
-        //                , "Eliminar tesla", MessageBoxButtons.YesNo);
-        //    if (dialogResult == DialogResult.Yes & id >= 0)
-        //    {
-        //        lista.RemoveAt(id);
-        //        contadorId--;
-        //    }
-        //}
+        
     }
 }

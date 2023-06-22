@@ -24,16 +24,3 @@ M:\Users\compu\Desktop\FERNANDES_ROCCIA_TAPIA\Proyecto2_WF\ProyectoC-sharp2\obj\
 M:\Users\compu\Desktop\FERNANDES_ROCCIA_TAPIA\Proyecto2_WF\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.csproj.CoreCompileInputs.cache
 M:\Users\compu\Desktop\FERNANDES_ROCCIA_TAPIA\Proyecto2_WF\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.exe
 M:\Users\compu\Desktop\FERNANDES_ROCCIA_TAPIA\Proyecto2_WF\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.pdb
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.csproj.AssemblyReference.cache
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.csproj.SuggestedBindingRedirects.cache
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.Form1.resources
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.FormSpaceX.resources
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.FormTesla.resources
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.Properties.Resources.resources
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.csproj.GenerateResource.cache
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.csproj.CoreCompileInputs.cache
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.exe
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\obj\Debug\FERNANDES_ROCCIA_TAPIA.pdb
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\bin\Debug\FERNANDES_ROCCIA_TAPIA.exe.config
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\bin\Debug\FERNANDES_ROCCIA_TAPIA.exe
-C:\Users\juanm\OneDrive\Escritorio\ProyectoC#-2\ProyectoC-sharp2\bin\Debug\FERNANDES_ROCCIA_TAPIA.pdb
