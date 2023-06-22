@@ -118,92 +118,59 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <!--<data name="00055-3625458398-Portrait of an Artificial Inteligence Cybernetic Future, sunburst arround head, deadly face with power armor, ultra realistic, c" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\00055-3625458398-Portrait of an Artificial Inteligence Cybernetic Future, sunburst arround head, deadly face with power armor, ultra realistic, c.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
-  <data name="contorno_cuadrado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\contorno-cuadrado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <!--<data name="img1.wallspic.com-camioneta-supercoche-exterior_del_automotor-el_tesla_roadster-luz-3200x2000" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\img1.wallspic.com-camioneta-supercoche-exterior_del_automotor-el_tesla_roadster-luz-3200x2000.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
-  <!--<data name="cyberpunk-2077-city-night-v-car-uhdpaper.com-4K-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cyberpunk-2077-city-night-v-car-uhdpaper.com-4K-64.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
-  <data name="minimizar_ventana_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\minimizar-ventana 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="coche_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\coche 64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="boton_minimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Recursos\Icons\boton-minimizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <!--<data name="cyberpunk-2077-city-night-v-car-uhdpaper1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cyberpunk-2077-city-night-v-car-uhdpaper.com-4K-641.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
-  <!--<data name="00047-773708992-Portrait of an Artificial Inteligence cybernetic black snake, sunburst arround head, deadly face with power armor, ultra realist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\00047-773708992-Portrait of an Artificial Inteligence cybernetic black snake, sunburst arround head, deadly face with power armor, ultra realist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
-  <!--<data name="building1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\building1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
-  <!--<data name="abstract2Compress" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\abstract2Compress.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
-  <data name="rectangulo_xmark1_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\rectangulo-xmark1 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="almuerzo_cohete_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\almuerzo-cohete 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <!--<data name="stableart10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stableart10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
-  <!--<data name="building11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\building11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
-  <data name="rectangulo_xmark1_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\rectangulo-xmark1 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lanzadera_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\lanzadera 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rectangulo_xmark_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\rectangulo-xmark 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="coche_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\coche 64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rectangulo_xmark_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\rectangulo-xmark 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="minimizar_ventana_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\minimizar-ventana 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="maximizar_ventana_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Recursos\Icons\maximizar-ventana 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="almuerzo_cohete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\almuerzo-cohete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="coche_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\coche 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="maximizar_ventana_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\maximizar-ventana 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimizar_ventana_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\minimizar-ventana 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="boton_cuadrado2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\boton-cuadrado2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <!--<data name="cyberpunk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cyberpunk.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
-  <data name="tesla_logo_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Img\tesla-logo-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="spacexicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\spacexicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lanzadera_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Recursos\Icons\lanzadera 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="almuerzo_cohete_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\almuerzo-cohete 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rectangulo_xmark_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\rectangulo-xmark 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="spacexicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\spacexicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="restaurar_ventana_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\restaurar-ventana 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lanzadera_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\lanzadera 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="contorno_cuadrado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\contorno-cuadrado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tesla_logo_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Img\tesla-logo-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minimizar_ventana_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\minimizar-ventana 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="boton_cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\boton-cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="almuerzo_cohete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\almuerzo-cohete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rectangulo_xmark_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\rectangulo-xmark 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cohete_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\cohete 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coche_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\coche 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cohete_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Recursos\Icons\cohete 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,19 +181,22 @@
   <data name="restaurar_ventana_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Recursos\Icons\restaurar-ventana 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="boton_cuadrado2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\boton-cuadrado2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maximizar_ventana_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\maximizar-ventana 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rectangulo_xmark1_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\rectangulo-xmark1 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="coche_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Recursos\Icons\coche 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="boton_cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\boton-cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rectangulo_xmark1_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Icons\rectangulo-xmark1 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cohete_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\cohete 24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="backg-img" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Recursos\Img\backg-img.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="restaurar_ventana_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Recursos\Icons\restaurar-ventana 16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <!--<data name="abstract2Compress1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\abstract2Compress1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
 </root>

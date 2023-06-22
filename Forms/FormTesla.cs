@@ -12,10 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace FERNANDES_ROCCIA_TAPIA
 {
-
     /// <summary>
     /// 
-    /// En este formulario, se gestionara todo lo relacionado a la clase Tesla.
+    /// En este formulario, se gestionara todo lo relacionado a la clase FormTesla.
     /// Se podran dar de alta y eliminar objetos Tesla, en la lista recibida
     /// del formulario principal que es donde se van a ir almacenando los teslas.
     /// Tambien contendra toda la funcionalidad, y toda la logica necesaria

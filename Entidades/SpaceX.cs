@@ -30,7 +30,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         private const int sistemaNavegacion = 500;
         private int cantPropulsion;
         private int cantNavegacion;
-        //private int navegacion;
 
         public SpaceX(string modelo, int anio, int hsVueloActual, string color, string duenio, int autonomia, int service)
         {
@@ -93,9 +92,9 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
                 $"SpaceX {Modelo} | ID: {Id} | Horas de vuelo: {HorasVueloActual}hs | Service cada: {IntervaloService}hs\n" +
                 $"Control del Sistema de Propulsion: cada 1000Hs\n" +
                 $"Control del Sistema de Navegacion: cada 500Hs\n\n" +
-                $"Cuenta con {CantServices} Servicios.\n" +
-                $"Se realizaron {cantPropulsion} Controles del Sistema de Propulsión.\n" +
-                $"Se realizaron {cantNavegacion} Controles del Sistema de Navegación.";
+                $"Se realizaron [{CantServices}] servicios.\n" +
+                $"({cantPropulsion}) Controles del Sistema de Propulsión.\n" +
+                $"({cantNavegacion}) Controles del Sistema de Navegación.";
 
             return reporte;
         }

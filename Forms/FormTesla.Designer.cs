@@ -414,7 +414,6 @@
             this.ResumeLayout(false);
 
         }
-
         #endregion
 
         private System.Windows.Forms.DataGridView dgv_tesla;

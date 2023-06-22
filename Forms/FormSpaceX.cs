@@ -11,7 +11,27 @@ using System.Windows.Forms;
 
 namespace FERNANDES_ROCCIA_TAPIA
 {
-
+    /// <summary>
+    /// 
+    /// En este formulario, se gestionara todo lo relacionado a la clase FormSpaceX.
+    /// Se podran dar de alta y eliminar objetos spacex, en la lista recibida
+    /// del formulario principal que es donde se van a ir almacenando los cohetes.
+    /// Tambien contendra toda la funcionalidad, y toda la logica necesaria
+    /// para que la instancia de un nuevo objeto SpaceX sea correcta.
+    /// Se tendran en cuenta los datos ingresados/seleccionados
+    /// por el usuario y dependiendo de ellos, se haran calculos para 
+    /// implentar lo solicitado en el proyecto.
+    /// Se tendra la vista de la lista actual de spacex en un DataGridView
+    /// y se podran dar de alta, o eliminar de esta lista.
+    /// Se usara una funcion para asignar todos los datos y dar de alta un cohete,
+    /// se implementera la logica necesaria para que cada modelo de SpaceX se cree
+    /// con las propiedades particulares del modelo seleccionado en un comboBox por el usuario.
+    /// Esto evita que se creen modelos que no existen, o designados por un usuario normal.
+    /// Las opciones de modelos, anios y colores solo podran modificarlo los desarrolladores,
+    /// a traves de las listas estaticas correspondientes, como asi tambien la asignacion
+    /// de las propiedades particulares, autonomia y service.
+    /// 
+    /// </summary>
     public partial class FormSpaceX : Form
     {
         #region Cargar un SpaceX

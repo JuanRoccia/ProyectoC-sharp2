@@ -431,7 +431,5 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelEscaneo;
-        //private System.Windows.Forms.Panel panel4;
-        //private System.Windows.Forms.Button btnMostrarTeslaMasKm;
     }
 }
