@@ -116,8 +116,6 @@ namespace FERNANDES_ROCCIA_TAPIA
             {
                 
                 guardarTesla();
-
-
                 errorProvider1.SetError(grupoDatos, "");
                 
             }

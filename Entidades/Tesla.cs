@@ -51,6 +51,14 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         /// El ID va a simular un número único que depende de un contador que
         /// se autoincrementa cada vez que se instancie un objeto de la clase,
         /// evitando la creación de id's repetidos.
+        /// Los teslas tendran una variable Service que informa cada cuantos
+        /// kilometros se deben realizar los services.
+        /// La variable CantServices que informa cuantos services se le realizaron
+        /// al vehiculo y la variable ProximoService que informa
+        /// cuando se deberá realizar el proximo service.
+        /// la cantidad de services y proximos services depende del kilometraje
+        /// del tesla, y del intervalo con el que se deban realizar los mismos
+        /// segun el modelo.
         /// </summary>
         /// <param name="modelo"> modelo del tesla</param>
         /// <param name="anio"> año de creacion del vehiculo</param>
