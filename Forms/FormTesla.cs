@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FERNANDES_ROCCIA_TAPIA.Entidades;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace FERNANDES_ROCCIA_TAPIA
@@ -159,7 +158,7 @@ namespace FERNANDES_ROCCIA_TAPIA
 
                 Tesla tesla = new Tesla(modelo, anio, kmActual, color, nombre, autonomia, asientos, service);
                 lista.Add(tesla);
-                //
+                //public FormTesla(List<Tesla> listaTeslas)
 
                 string mensaje = $"Creó un Tesla correctamente y se agregó a la lista con el ID: {tesla.Id}.";
                 MessageBoxButtons botones = MessageBoxButtons.OK;
