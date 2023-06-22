@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTesla));
             this.dgv_tesla = new System.Windows.Forms.DataGridView();
             this.duenio = new System.Windows.Forms.TextBox();
@@ -57,6 +58,18 @@
             this.btnMostrarTeslaMasKm = new System.Windows.Forms.Button();
             this.labelEscaneo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Service = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Autonomia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dueno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tesla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.grupoDatos.SuspendLayout();
@@ -66,6 +79,7 @@
             // dgv_tesla
             // 
             this.dgv_tesla.AllowUserToAddRows = false;
+            this.dgv_tesla.AllowUserToResizeColumns = false;
             this.dgv_tesla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_tesla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_tesla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
@@ -81,32 +95,53 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_tesla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_tesla.ColumnHeadersHeight = 30;
-            this.dgv_tesla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv_tesla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Service,
+            this.Modelo,
+            this.Anio,
+            this.Autonomia,
+            this.Color,
+            this.Dueno});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tesla.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_tesla.EnableHeadersVisualStyles = false;
             this.dgv_tesla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.dgv_tesla.Location = new System.Drawing.Point(9, 42);
             this.dgv_tesla.Name = "dgv_tesla";
             this.dgv_tesla.ReadOnly = true;
             this.dgv_tesla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tesla.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_tesla.RowHeadersVisible = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgv_tesla.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tesla.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_tesla.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgv_tesla.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_tesla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_tesla.Size = new System.Drawing.Size(988, 276);
             this.dgv_tesla.TabIndex = 2;
             this.dgv_tesla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tesla_CellClick_1);
+            this.dgv_tesla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tesla_CellContentClick);
             // 
             // duenio
             // 
@@ -393,6 +428,102 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Sistema de Gestión";
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 43;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "KmActual";
+            this.Column2.HeaderText = "KmActual";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 94;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Asientos";
+            this.Column3.HeaderText = "Asientos";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 83;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "ProximoService";
+            this.Column4.HeaderText = "ProximoService";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 128;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "CantCargas";
+            this.Column5.HeaderText = "CantCargas";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 111;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "CantServices";
+            this.Column6.HeaderText = "CantServices";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 114;
+            // 
+            // Service
+            // 
+            this.Service.DataPropertyName = "Service";
+            this.Service.HeaderText = "Service";
+            this.Service.Name = "Service";
+            this.Service.ReadOnly = true;
+            this.Service.Width = 76;
+            // 
+            // Modelo
+            // 
+            this.Modelo.DataPropertyName = "Modelo";
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            this.Modelo.Width = 80;
+            // 
+            // Anio
+            // 
+            this.Anio.DataPropertyName = "Anio";
+            this.Anio.HeaderText = "Año";
+            this.Anio.Name = "Anio";
+            this.Anio.ReadOnly = true;
+            this.Anio.Width = 57;
+            // 
+            // Autonomia
+            // 
+            this.Autonomia.DataPropertyName = "Autonomia";
+            this.Autonomia.HeaderText = "Autonomia";
+            this.Autonomia.Name = "Autonomia";
+            this.Autonomia.ReadOnly = true;
+            this.Autonomia.Width = 104;
+            // 
+            // Color
+            // 
+            this.Color.DataPropertyName = "Color";
+            this.Color.HeaderText = "Color";
+            this.Color.Name = "Color";
+            this.Color.ReadOnly = true;
+            this.Color.Width = 67;
+            // 
+            // Dueno
+            // 
+            this.Dueno.DataPropertyName = "Duenio";
+            this.Dueno.HeaderText = "Dueño";
+            this.Dueno.Name = "Dueno";
+            this.Dueno.ReadOnly = true;
+            this.Dueno.Width = 74;
+            // 
             // FormTesla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,5 +571,17 @@
         private System.Windows.Forms.Label labelEscaneo;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnMostrarTeslaMasKm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Anio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Autonomia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Color;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dueno;
     }
 }

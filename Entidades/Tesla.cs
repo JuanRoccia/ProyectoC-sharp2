@@ -18,7 +18,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     ///  asientos:7, autonomia:560 KMS y como service: 1000 KMS
     /// Para la correcta instanciación de los Tesla se crea un constructor.
     /// Para la cantidad de cargas de baterias se tiene en cuenta que la bateria se 
-    /// cargó solo cuando se uso el 100%, para esto hacemos la cuenta de kmActuales / autonomia.
+    /// carga solo cuando se usa el 100%, por eso hacemos la cuenta de kmActuales / autonomia.
     /// Para obtener el kilometraje del proximo service se realiza la cuenta
     /// para buscar el siguiente multiplo del service que le corresponda a cada vehiculo
     /// para eso hicimos la cuenta (kmActual / service +1) * service;
@@ -30,6 +30,8 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     public class Tesla : Vehiculo
     {
         #region Propiedades
+
+
         private static int contadorId = 1;
         private int id;
         private int kmActual;
@@ -45,16 +47,23 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         /// Contructor, se tiene en cuenta que el modelo es de tipo string,
         /// la unidad de medida de la autonomia es en Kms
         /// los parametros autonomia, asientos y service dependen del modelo de tesla
+        /// y se controlan y asignan en la funcion guardarTesla() del FormTesla.
+        /// El ID va a simular un número único que depende de un contador que
+        /// se autoincrementa cada vez que se instancie un objeto de la clase,
+        /// evitando la creación de id's repetidos.
         /// </summary>
-        /// <param name="modelo">modelo del tesla</param>
-        /// <param name="anio">año de creacion del vehiculo</param>
-        /// <param name="kmActual">kilometraje actual</param>
-        /// <param name="kmService">kilometraje en que se debe realizar el proximo service</param>
-        /// <param name="color">color del vehiculo</param>
-        /// <param name="duenio">porpietario</param>
-        /// <param name="autonomia">cantidad de kilometros que el vehiculo puede recorrer con una carga completa de batería</param>
-        /// <param name="asientos">cantidad de asientos del vehiculo</param>
-        /// <param name="service">cantidad de services que se le realizaron al vehiculo(depende del kmActual)</param>
+        /// <param name="modelo"> modelo del tesla</param>
+        /// <param name="anio"> año de creacion del vehiculo</param>
+        /// <param name="kmActual"> kilometraje actual</param>
+        /// <param name="kmService"> kilometraje en que se debe realizar el proximo service</param>
+        /// <param name="color"> color del vehiculo</param>
+        /// <param name="duenio"> porpietario</param>
+        /// <param name="autonomia"> cantidad de kilometros que el vehiculo puede recorrer con una carga completa de batería</param>
+        /// <param name="asientos"> cantidad de asientos del vehiculo </param>
+        /// <param name="service"> frecuencia en kilometros con la que se realizan los services </param>
+        /// <param name="CantServices"> cantidad de services que se le realizaron al vehiculo, depende de la cantidad de kms actuales y la frecuencia de service </param>
+        /// <param name="CantCargas"> cantidad de cargas de batería que se le realizaron al tesla, depende de la cantidad de kms actuales y la autonomia</param>
+
         public Tesla(string modelo, int anio, int kmActual, string color, string duenio, int autonomia, int asientos, int service)
         {
             id = contadorId++;
@@ -62,11 +71,11 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             Modelo = modelo;
             Anio = anio;
             KmActual = kmActual;
-            kmService = ((kmActual / service) + 1) * service;
+            ProximoService = ((kmActual / service) + 1) * service;
             Color = color;
             Duenio = duenio;
             Autonomia = autonomia;
-            this.asientos = asientos;
+            Asientos = asientos;
             Service =  service;
             CantServices = (kmActual/ service);
             CantCargas = (kmActual / autonomia);
@@ -80,11 +89,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         {
             get { return kmActual; }
             set { kmActual = value; }
-        }
-
-        public int ProximoService
-        {
-            get { return kmService; }
         }
 
         public int Asientos
@@ -103,8 +107,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         {
             return $"ID: {id}, Marca:{Marca}, Modelo: {Modelo}, Año: {Anio}, Kilometraje Actual: {KmActual}, Kilometraje Service: {ProximoService}, Color: {Color}, Dueño: {Duenio}.";
         }
-
-        
+       
         /// <summary>
         /// 
         /// Escaneo()

@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FERNANDES_ROCCIA_TAPIA.Entidades;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace FERNANDES_ROCCIA_TAPIA
@@ -34,6 +33,7 @@ namespace FERNANDES_ROCCIA_TAPIA
     /// a traves de las listas estaticas correspondientes, como asi tambien la asignacion
     /// de las propiedades particulares, asientos, autonomia y service.
     /// 
+    /// 
     /// </summary>
     public partial class FormTesla : Form
     {
@@ -42,14 +42,25 @@ namespace FERNANDES_ROCCIA_TAPIA
         string[] modelos_disponibles = { "Model X", "Model S", "Cybertruck" };
         int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
         string[] colores_disponibles = { "Amarillo", "Azul", "Blanco", "Bordo","Gris", "Marron", "Naranja", "Negro" };
+
+        /// <summary>
+        /// El constructor del formulario cargara las opciones de los comboBox
+        /// y si la lista de teslas no esta vacía ya cargará el datagrid,
+        /// de lo contrario el datagrid se cargara cuando se cargue un tesla.
+        /// Esto evita errores de indice a la hora de instanciar objetos
+        /// y agregarlos a la lista.
+        /// </summary>
+        /// <param name="listaTeslas">Esta lista la recibimos del formulario principal es donde se almacenan todos los teslas</param>
         public FormTesla(List<Tesla> listaTeslas)
         {
             InitializeComponent();
-            lista = listaTeslas;
-            dgv_tesla.DataSource = lista;
+            lista = listaTeslas;    
             popularModelos();
             popularAnios();
             popularColores();
+            if (lista.Count > 0 ) {
+                dgv_tesla.DataSource = lista;                
+            }
         }
 
         /// <summary>
@@ -103,8 +114,12 @@ namespace FERNANDES_ROCCIA_TAPIA
                 && (duenio.Text.All(Char.IsLetter)
                 || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length > 4))
             {
+                
                 guardarTesla();
+
+
                 errorProvider1.SetError(grupoDatos, "");
+                
             }
             else
             {
@@ -126,59 +141,54 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// </summary>
         private void guardarTesla()
         {
-            try
+
+            string modelo = modelos.SelectedItem.ToString();
+            int asientos;
+            int autonomia;
+            int service;
+            //condicion para asignar asientos y autonomia del Tesla segun modelo
+            if (modelo == "Model X")
             {
-                string modelo = modelos.SelectedItem.ToString();
-                int asientos;
-                int autonomia;
-                int service;
-                //condicion para asignar asientos y autonomia del Tesla segun modelo
-                if (modelo == "Model X")
-                {
-                    autonomia = 560;
-                    asientos = 7;
-                    service = 1000;
-                }
-                else if (modelo == "Model S")
-                {
-                    autonomia = 650;
-                    asientos = 5;
-                    service = 2000;
-                }
-                else
-                {
-                    autonomia = 800;
-                    asientos = 6;
-                    service = 3000;
-                }
-
-                int anio = Convert.ToInt32(anios.SelectedItem);
-                int kmActual = Convert.ToInt32(kmActuales.Text);
-                string color = colores.SelectedItem.ToString();
-                string nombre = duenio.Text.Trim().ToUpper();
-
-                Tesla tesla = new Tesla(modelo, anio, kmActual, color, nombre, autonomia, asientos, service);
-                lista.Add(tesla);
-                //
-
-                string mensaje = $"Creó un Tesla correctamente y se agregó a la lista con el ID: {tesla.Id}.";
-                MessageBoxButtons botones = MessageBoxButtons.OK;
-                MessageBox.Show(mensaje, "Genial", botones);
-                //Reset clear
-
-                dgv_tesla.DataSource = null;
-                dgv_tesla.DataSource = lista;
-
-                modelos.SelectedIndex = -1;
-                anios.SelectedIndex = -1;
-                kmActuales.Clear();
-                colores.SelectedIndex = -1;
-                duenio.Clear();
-            }catch(Exception ex)
-            {
-                MessageBox.Show("Se produjo un error al crear un tesla" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                autonomia = 560;
+                asientos = 7;
+                service = 1000;
             }
+            else if (modelo == "Model S")
+            {
+                autonomia = 650;
+                asientos = 5;
+                service = 2000;
+            }
+            else
+            {
+                autonomia = 800;
+                asientos = 6;
+                service = 3000;
+            }
+
+            int anio = Convert.ToInt32(anios.SelectedItem);
+            int kmActual = Convert.ToInt32(kmActuales.Text);
+            string color = colores.SelectedItem.ToString();
+            string nombre = duenio.Text.Trim().ToUpper();
+
+            Tesla tesla = new Tesla(modelo, anio, kmActual, color, nombre, autonomia, asientos, service);
+            lista.Add(tesla);
+
+            dgv_tesla.DataSource = null;
+            dgv_tesla.DataSource = lista;
+            string mensaje = $"Creó un Tesla correctamente y se agregó a la lista con el ID: {tesla.Id}.";
+            MessageBoxButtons botones = MessageBoxButtons.OK;
+            MessageBox.Show(mensaje, "Genial", botones);
+
+
+            //Reset clear
+
+            modelos.SelectedIndex = -1;
+            anios.SelectedIndex = -1;
+            kmActuales.Clear();
+            colores.SelectedIndex = -1;
+            duenio.Clear();
+
 
         }
         #endregion
@@ -190,24 +200,33 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// mostrada en el datagridview, para eso se usa la funcion 
         /// CellClick del datagrid para obtener el indice
         /// del elemento que queremos eliminar, y eliminamos por indice = id.
+        /// la etiqueta de escaneo se borrara cada vez que se haga click 
+        /// en cualquier fila del dtgview.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         private int indiceFila;
         private int idc;
 
         private void dgv_tesla_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            indiceFila = e.RowIndex;
-            labelEscaneo.Visible = false;
-        }
 
+            
+            labelEscaneo.Visible = false;
+            indiceFila = e.RowIndex;
+            
+        }
+        /// <summary>
+        /// el boton de eliminar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (indiceFila != -1)
+                errorProvider1.SetError(btnEliminar, "");
+                if (indiceFila > -1)
                 {
                     idc = (int)dgv_tesla.Rows[indiceFila].Cells[0].Value;
                     DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el tesla ID: {idc} ?"
@@ -218,18 +237,16 @@ namespace FERNANDES_ROCCIA_TAPIA
                         dgv_tesla.DataSource = null;
                         dgv_tesla.DataSource = lista;
                         indiceFila = -1;
-                    
                     }
                 }
             }catch(Exception ex)
             {
-                MessageBox.Show("Se produjo un error al eliminar un tesla" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                errorProvider1.SetError(btnEliminar, $"Error la lista esta vacía o ha ocurrido un error inesperado.");
+                btnEliminar.Focus();
             }
 
         }
         #endregion
-
 
         #region Boton Escanear
         /// <summary>
@@ -247,27 +264,28 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             try
             {
-                if(lista.Count > 0)               
+                errorProvider1.SetError(btnEscanear, "");
+                if (lista.Count > 0)
                 {
                     Tesla teslac = (Tesla)dgv_tesla.CurrentRow.DataBoundItem;
                     labelEscaneo.Text = teslac.Escaneo();
                     labelEscaneo.Visible = true;
+                    
                 }
                 else
                 {
-                    errorProvider1.SetError(btnEscanear, "Error la lista esta vacía.");
-                    btnEscanear.Focus();
+                errorProvider1.SetError(btnEscanear, "Error la lista esta vacía.");
+                
                 }
             }
             catch (Exception ex)
             {
                 // Manejo de la excepción
-                MessageBox.Show("Se produjo un error al escanear un tesla. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Se produjo un error al escanear un tesla. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);               
             }
 
         }
         #endregion
-
 
         #region Boton Mostrar Tesla con mas kilometraje
         /// <summary>
@@ -293,6 +311,7 @@ namespace FERNANDES_ROCCIA_TAPIA
                     string mensaje = $"El tesla con más kilometraje es el: {tesla} ";
                     string titulo = $"Tesla ID: {tesla.Id} ";
                     MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK);
+                    errorProvider1.SetError(btnMostrarTeslaMasKm, "");
                 }
                 else
                 {
@@ -304,10 +323,24 @@ namespace FERNANDES_ROCCIA_TAPIA
                 MessageBox.Show("Se produjo un error al mostrar el tesla con más km." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
-
         }
         #endregion
+
+        private void dgv_tesla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                indiceFila = 0;
+                labelEscaneo.Visible = false;
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("abajo de 0" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
     }
 }
 

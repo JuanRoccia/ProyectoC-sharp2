@@ -43,10 +43,10 @@ namespace FERNANDES_ROCCIA_TAPIA
         public List<Tesla> listaTesla;
         public List<SpaceX> listaSpaceX;
 
-        Tesla tesla1 = new Tesla("Model S", 2015, 2300,  "Azul", "ELON MUSK", 650, 5, 2000);
-        Tesla tesla2 = new Tesla("Model X", 2015, 23000,  "Rojo", "ELON MUSK", 560, 7, 1000);
-        Tesla tesla3 = new Tesla("Model X", 2015, 250500,  "Negro", "ELON MUSK", 560, 7, 1000);
-        Tesla tesla4 = new Tesla("Cybertruck", 2015, 90000,  "Bordo", "ELON MUSK", 800, 6, 3000);
+        //Tesla tesla1 = new Tesla("Model S", 2015, 2300,  "Azul", "ELON MUSK", 650, 5, 2000);
+        //Tesla tesla2 = new Tesla("Model X", 2015, 23000,  "Rojo", "ELON MUSK", 560, 7, 1000);
+        //Tesla tesla3 = new Tesla("Model X", 2015, 250500,  "Negro", "ELON MUSK", 560, 7, 1000);
+        //Tesla tesla4 = new Tesla("Cybertruck", 2015, 90000,  "Bordo", "ELON MUSK", 800, 6, 3000);
         /// <summary>
         /// Constructor del formulario principal, se inicia la lista cuando se inicia el programa
         /// </summary>
@@ -55,10 +55,10 @@ namespace FERNANDES_ROCCIA_TAPIA
             InitializeComponent();
             listaTesla = new List<Tesla>();
 
-            listaTesla.Add(tesla1);
-            listaTesla.Add(tesla2);
-            listaTesla.Add(tesla3);
-            listaTesla.Add(tesla4);
+            //listaTesla.Add(tesla1);
+            //listaTesla.Add(tesla2);
+            //listaTesla.Add(tesla3);
+            //listaTesla.Add(tesla4);
 
         }
 

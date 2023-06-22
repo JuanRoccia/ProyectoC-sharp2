@@ -34,6 +34,8 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     public abstract class Vehiculo
     {
         //GETTERS & SETTERS
+        
+        public int ProximoService { get; set; }
         public int CantCargas { get; set; }
         public int CantServices { get; set; }
         public int Service { get; set; }
