@@ -1,4 +1,6 @@
-﻿namespace FERNANDES_ROCCIA_TAPIA
+﻿using System.Drawing;
+
+namespace FERNANDES_ROCCIA_TAPIA
 {
     partial class Form1
     {
@@ -63,7 +65,7 @@
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1733, 47);
+            this.BarraTitulo.Size = new System.Drawing.Size(1942, 47);
             this.BarraTitulo.TabIndex = 0;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
             // 
@@ -72,7 +74,7 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.ErrorImage = null;
             this.btnRestaurar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.restaurar_ventana_24;
-            this.btnRestaurar.Location = new System.Drawing.Point(1643, 9);
+            this.btnRestaurar.Location = new System.Drawing.Point(1852, 9);
             this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(33, 31);
@@ -84,7 +86,7 @@
             // btnMaximizar
             // 
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximizar.Location = new System.Drawing.Point(1643, 9);
+            this.btnMaximizar.Location = new System.Drawing.Point(1852, 9);
             this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(33, 31);
@@ -96,7 +98,7 @@
             // 
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.boton_minimizar;
-            this.btnMinimizar.Location = new System.Drawing.Point(1601, 9);
+            this.btnMinimizar.Location = new System.Drawing.Point(1810, 9);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(33, 31);
@@ -109,7 +111,7 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.boton_cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1684, 9);
+            this.btnCerrar.Location = new System.Drawing.Point(1893, 9);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(33, 31);
@@ -218,21 +220,20 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.panelContenedor.BackgroundImage = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.backg_img;
             this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelContenedor.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(293, 47);
             this.panelContenedor.Margin = new System.Windows.Forms.Padding(4);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1440, 753);
+            this.panelContenedor.Size = new System.Drawing.Size(1649, 753);
             this.panelContenedor.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1733, 800);
+            this.ClientSize = new System.Drawing.Size(1942, 800);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.BarraTitulo);
@@ -240,6 +241,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
+            this.Opacity = 0.99D;
             this.Text = "Tesla | SpaceX";
             this.BarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();

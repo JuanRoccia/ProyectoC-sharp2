@@ -82,7 +82,7 @@
             this.dgv_tesla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_tesla.EnableHeadersVisualStyles = false;
             this.dgv_tesla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.dgv_tesla.Location = new System.Drawing.Point(12, 52);
+            this.dgv_tesla.Location = new System.Drawing.Point(11, 52);
             this.dgv_tesla.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_tesla.Name = "dgv_tesla";
             this.dgv_tesla.ReadOnly = true;
@@ -104,7 +104,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dgv_tesla.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_tesla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_tesla.Size = new System.Drawing.Size(1317, 340);
+            this.dgv_tesla.Size = new System.Drawing.Size(1530, 339);
             this.dgv_tesla.TabIndex = 2;
             this.dgv_tesla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tesla_CellClick_1);
             // 
@@ -254,7 +254,7 @@
             this.grupoDatos.Margin = new System.Windows.Forms.Padding(4);
             this.grupoDatos.Name = "grupoDatos";
             this.grupoDatos.Padding = new System.Windows.Forms.Padding(4);
-            this.grupoDatos.Size = new System.Drawing.Size(877, 123);
+            this.grupoDatos.Size = new System.Drawing.Size(1550, 123);
             this.grupoDatos.TabIndex = 16;
             this.grupoDatos.TabStop = false;
             this.grupoDatos.Text = "Dar de alta un SpaceX";
@@ -262,7 +262,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel2.Location = new System.Drawing.Point(708, 75);
+            this.panel2.Location = new System.Drawing.Point(863, 76);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(7, 31);
@@ -278,10 +278,10 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.Location = new System.Drawing.Point(547, 75);
+            this.btnGuardar.Location = new System.Drawing.Point(613, 76);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(165, 31);
+            this.btnGuardar.Size = new System.Drawing.Size(257, 31);
             this.btnGuardar.TabIndex = 13;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -355,20 +355,21 @@
             this.groupBox1.Controls.Add(this.dgv_tesla);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.groupBox1.Location = new System.Drawing.Point(16, 145);
+            this.groupBox1.Location = new System.Drawing.Point(16, 159);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1340, 612);
+            this.groupBox1.Size = new System.Drawing.Size(1550, 590);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // labelEscaneo
             // 
             this.labelEscaneo.Location = new System.Drawing.Point(7, 434);
             this.labelEscaneo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEscaneo.Name = "labelEscaneo";
-            this.labelEscaneo.Size = new System.Drawing.Size(685, 247);
+            this.labelEscaneo.Size = new System.Drawing.Size(775, 148);
             this.labelEscaneo.TabIndex = 20;
             this.labelEscaneo.Text = "Escaneo";
             this.labelEscaneo.Visible = false;
@@ -377,7 +378,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 11);
+            this.label1.Location = new System.Drawing.Point(7, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(198, 23);
@@ -389,7 +390,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1440, 862);
+            this.ClientSize = new System.Drawing.Size(1400, 850);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grupoDatos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

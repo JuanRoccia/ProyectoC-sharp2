@@ -98,7 +98,7 @@ namespace FERNANDES_ROCCIA_TAPIA
                 && (hsVueloActual.Text.Length > 0) && (hsVueloActual.Text.Length < 8)
                 && (colores.SelectedIndex >= 0) && (duenio.Text.Trim() != string.Empty)
                 && (duenio.Text.All(Char.IsLetter)
-                || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length > 4))
+                || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length >= 1))
             {
                 guardarSpaceX();
                 errorProvider1.SetError(grupoDatos, "");
@@ -107,7 +107,7 @@ namespace FERNANDES_ROCCIA_TAPIA
             {
                 errorProvider1.SetError(grupoDatos, "* Para guardar un SpaceX todos los campos deben estar completos y deben ser del tipo correcto.\n" +
                                                 "! Hs. Actuales: sólo puede contener numeros positivos entre 0 y 10 millones.\n" +
-                                                "! Dueño: sólo puede contener letras y espacios, debe contener como mínimo 5 caracteres.");
+                                                "! Dueño: sólo puede contener letras y espacios, debe contener como mínimo 1 caracter.");
                 grupoDatos.Focus();
             }
         }
@@ -252,5 +252,10 @@ namespace FERNANDES_ROCCIA_TAPIA
 
         }
         #endregion
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

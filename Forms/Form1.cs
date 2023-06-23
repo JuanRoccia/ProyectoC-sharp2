@@ -46,10 +46,10 @@ namespace FERNANDES_ROCCIA_TAPIA
         Tesla tesla3 = new Tesla("Model X", 2015, 250500,  "Negro", "ELON MUSK", 560, 7, 1000);
         Tesla tesla4 = new Tesla("Cybertruck", 2015, 90000,  "Bordo", "ELON MUSK", 800, 6, 3000);
         public List<SpaceX> listaSpaceX;
-        SpaceX space1 = new SpaceX("Falcon 9", 2015, 2300, "Azul", "ELON MUSK", 650, 400);
-        SpaceX space2 = new SpaceX("Starship", 2015, 23000, "Rojo", "ELON MUSK", 560, 1000);
-        SpaceX space3 = new SpaceX("Falcon 9", 2015, 250500, "Negro", "ELON MUSK", 560, 400);
-        SpaceX space4 = new SpaceX("Starship", 2015, 90000, "Bordo", "ELON MUSK", 800, 1000);
+        SpaceX space1 = new SpaceX("Falcon 9", 2015, 2300, "Azul", "NASA", 200, 400);
+        SpaceX space2 = new SpaceX("Starship", 2015, 23000, "Rojo", "PLANET LABS", 500, 1000);
+        SpaceX space3 = new SpaceX("Falcon 9", 2015, 250500, "Negro", "DDEU", 200, 400);
+        SpaceX space4 = new SpaceX("Starship", 2015, 90000, "Bordo", "IRIDIUM COM.", 500, 1000);
         /// <summary>
         /// Constructor del formulario principal, se inicia la lista cuando se inicia el programa
         /// </summary>
@@ -66,6 +66,13 @@ namespace FERNANDES_ROCCIA_TAPIA
             listaSpaceX.Add(space2);
             listaSpaceX.Add(space3);
             listaSpaceX.Add(space4);
+
+
+            // Establecer el tamaño del formulario
+            this.Size = new Size(1400, 650);
+
+            // O maximizar el formulario
+            //this.WindowState = FormWindowState.Maximized;
         }
         #endregion
 
