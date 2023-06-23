@@ -9,7 +9,7 @@ namespace FERNANDES_ROCCIA_TAPIA
     internal static class Program
     {
         /// <summary>
-        /// Punto de entrada principal para la aplicación.
+        /// Punto de entrada principal para la aplicación. Agregar explicacion y referencia al README
         /// </summary>
         [STAThread]
         static void Main()

@@ -57,15 +57,15 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             InitializeComponent();
             listaTesla = new List<Tesla>();
-            listaTesla.Add(tesla1);
-            listaTesla.Add(tesla2);
-            listaTesla.Add(tesla3);
-            listaTesla.Add(tesla4);
+            //listaTesla.Add(tesla1);
+            //listaTesla.Add(tesla2);
+            //listaTesla.Add(tesla3);
+            //listaTesla.Add(tesla4);
             listaSpaceX = new List<SpaceX>();
-            listaSpaceX.Add(space1);
-            listaSpaceX.Add(space2);
-            listaSpaceX.Add(space3);
-            listaSpaceX.Add(space4);
+            //listaSpaceX.Add(space1);
+            //listaSpaceX.Add(space2);
+            //listaSpaceX.Add(space3);
+            //listaSpaceX.Add(space4);
 
 
             // Establecer el tamaño del formulario

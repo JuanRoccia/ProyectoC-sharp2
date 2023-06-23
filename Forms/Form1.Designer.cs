@@ -72,9 +72,10 @@ namespace FERNANDES_ROCCIA_TAPIA
             // btnRestaurar
             // 
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.ErrorImage = null;
             this.btnRestaurar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.restaurar_ventana_24;
-            this.btnRestaurar.Location = new System.Drawing.Point(1852, 9);
+            this.btnRestaurar.Location = new System.Drawing.Point(1851, 8);
             this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(33, 31);
@@ -86,6 +87,8 @@ namespace FERNANDES_ROCCIA_TAPIA
             // btnMaximizar
             // 
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximizar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.maximizar_ventana_24;
             this.btnMaximizar.Location = new System.Drawing.Point(1852, 9);
             this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaximizar.Name = "btnMaximizar";
@@ -97,6 +100,7 @@ namespace FERNANDES_ROCCIA_TAPIA
             // btnMinimizar
             // 
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = global::FERNANDES_ROCCIA_TAPIA.Properties.Resources.boton_minimizar;
             this.btnMinimizar.Location = new System.Drawing.Point(1810, 9);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);

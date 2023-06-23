@@ -22,7 +22,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     {
 
         #region Propiedades
-        private static int contadorId = 0;
+        private static int contadorId = 1;
         private int id;
         private int HsVueloActual;
         private int horasService;

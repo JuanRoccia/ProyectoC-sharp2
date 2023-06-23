@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSpaceX));
-            this.dgv_tesla = new System.Windows.Forms.DataGridView();
+            this.dgv_spacex = new System.Windows.Forms.DataGridView();
             this.duenio = new System.Windows.Forms.TextBox();
             this.colores = new System.Windows.Forms.ComboBox();
             this.hsVueloActual = new System.Windows.Forms.TextBox();
@@ -55,21 +55,21 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelEscaneo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_tesla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_spacex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.grupoDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgv_tesla
+            // dgv_spacex
             // 
-            this.dgv_tesla.AllowUserToAddRows = false;
-            this.dgv_tesla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_tesla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgv_tesla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.dgv_tesla.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_tesla.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgv_tesla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgv_spacex.AllowUserToAddRows = false;
+            this.dgv_spacex.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_spacex.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_spacex.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.dgv_spacex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_spacex.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgv_spacex.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,16 +77,16 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tesla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_tesla.ColumnHeadersHeight = 30;
-            this.dgv_tesla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgv_tesla.EnableHeadersVisualStyles = false;
-            this.dgv_tesla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.dgv_tesla.Location = new System.Drawing.Point(11, 52);
-            this.dgv_tesla.Margin = new System.Windows.Forms.Padding(4);
-            this.dgv_tesla.Name = "dgv_tesla";
-            this.dgv_tesla.ReadOnly = true;
-            this.dgv_tesla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgv_spacex.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_spacex.ColumnHeadersHeight = 30;
+            this.dgv_spacex.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv_spacex.EnableHeadersVisualStyles = false;
+            this.dgv_spacex.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.dgv_spacex.Location = new System.Drawing.Point(11, 52);
+            this.dgv_spacex.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_spacex.Name = "dgv_spacex";
+            this.dgv_spacex.ReadOnly = true;
+            this.dgv_spacex.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,19 +94,19 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tesla.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_tesla.RowHeadersVisible = false;
-            this.dgv_tesla.RowHeadersWidth = 51;
+            this.dgv_spacex.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_spacex.RowHeadersVisible = false;
+            this.dgv_spacex.RowHeadersWidth = 51;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgv_tesla.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_tesla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_tesla.Size = new System.Drawing.Size(1530, 339);
-            this.dgv_tesla.TabIndex = 2;
-            this.dgv_tesla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tesla_CellClick_1);
+            this.dgv_spacex.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_spacex.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_spacex.Size = new System.Drawing.Size(1530, 339);
+            this.dgv_spacex.TabIndex = 2;
+            this.dgv_spacex.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_spacex_CellClick_1);
             // 
             // duenio
             // 
@@ -233,6 +233,7 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
             // grupoDatos
             // 
@@ -352,7 +353,7 @@
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnEscanear);
-            this.groupBox1.Controls.Add(this.dgv_tesla);
+            this.groupBox1.Controls.Add(this.dgv_spacex);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.groupBox1.Location = new System.Drawing.Point(16, 159);
@@ -399,7 +400,7 @@
             this.Name = "FormSpaceX";
             this.Opacity = 0.1D;
             this.Text = "FormTesla";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_tesla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_spacex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.grupoDatos.ResumeLayout(false);
             this.grupoDatos.PerformLayout();
@@ -410,7 +411,7 @@
         }
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv_tesla;
+        private System.Windows.Forms.DataGridView dgv_spacex;
         private System.Windows.Forms.TextBox duenio;
         private System.Windows.Forms.ComboBox colores;
         private System.Windows.Forms.TextBox hsVueloActual;

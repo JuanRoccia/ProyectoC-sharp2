@@ -37,17 +37,20 @@ namespace FERNANDES_ROCCIA_TAPIA
     {
         #region Cargar dar de alta un Tesla
         List<Tesla> lista;
-        string[] modelos_disponibles = { "Model X", "Model S", "Cybertruck" };
-        int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
-        string[] colores_disponibles = { "Amarillo", "Azul", "Blanco", "Bordo","Gris", "Marron", "Naranja", "Negro" };
+        static string[] modelos_disponibles = { "Model X", "Model S", "Cybertruck" };
+        static int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
+        static string[] colores_disponibles = { "Amarillo", "Azul", "Blanco", "Bordo","Gris", "Marron", "Naranja", "Negro" };
         public FormTesla(List<Tesla> listaTeslas)
         {
             InitializeComponent();
             lista = listaTeslas;
-            dgv_tesla.DataSource = lista;
             popularModelos();
             popularAnios();
             popularColores();
+            if (lista.Count > 0)
+            {
+                dgv_tesla.DataSource = lista;
+            }
         }
 
         /// <summary>
@@ -99,17 +102,18 @@ namespace FERNANDES_ROCCIA_TAPIA
                 && (kmActuales.Text.Length > 0) && (kmActuales.Text.Length < 8)
                 && (colores.SelectedIndex >= 0) && (duenio.Text.Trim() != string.Empty)
                 && (duenio.Text.All(Char.IsLetter)
-                || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length > 4))
+                || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length > 4)
+                && (duenio.Text.Trim().ToString().Length <= 35))
             {
                 guardarTesla();
-                errorProvider1.SetError(grupoDatos, "");
+                errorProvider1.SetError(btnGuardar, "");
             }
             else
             {
-                errorProvider1.SetError(grupoDatos, "* Para guardar un tesla todos los campos deben estar completos y deben ser del tipo correcto.\n" +
-                                                "! Kms. Actuales: sólo puede contener numeros positivos entre 0 y 10 millones.\n" +
-                                                "! Dueño: sólo puede contener letras y espacios, debe contener como mínimo 5 caracteres.");
-                grupoDatos.Focus();
+                errorProvider1.SetError(btnGuardar, "* Para guardar un tesla todos los campos deben estar completos y deben ser del tipo correcto.\n" +
+                                                "! Kms. Actuales: Debe contener numeros positivos entre 0 y 10 millones.\n" +
+                                                "! Dueño: Debe contener mínimo 5 caracteres y máximo 35.");
+                btnGuardar.Focus();
             }
         }
 

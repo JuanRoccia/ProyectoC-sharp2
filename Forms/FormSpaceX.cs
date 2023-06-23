@@ -36,17 +36,20 @@ namespace FERNANDES_ROCCIA_TAPIA
     {
         #region Cargar un SpaceX
         List<SpaceX> lista;
-        string[] modelos_disponibles = { "Falcon 9", "Starship" };
-        int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
-        string[] colores_disponibles = { "Black", "Blue", "Gray", "Green", "Red", "White" };
+        static string[] modelos_disponibles = { "Falcon 9", "Starship" };
+        static int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
+        static string[] colores_disponibles = { "Amarillo", "Azul", "Blanco", "Bordo", "Gris", "Marron", "Naranja", "Negro" };
         public FormSpaceX(List<SpaceX> listaSpaceX)
         {
             InitializeComponent();
             lista = listaSpaceX;
-            dgv_tesla.DataSource = lista;
             popularModelos();
             popularAnios();
             popularColores();
+            if (lista.Count > 0)
+            {
+                dgv_spacex.DataSource = lista;
+            }
         }
         /// <summary>
         /// Agrega los modelos disponibles al ComboBox "modelos".
@@ -95,20 +98,21 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             if ((modelos.SelectedIndex >= 0) && (anios.SelectedIndex >= 0) &&
                 !string.IsNullOrEmpty(hsVueloActual.Text) && hsVueloActual.Text.All(Char.IsDigit)
-                && (hsVueloActual.Text.Length > 0) && (hsVueloActual.Text.Length < 8)
+                && (hsVueloActual.Text.Length > 0) && (hsVueloActual.Text.Length < 9)
                 && (colores.SelectedIndex >= 0) && (duenio.Text.Trim() != string.Empty)
                 && (duenio.Text.All(Char.IsLetter)
-                || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length >= 1))
+                || duenio.Text.Any(Char.IsWhiteSpace)) && (duenio.Text.Trim().ToString().Length >= 1)
+                && (duenio.Text.Trim().ToString().Length <= 35))
             {
                 guardarSpaceX();
-                errorProvider1.SetError(grupoDatos, "");
+                errorProvider1.SetError(btnGuardar, "");
             }
             else
             {
-                errorProvider1.SetError(grupoDatos, "* Para guardar un SpaceX todos los campos deben estar completos y deben ser del tipo correcto.\n" +
-                                                "! Hs. Actuales: sólo puede contener numeros positivos entre 0 y 10 millones.\n" +
-                                                "! Dueño: sólo puede contener letras y espacios, debe contener como mínimo 1 caracter.");
-                grupoDatos.Focus();
+                errorProvider1.SetError(btnGuardar, "* Para guardar un SpaceX todos los campos deben estar completos y deben ser del tipo correcto.\n" +
+                                                "! Hs. Actuales: Debe contener numeros positivos entre 0 y 100 millones.\n" +
+                                                "! Dueño: Debe contener mínimo 1 caracter y máximo 35.");
+                btnGuardar.Focus();
             }
         }
         /// <summary>
@@ -152,8 +156,8 @@ namespace FERNANDES_ROCCIA_TAPIA
                 MessageBox.Show(mensaje, "Genial", botones);
                 //Reset clear
 
-                dgv_tesla.DataSource = null;
-                dgv_tesla.DataSource = lista;
+                dgv_spacex.DataSource = null;
+                dgv_spacex.DataSource = lista;
 
                 modelos.SelectedIndex = -1;
                 anios.SelectedIndex = -1;
@@ -181,7 +185,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// 
         private int indiceFila;
         private int idc;
-        private void dgv_tesla_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgv_spacex_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             indiceFila = e.RowIndex;
             labelEscaneo.Visible = false;
@@ -193,14 +197,14 @@ namespace FERNANDES_ROCCIA_TAPIA
             {
                 if (indiceFila != -1)
                 {
-                    idc = (int)dgv_tesla.Rows[indiceFila].Cells[0].Value;
+                    idc = (int)dgv_spacex.Rows[indiceFila].Cells[0].Value;
                     DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el SpaceX ID: {idc} ?"
                                             , "Eliminar SpaceX", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         lista.RemoveAt(indiceFila);
-                        dgv_tesla.DataSource = null;
-                        dgv_tesla.DataSource = lista;
+                        dgv_spacex.DataSource = null;
+                        dgv_spacex.DataSource = lista;
                         indiceFila = -1;
 
                     }
@@ -234,7 +238,7 @@ namespace FERNANDES_ROCCIA_TAPIA
             {
                 if (lista.Count > 0)
                 {
-                    SpaceX teslac = (SpaceX)dgv_tesla.CurrentRow.DataBoundItem;
+                    SpaceX teslac = (SpaceX)dgv_spacex.CurrentRow.DataBoundItem;
                     labelEscaneo.Text = teslac.Escaneo();
                     labelEscaneo.Visible = true;
                 }

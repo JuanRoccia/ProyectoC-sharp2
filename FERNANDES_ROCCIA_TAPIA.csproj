@@ -132,6 +132,7 @@
     <None Include="Recursos\Icons\almuerzo-cohete 24.png" />
     <None Include="Recursos\Img\tesla-logo-512.png" />
     <None Include="Recursos\Img\spacex-logo-512.png" />
+    <Content Include="Recursos\Icons\exclamacion1.ico" />
     <Content Include="Recursos\Img\backg-img.jpg" />
     <Content Include="Recursos\Img\backg-img2.jpg" />
     <Content Include="tesla.ico" />
