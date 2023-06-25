@@ -39,9 +39,9 @@ namespace FERNANDES_ROCCIA_TAPIA
     {
         #region Cargar dar de alta un Tesla
         List<Tesla> lista;
-        string[] modelos_disponibles = { "Model X", "Model S", "Cybertruck" };
-        int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
-        string[] colores_disponibles = { "Amarillo", "Azul", "Blanco", "Bordo","Gris", "Marron", "Naranja", "Negro" };
+        static string[] modelos_disponibles = { "Model X", "Model S", "Cybertruck" };
+        static int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
+        static string[] colores_disponibles = { "Amarillo", "Azul", "Blanco", "Bordo","Gris", "Marron", "Naranja", "Negro" };
 
         /// <summary>
         /// El constructor del formulario cargara las opciones de los comboBox
