@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing.Text;
@@ -80,7 +81,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             ProximoService = ((kmActual / service) + 1) * service;   //kilometraje que se  debe realizar el próximo service            
             CantServices = (kmActual/ service); //cantidad de services que fueron realizados
             CantCargas = (kmActual / autonomia);    //cantidad de cargas de baterías
-            kmUltimaCarga = kmActual; // Cantidad de kilometros en la ultima carga de bateria
         }
 
         public int Id
@@ -90,15 +90,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         public int KmActual
         {
             get { return kmActual; }
-            set 
-            { 
-                kmActual = value;
-                if (kmActual >= ProximoService)
-                {
-                    kmUltimaCarga = kmActual;
-                    
-                }
-            }
+            set { kmActual = value; }
         }
 
         public int Asientos
@@ -116,13 +108,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         public override string ToString()
         {
             return $"ID: {id}, Marca:{Marca}, Modelo: {Modelo}, Año: {Anio}, Kilometraje Actual: {KmActual}, Kilometraje Service: {ProximoService}, Color: {Color}, Dueño: {Duenio}.";
-        }
-
-        // Agrega un nuevo método para calcular el porcentaje de batería que queda
-        public decimal PorcentajeBateria()
-        {
-            int kmDesdeUltimaCarga = kmActual - kmUltimaCarga;
-            return 100 * (1 - (decimal)kmDesdeUltimaCarga / Autonomia);
         }
 
         /// <summary>
@@ -143,7 +128,9 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             cantNavegacion = kmActual / controlSistemaNavegacion;
             cantTraccion = kmActual / controlSistemaTraccion;
             cantMotor = kmActual / controlMotor;
-            decimal porcentajeBateria = PorcentajeBateria();
+            // calcular el porcentaje de batería que queda
+            double sobranteCarga = ((double)kmActual % Autonomia / Autonomia) * 100;
+            double porcentajeBateria = Convert.ToInt32(-sobranteCarga + 100);
 
             string reporte = $"Tesla {Modelo} | ID: {Id} | Kilometros actuales: {KmActual}kms | Service cada: {IntervaloService}kms | Bateria: {porcentajeBateria}%\n" +
                 $"Se realizaron [{CantServices}] services.\n" +
