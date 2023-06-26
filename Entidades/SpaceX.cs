@@ -20,7 +20,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     /// </summary>
     public class SpaceX : Vehiculo
     {
-
         #region Propiedades
         private static int contadorId = 1;
         private int id;
@@ -75,10 +74,10 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         /// 
         /// Escaneo()
         /// Funcion abstracta heredada de la clase Vehiculo que retorna un string
-        /// Se usan variables para almecenar la cantidad de services
-        /// que se le realizaron al SpaceX respecto del checkeo y su kilometraje actual.
+        /// Se usan variables para almacenar la cantidad de services
+        /// que se le realizaron al SpaceX respecto del checkeo y su horas de vuelo actual.
         /// Y finalmente devuelve un String elaborado con las variables 
-        /// correspondientes a este objeto tesla.
+        /// correspondientes a este objeto.
         /// 
         /// </summary>
         public override string Escaneo()

@@ -49,6 +49,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         private int cantNavegacion;
         private int cantTraccion;
         private int cantMotor;
+        private int kmUltimaCarga;
 
         /// <summary>
         /// Contructor, se tiene en cuenta que el modelo es de tipo string,
@@ -79,6 +80,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             ProximoService = ((kmActual / service) + 1) * service;   //kilometraje que se  debe realizar el próximo service            
             CantServices = (kmActual/ service); //cantidad de services que fueron realizados
             CantCargas = (kmActual / autonomia);    //cantidad de cargas de baterías
+            kmUltimaCarga = kmActual; // Cantidad de kilometros en la ultima carga de bateria
         }
 
         public int Id
@@ -88,7 +90,15 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         public int KmActual
         {
             get { return kmActual; }
-            set { kmActual = value; }
+            set 
+            { 
+                kmActual = value;
+                if (kmActual >= ProximoService)
+                {
+                    kmUltimaCarga = kmActual;
+                    
+                }
+            }
         }
 
         public int Asientos
@@ -108,14 +118,21 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             return $"ID: {id}, Marca:{Marca}, Modelo: {Modelo}, Año: {Anio}, Kilometraje Actual: {KmActual}, Kilometraje Service: {ProximoService}, Color: {Color}, Dueño: {Duenio}.";
         }
 
+        // Agrega un nuevo método para calcular el porcentaje de batería que queda
+        public decimal PorcentajeBateria()
+        {
+            int kmDesdeUltimaCarga = kmActual - kmUltimaCarga;
+            return 100 * (1 - (decimal)kmDesdeUltimaCarga / Autonomia);
+        }
+
         /// <summary>
         /// 
         /// Escaneo()
         /// Funcion abstracta heredada de la clase Vehiculo que retorna un string
-        /// Se usan variables para almecenar la cantidad de services
+        /// Se usan variables para almacenar la cantidad de services
         /// que se le realizaron al Tesla respecto de su kilometraje actual.
         /// Y finalmente devuelve un String elaborado con las variables 
-        /// correspondientes a este objeto tesla.
+        /// correspondientes a este objeto.
         /// 
         /// </summary>
 
@@ -126,11 +143,12 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             cantNavegacion = kmActual / controlSistemaNavegacion;
             cantTraccion = kmActual / controlSistemaTraccion;
             cantMotor = kmActual / controlMotor;
+            decimal porcentajeBateria = PorcentajeBateria();
 
-            string reporte =$"Tesla {Modelo} | ID: {Id} | Kilometros actuales: {KmActual}kms | Service cada: {IntervaloService}kms\n"+
+            string reporte = $"Tesla {Modelo} | ID: {Id} | Kilometros actuales: {KmActual}kms | Service cada: {IntervaloService}kms | Bateria: {porcentajeBateria}%\n" +
                 $"Se realizaron [{CantServices}] services.\n" +
                 $"({cantCinturones}) Controles de cinturones de seguridad.\n" +
-                $"({cantBaterias}) Controles de baterias.\n"+
+                $"({cantBaterias}) Controles de baterias.\n" +
                 $"({cantNavegacion}) Controles del Sistema de Navegación.\n" +
                 $"({cantTraccion}) Controles del Sistema de Tracción.\n" +
                 $"({cantMotor}) Controles de Motor.\n";

@@ -135,7 +135,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// y se guardaran en variables para ser asignadas al nuevo objeto SpaceX.
         /// Se mostrará un messageBox cuando se agregue un SpaceX a la lista, se refrescará
         /// el dgv vaciandoló y cargandoló nuevamente con la lista actualizada. Y por último se hace
-        /// un clear de los campos de los textbox y combobox. 
+        /// un clear de los campos de los textbox, combobox y errores si los hubiera. 
         /// Tambien se controlá en manejo de errores en caso de que surja alguno se mostrará un mensaje con el tipo de error.
         /// </summary> 
         private void guardarSpaceX()
@@ -145,6 +145,11 @@ namespace FERNANDES_ROCCIA_TAPIA
                 string modelo = modelos.SelectedItem.ToString();
                 int autonomia;
                 int service;
+                int anio = Convert.ToInt32(anios.SelectedItem);
+                int HsVueloActual = Convert.ToInt32(hsVueloActual.Text);
+                string color = colores.SelectedItem.ToString();
+                string nombre = duenio.Text.Trim().ToUpper();
+
                 //condicion para asignar service y autonomia del SpaceX segun modelo
                 if (modelo == "Falcon 9")
                 {
@@ -157,34 +162,30 @@ namespace FERNANDES_ROCCIA_TAPIA
                     autonomia = 500;
                     service = 1000;
                 }
-
-                int anio = Convert.ToInt32(anios.SelectedItem);
-                int HsVueloActual = Convert.ToInt32(hsVueloActual.Text);
-                string color = colores.SelectedItem.ToString();
-                string nombre = duenio.Text.Trim().ToUpper();
-                
+                // Instancia de clase y se agrega a la lista correspondiente
                 SpaceX spaceX = new SpaceX(modelo, anio, HsVueloActual, color, nombre, autonomia, service);
                 lista.Add(spaceX);
-                // public FormSpaceX(List<SpaceX> listaSpaceX)
-
+                // Mensaje de creacion correcta
                 string mensaje = $"Creó un SpaceX correctamente y se agregó a la lista con el ID: {spaceX.Id}.";
                 MessageBoxButtons botones = MessageBoxButtons.OK;
                 MessageBox.Show(mensaje, "Genial", botones);
-                //Reset clear
+                // Reset clear
 
                 dgv_spacex.DataSource = null;
                 dgv_spacex.DataSource = lista;
+                errorProvider1.SetError(btnEliminar, "");
+                errorProvider1.SetError(btnEscanear, "");
 
                 modelos.SelectedIndex = -1;
                 anios.SelectedIndex = -1;
                 hsVueloActual.Clear();
                 colores.SelectedIndex = -1;
                 duenio.Clear();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Se produjo un error al crear un tesla" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
         #endregion
@@ -192,9 +193,9 @@ namespace FERNANDES_ROCCIA_TAPIA
         #region Boton eliminar y funcionalidad
         /// <summary>
         /// Funcion para obtener informacion y poder eliminar elementos de la lista
-        /// mostrada en el datagridview, para eso se usa la funcion 
-        /// CellClick del datagrid para obtener el indice
-        /// del elemento que queremos eliminar, y eliminamos por indice = id.
+        /// mostrada en el datagridview, para eso se usa la función 
+        /// CellClick del datagrid para obtener el índice
+        /// del elemento que queremos eliminar, y eliminamos por índice = id.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -218,6 +219,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             try
             {
+                errorProvider1.SetError(btnEliminar, "");
                 if (indiceFila != -1)
                 {
                     idc = (int)dgv_spacex.Rows[indiceFila].Cells[0].Value;
@@ -229,19 +231,13 @@ namespace FERNANDES_ROCCIA_TAPIA
                         dgv_spacex.DataSource = null;
                         dgv_spacex.DataSource = lista;
                         indiceFila = -1;
-
-                    }
-                    else if (lista.Count == 0)
-                    {
-                        errorProvider1.SetError(btnEliminar, "Error la lista esta vacía.");
-                        btnEliminar.Focus();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Se produjo un error al eliminar un SpaceX. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                errorProvider1.SetError(btnEliminar, "La lista está vacía. Error: " +ex.Message);
+                btnEliminar.Focus();
             }
 
         }
@@ -249,14 +245,14 @@ namespace FERNANDES_ROCCIA_TAPIA
 
         #region Boton Escanear
         /// <summary>
-        /// Este boton va a realizar el escaneo del SpaceX que se seleccione
+        /// Este botón va a realizar el escaneo del SpaceX que se seleccione
         /// del DataGridView, haciendo referencia al objeto que se encuentra 
-        /// guardado en la lista del prgorama principal.
-        /// Para evitar errores de ejecucion se valida que la lista no este vacía,
+        /// guardado en la lista del programa principal.
+        /// Para evitar errores de ejecución se valida que la lista no este vacía,
         /// y en el DataGridView unicamente se permite la seleccion de filas.
         /// Si el DTG esta vacío se mostrará un error al costado derecho 
         /// del botón.
-        /// Tambien se controlan las excepciones.
+        /// También se controlan excepciones.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -265,6 +261,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             try
             {
+                errorProvider1.SetError(btnEscanear, "");
                 if (lista.Count > 0)
                 {
                     SpaceX teslac = (SpaceX)dgv_spacex.CurrentRow.DataBoundItem;

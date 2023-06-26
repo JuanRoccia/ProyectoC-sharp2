@@ -23,12 +23,13 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// por ejemplo en la clase tesla se les va realizar el service cada tantos KMS, mientras que a la clase SpaceX cada tantas HORAS de vuelo, pero el tipo de dato sigue siendo el mismo.
         /// Se crearon variables adicionales como ejemplo CantidadCargas para
         /// cumplir con los requerimientos del proyecto y para mayor funcionalidad del programa. 
-        /// El punto 5 solicita que se muestre la cantidad de cargas de bateria/combustible
+        /// El punto 5 solicita que se muestre la cantidad de cargas de batería/combustible
         /// de todos los vehiculos, para esto se tomo la decisión de guardar la cantidad de veces que se cargó bateria/combustible
-        /// en una variable de cada vehiculo y se mostrará en una columna del DataGridView para todos los vehiculos, para poder realizar la cargar batería/combustible primero debe consumir el 100%.
+        /// en una variable de cada vehiculo y se mostrará en una columna del DataGridView para todos los vehículos, para poder realizar la cargar batería/combustible primero se debe consumir el 100%.
         /// Para una explicación más detallada de la lógica de la aplicación, las decisiones de diseño tomadas,
         /// y cómo interactúa el código con la interfaz gráfica de usuario, consulte el archivo README.md en el repositorio.
         /// De todos modos el codigo está comentado para explicar cada formulario y cada función.
+        /// 
         /// </summary>
         [STAThread]
         static void Main()

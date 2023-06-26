@@ -142,7 +142,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// y se guardaran en variables para ser asignadas al nuevo objeto Tesla.
         /// Se mostrará un messageBox cuando se agregue un tesla a la lista, se refrescará
         /// el dgv vaciandoló y cargandoló nuevamente con la lista actualizada. Y por último se hace
-        /// un clear de los campos de los textbox y combobox. 
+        /// un clear de los campos de los textbox, combobox y errores si los hubiera. 
         /// Tambien se controlá en manejo de errores en caso de que surja alguno se mostrará un mensaje con el tipo de error.
         /// </summary>
         private void guardarTesla()
@@ -153,6 +153,11 @@ namespace FERNANDES_ROCCIA_TAPIA
                 int asientos;
                 int autonomia;
                 int service;
+                int anio = Convert.ToInt32(anios.SelectedItem);
+                int kmActual = Convert.ToInt32(kmActuales.Text);
+                string color = colores.SelectedItem.ToString();
+                string nombre = duenio.Text.Trim().ToUpper();
+
                 //condicion para asignar asientos y autonomia del Tesla segun modelo
                 if (modelo == "Model X")
                 {
@@ -173,28 +178,27 @@ namespace FERNANDES_ROCCIA_TAPIA
                     service = 3000;
                 }
 
-                int anio = Convert.ToInt32(anios.SelectedItem);
-                int kmActual = Convert.ToInt32(kmActuales.Text);
-                string color = colores.SelectedItem.ToString();
-                string nombre = duenio.Text.Trim().ToUpper();
-
+                // Instancia de clase y se agrega a la lista correspondiente
                 Tesla tesla = new Tesla(modelo, anio, kmActual, color, nombre, autonomia, asientos, service);
                 lista.Add(tesla);
-                //public FormTesla(List<Tesla> listaTeslas)
-
+                // Mensaje de creacion correcta
                 string mensaje = $"Creó un Tesla correctamente y se agregó a la lista con el ID: {tesla.Id}.";
                 MessageBoxButtons botones = MessageBoxButtons.OK;
                 MessageBox.Show(mensaje, "Genial", botones);
-                //Reset clear
+                // Reset clear
 
                 dgv_tesla.DataSource = null;
                 dgv_tesla.DataSource = lista;
+                errorProvider1.SetError(btnEliminar, "");
+                errorProvider1.SetError(btnEscanear, "");
+                errorProvider1.SetError(btnMostrarTeslaMasKm, "");
 
                 modelos.SelectedIndex = -1;
                 anios.SelectedIndex = -1;
                 kmActuales.Clear();
                 colores.SelectedIndex = -1;
                 duenio.Clear();
+
             }catch(Exception ex)
             {
                 MessageBox.Show("Se produjo un error al crear un tesla" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -208,9 +212,9 @@ namespace FERNANDES_ROCCIA_TAPIA
 
         /// <summary>
         /// Funcion para obtener informacion y poder eliminar elementos de la lista
-        /// mostrada en el datagridview, para eso se usa la funcion 
-        /// CellClick del datagrid para obtener el indice
-        /// del elemento seleccionado que queremos eliminar, y eliminamos por indice = id.
+        /// mostrada en el datagridview, para eso se usa la función 
+        /// CellClick del datagrid para obtener el índice
+        /// del elemento seleccionado que queremos eliminar, y eliminamos por índice = id.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -235,8 +239,11 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             try
             {
+                errorProvider1.SetError(btnEliminar, "");
                 if (indiceFila != -1)
                 {
+
+                    labelEscaneo.Visible = false;
                     idc = (int)dgv_tesla.Rows[indiceFila].Cells[0].Value;
                     DialogResult dialogResult = MessageBox.Show($"Esta seguro que desea eliminar el tesla ID: {idc} ?"
                                             , "Eliminar tesla", MessageBoxButtons.YesNo);
@@ -246,7 +253,6 @@ namespace FERNANDES_ROCCIA_TAPIA
                         dgv_tesla.DataSource = null;
                         dgv_tesla.DataSource = lista;
                         indiceFila = -1;
-                    
                     }
                 }
                 else if (lista.Count == 0)
@@ -256,8 +262,8 @@ namespace FERNANDES_ROCCIA_TAPIA
                 }
             }catch(Exception ex)
             {
-                MessageBox.Show("Se produjo un error al eliminar un Tesla. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                errorProvider1.SetError(btnEliminar, "La lista está vacía. Error: " + ex.Message);
+                btnEliminar.Focus();
             }
 
         }
@@ -271,14 +277,16 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// Para evitar errores de ejecucion se valida que la lista no este vacía,
         /// y en el DataGridView unicamente se permite la seleccion de filas.
         /// Si el DTG esta vacío se mostrará un error al costado derecho del botón.
-        /// Tambien se controlan las excepciones.
+        /// También se controlan excepciones.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnEscanear_Click(object sender, EventArgs e)
         {
             try
-            {
+            {   
+                errorProvider1.SetError(btnEscanear, "");
+
                 if(lista.Count > 0)               
                 {
                     Tesla teslac = (Tesla)dgv_tesla.CurrentRow.DataBoundItem;
@@ -308,10 +316,10 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// principal de teslas y guardando a este objeto en la variable tesla.
         /// Objeto que se utiliza para mostrar todos los datos a traves del 
         /// metodo sobreescrito ToString() y en el titulo de la ventana
-        /// se mostrara el tesla y su ID correspondiente.
+        /// se mostrará el tesla y su ID correspondiente.
         /// Caso que la lista este vacía se mostrará un error 
         /// al costado derecho del boton "Mostrar el tesla con más kilometraje"
-        /// Tambien se controlan las excepciones.
+        /// Tambien se controlan excepciones.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -319,8 +327,10 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             try
             {
-                if(lista.Count > 0)
+                errorProvider1.SetError(btnMostrarTeslaMasKm, "");
+                if (lista.Count > 0)
                 {
+                    
                     Tesla tesla = lista.OrderByDescending(t => t.KmActual).FirstOrDefault();
                     string mensaje = $"El tesla con más kilometraje es el: {tesla} ";
                     string titulo = $"Tesla ID: {tesla.Id} ";
