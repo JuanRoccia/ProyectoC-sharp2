@@ -93,8 +93,7 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.dgv_tesla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_tesla.EnableHeadersVisualStyles = false;
             this.dgv_tesla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.dgv_tesla.Location = new System.Drawing.Point(8, 52);
-            this.dgv_tesla.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_tesla.Location = new System.Drawing.Point(6, 42);
             this.dgv_tesla.Name = "dgv_tesla";
             this.dgv_tesla.ReadOnly = true;
             this.dgv_tesla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -115,7 +114,7 @@ namespace FERNANDES_ROCCIA_TAPIA
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dgv_tesla.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_tesla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_tesla.Size = new System.Drawing.Size(1557, 340);
+            this.dgv_tesla.Size = new System.Drawing.Size(1070, 276);
             this.dgv_tesla.TabIndex = 2;
             this.dgv_tesla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tesla_CellClick_1);
             // 
@@ -125,10 +124,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.duenio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.duenio.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorProvider1.SetIconAlignment(this.duenio, System.Windows.Forms.ErrorIconAlignment.BottomRight);
-            this.duenio.Location = new System.Drawing.Point(547, 38);
-            this.duenio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.duenio.Location = new System.Drawing.Point(410, 31);
             this.duenio.Name = "duenio";
-            this.duenio.Size = new System.Drawing.Size(323, 26);
+            this.duenio.Size = new System.Drawing.Size(243, 22);
             this.duenio.TabIndex = 9;
             // 
             // colores
@@ -138,10 +136,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.colores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colores.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colores.FormattingEnabled = true;
-            this.colores.Location = new System.Drawing.Point(348, 37);
-            this.colores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colores.Location = new System.Drawing.Point(261, 30);
             this.colores.Name = "colores";
-            this.colores.Size = new System.Drawing.Size(112, 26);
+            this.colores.Size = new System.Drawing.Size(85, 22);
             this.colores.TabIndex = 8;
             // 
             // kmActuales
@@ -149,10 +146,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.kmActuales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.kmActuales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.kmActuales.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kmActuales.Location = new System.Drawing.Point(348, 76);
-            this.kmActuales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.kmActuales.Location = new System.Drawing.Point(261, 62);
             this.kmActuales.Name = "kmActuales";
-            this.kmActuales.Size = new System.Drawing.Size(113, 26);
+            this.kmActuales.Size = new System.Drawing.Size(85, 22);
             this.kmActuales.TabIndex = 7;
             // 
             // anios
@@ -162,10 +158,10 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.anios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.anios.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.anios.FormattingEnabled = true;
-            this.anios.Location = new System.Drawing.Point(100, 76);
-            this.anios.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
+            this.anios.Location = new System.Drawing.Point(75, 62);
+            this.anios.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.anios.Name = "anios";
-            this.anios.Size = new System.Drawing.Size(112, 26);
+            this.anios.Size = new System.Drawing.Size(85, 22);
             this.anios.TabIndex = 6;
             // 
             // modelos
@@ -175,10 +171,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.modelos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modelos.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modelos.FormattingEnabled = true;
-            this.modelos.Location = new System.Drawing.Point(100, 37);
-            this.modelos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.modelos.Location = new System.Drawing.Point(75, 30);
             this.modelos.Name = "modelos";
-            this.modelos.Size = new System.Drawing.Size(112, 26);
+            this.modelos.Size = new System.Drawing.Size(85, 22);
             this.modelos.TabIndex = 5;
             // 
             // label6
@@ -186,10 +181,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.label6.Location = new System.Drawing.Point(481, 44);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(361, 36);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 19);
+            this.label6.Size = new System.Drawing.Size(46, 16);
             this.label6.TabIndex = 4;
             this.label6.Text = "Dueño:";
             // 
@@ -198,10 +192,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.label5.Location = new System.Drawing.Point(233, 44);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(175, 36);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 19);
+            this.label5.Size = new System.Drawing.Size(38, 16);
             this.label5.TabIndex = 3;
             this.label5.Text = "Color:";
             // 
@@ -210,10 +203,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.label4.Location = new System.Drawing.Point(233, 84);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(175, 68);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 19);
+            this.label4.Size = new System.Drawing.Size(83, 16);
             this.label4.TabIndex = 2;
             this.label4.Text = "Kms. Actuales:";
             // 
@@ -222,10 +214,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.label3.Location = new System.Drawing.Point(41, 84);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(31, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 19);
+            this.label3.Size = new System.Drawing.Size(31, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "Año:";
             // 
@@ -234,10 +225,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.label2.Location = new System.Drawing.Point(13, 44);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(10, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 19);
+            this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Modelo:";
             // 
@@ -262,11 +252,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.grupoDatos.Controls.Add(this.modelos);
             this.grupoDatos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grupoDatos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.grupoDatos.Location = new System.Drawing.Point(6, 15);
-            this.grupoDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grupoDatos.Location = new System.Drawing.Point(4, 12);
             this.grupoDatos.Name = "grupoDatos";
-            this.grupoDatos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grupoDatos.Size = new System.Drawing.Size(1562, 123);
+            this.grupoDatos.Size = new System.Drawing.Size(1070, 100);
             this.grupoDatos.TabIndex = 16;
             this.grupoDatos.TabStop = false;
             this.grupoDatos.Text = "Dar de alta un Tesla";
@@ -274,10 +262,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel2.Location = new System.Drawing.Point(863, 75);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(647, 61);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(7, 31);
+            this.panel2.Size = new System.Drawing.Size(5, 25);
             this.panel2.TabIndex = 17;
             // 
             // btnGuardar
@@ -290,10 +277,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.Location = new System.Drawing.Point(547, 75);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Location = new System.Drawing.Point(410, 61);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(323, 31);
+            this.btnGuardar.Size = new System.Drawing.Size(242, 25);
             this.btnGuardar.TabIndex = 13;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -302,10 +288,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel1.Location = new System.Drawing.Point(171, 399);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(128, 324);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(7, 31);
+            this.panel1.Size = new System.Drawing.Size(5, 25);
             this.panel1.TabIndex = 12;
             // 
             // btnEscanear
@@ -318,10 +303,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.btnEscanear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEscanear.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnEscanear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEscanear.Location = new System.Drawing.Point(12, 399);
-            this.btnEscanear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEscanear.Location = new System.Drawing.Point(9, 324);
             this.btnEscanear.Name = "btnEscanear";
-            this.btnEscanear.Size = new System.Drawing.Size(165, 31);
+            this.btnEscanear.Size = new System.Drawing.Size(124, 25);
             this.btnEscanear.TabIndex = 11;
             this.btnEscanear.Text = "Escanear";
             this.btnEscanear.UseVisualStyleBackColor = false;
@@ -338,10 +322,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.Location = new System.Drawing.Point(208, 399);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Location = new System.Drawing.Point(156, 324);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(165, 31);
+            this.btnEliminar.Size = new System.Drawing.Size(124, 25);
             this.btnEliminar.TabIndex = 15;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -350,10 +333,9 @@ namespace FERNANDES_ROCCIA_TAPIA
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel3.Location = new System.Drawing.Point(367, 399);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(275, 324);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(7, 31);
+            this.panel3.Size = new System.Drawing.Size(5, 25);
             this.panel3.TabIndex = 18;
             // 
             // groupBox1
@@ -369,21 +351,18 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.groupBox1.Controls.Add(this.dgv_tesla);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.groupBox1.Location = new System.Drawing.Point(6, 159);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(4, 129);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(1562, 590);
+            this.groupBox1.Size = new System.Drawing.Size(1080, 479);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel4.Location = new System.Drawing.Point(781, 399);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Location = new System.Drawing.Point(586, 324);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(7, 31);
+            this.panel4.Size = new System.Drawing.Size(5, 25);
             this.panel4.TabIndex = 22;
             // 
             // btnMostrarTeslaMasKm
@@ -396,10 +375,10 @@ namespace FERNANDES_ROCCIA_TAPIA
             this.btnMostrarTeslaMasKm.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.btnMostrarTeslaMasKm.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnMostrarTeslaMasKm.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMostrarTeslaMasKm.Location = new System.Drawing.Point(403, 399);
+            this.btnMostrarTeslaMasKm.Location = new System.Drawing.Point(302, 324);
             this.btnMostrarTeslaMasKm.Margin = new System.Windows.Forms.Padding(0);
             this.btnMostrarTeslaMasKm.Name = "btnMostrarTeslaMasKm";
-            this.btnMostrarTeslaMasKm.Size = new System.Drawing.Size(385, 31);
+            this.btnMostrarTeslaMasKm.Size = new System.Drawing.Size(289, 25);
             this.btnMostrarTeslaMasKm.TabIndex = 21;
             this.btnMostrarTeslaMasKm.Text = "Mostrar Tesla con más Kilometraje";
             this.btnMostrarTeslaMasKm.UseVisualStyleBackColor = false;
@@ -407,10 +386,10 @@ namespace FERNANDES_ROCCIA_TAPIA
             // 
             // labelEscaneo
             // 
-            this.labelEscaneo.Location = new System.Drawing.Point(13, 433);
-            this.labelEscaneo.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.labelEscaneo.Location = new System.Drawing.Point(10, 352);
+            this.labelEscaneo.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelEscaneo.Name = "labelEscaneo";
-            this.labelEscaneo.Size = new System.Drawing.Size(775, 148);
+            this.labelEscaneo.Size = new System.Drawing.Size(581, 120);
             this.labelEscaneo.TabIndex = 20;
             this.labelEscaneo.Text = "Escaneo";
             this.labelEscaneo.Visible = false;
@@ -419,24 +398,22 @@ namespace FERNANDES_ROCCIA_TAPIA
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 23);
+            this.label1.Size = new System.Drawing.Size(154, 19);
             this.label1.TabIndex = 19;
             this.label1.Text = "Sistema de Gestión";
             // 
             // FormTesla
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1440, 862);
+            this.ClientSize = new System.Drawing.Size(1080, 612);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grupoDatos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormTesla";
             this.Text = "FormTesla";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tesla)).EndInit();

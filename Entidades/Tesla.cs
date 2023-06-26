@@ -18,14 +18,19 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     ///  asientos:7, autonomia:560 KMS y como service: 1000 KMS
     /// Para la correcta instanciación de los Tesla se crea un constructor.
     /// Para la cantidad de cargas de baterias se tiene en cuenta que la bateria se 
-    /// cargó solo cuando se uso el 100%, para esto hacemos la cuenta de kmActuales / autonomia.
+    /// cargó solo cuando se uso el 100%, para esto hacemos la cuenta de kmActuales / autonomia
+    /// y como resultado obtenemos la cantidad de veces que se cargó la bateria.
     /// Para obtener el kilometraje del proximo service se realiza la cuenta
-    /// para buscar el siguiente multiplo del service que le corresponda a cada vehiculo
+    /// para buscar el siguiente multiplo del service que le corresponda a cada vehículo
     /// para eso hicimos la cuenta (kmActual / service +1) * service;
-    /// A la propiedad Id solo se le creo unicamente un getter y no un setter
+    /// A la propiedad Id se le creo unicamente un getter y no un setter
     /// para evitar que pueda ser modificado.
     /// Todos los atributos de clase Tesla son declarados como privados
     /// por diseño y encapsulación.
+    /// Las constantes representan el intervalo en kilómetros con el que se 
+    /// deben realizar los checkeos exhaustivos, y las variables
+    /// cantCinturones, cantBaterias, cantNavegacion, etc.
+    /// se usarán para almacenar la cantidad de checkeos realizados en la función Escaneo()
     /// </summary>
     public class Tesla : Vehiculo
     {
@@ -33,28 +38,32 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         private static int contadorId = 1;
         private int id;
         private int kmActual;
-        private int kmService;
         private int asientos;
         private const int controlCinturones = 1000;
         private const int controlBaterias = 2000;
         private const int controlSistemaNavegacion = 2500;
         private const int controlSistemaTraccion = 3000;
         private const int controlMotor = 3000;
+        private int cantCinturones;
+        private int cantBaterias;
+        private int cantNavegacion;
+        private int cantTraccion;
+        private int cantMotor;
+        private decimal bateria;
 
         /// <summary>
         /// Contructor, se tiene en cuenta que el modelo es de tipo string,
         /// la unidad de medida de la autonomia es en Kms
-        /// los parametros autonomia, asientos y service dependen del modelo de tesla
+        /// las propiedades autonomia, asientos y service dependen del modelo de tesla
         /// </summary>
         /// <param name="modelo">modelo del tesla</param>
-        /// <param name="anio">año de creacion del vehiculo</param>
+        /// <param name="anio">año de creación del vehiculo</param>
         /// <param name="kmActual">kilometraje actual</param>
-        /// <param name="kmService">kilometraje en que se debe realizar el proximo service</param>
-        /// <param name="color">color del vehiculo</param>
+        /// <param name="color">color del vehículo</param>
         /// <param name="duenio">porpietario</param>
-        /// <param name="autonomia">cantidad de kilometros que el vehiculo puede recorrer con una carga completa de batería</param>
-        /// <param name="asientos">cantidad de asientos del vehiculo</param>
-        /// <param name="service">cantidad de services que se le realizaron al vehiculo(depende del kmActual)</param>
+        /// <param name="autonomia">cantidad de kilometros que el vehículo puede recorrer con una carga completa de batería</param>
+        /// <param name="asientos">cantidad de asientos del vehículo</param>
+        /// <param name="service">intervalo con el que se deben realizar los services(depende del modelo y se mide en kilómetros)</param>
         public Tesla(string modelo, int anio, int kmActual, string color, string duenio, int autonomia, int asientos, int service)
         {
             id = contadorId++;
@@ -62,14 +71,15 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             Modelo = modelo;
             Anio = anio;
             KmActual = kmActual;
-            kmService = (kmActual + service);
             Color = color;
             Duenio = duenio;
             Autonomia = autonomia;
-            this.asientos = asientos;
+            Asientos = asientos;
             IntervaloService =  service;
-            CantServices = (kmActual/ service);
-            CantCargas = (kmActual / autonomia);
+
+            ProximoService = ((kmActual / service) + 1) * service;   //kilometraje que se  debe realizar el próximo service            
+            CantServices = (kmActual/ service); //cantidad de services que fueron realizados
+            CantCargas = (kmActual / autonomia);    //cantidad de cargas de baterías
         }
 
         public int Id
@@ -82,11 +92,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             set { kmActual = value; }
         }
 
-        public int ProximoService
-        {
-            get { return kmService; }
-        }
-
         public int Asientos
         {
             get { return asientos; }
@@ -96,7 +101,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
 
         #region Funcionalidades
         /// <summary>
-        /// Metodo abstracto de la clase padre Vehiculo, que es sobreescrito
+        /// Metodo abstracto ToString() declarado en la clase padre Vehiculo, que es sobreescrito.
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -114,11 +119,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         /// correspondientes a este objeto tesla.
         /// 
         /// </summary>
-        private int cantCinturones;
-        private int cantBaterias;
-        private int cantNavegacion;
-        private int cantTraccion;
-        private int cantMotor;
+
         public override string Escaneo()
         {            
             cantCinturones = kmActual / controlCinturones;
@@ -126,14 +127,17 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             cantNavegacion = kmActual / controlSistemaNavegacion;
             cantTraccion = kmActual / controlSistemaTraccion;
             cantMotor = kmActual / controlMotor;
+            bateria = KmActual / Autonomia;
 
-            return $"TESLA ID: {Id}.\n" + 
+            string reporte =$"Tesla {Modelo} | ID: {Id} | Kilometros actuales: {KmActual}kms | Service cada: {IntervaloService}kms\n"+
                 $"Se realizaron [{CantServices}] services.\n" +
                 $"({cantCinturones}) Controles de cinturones de seguridad.\n" +
                 $"({cantBaterias}) Controles de baterias.\n"+
                 $"({cantNavegacion}) Controles del Sistema de Navegación.\n" +
                 $"({cantTraccion}) Controles del Sistema de Tracción.\n" +
                 $"({cantMotor}) Controles de Motor.\n";
+
+            return reporte;
         }
         #endregion
     }

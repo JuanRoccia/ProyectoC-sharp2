@@ -1,11 +1,12 @@
 # Proyecto C# 2 - Gestor de Tareas
+
 Proyecto 2 Tema 3
 
-Este proyecto es una aplicación de gestión de tareas desarrollada en C# utilizando Windows Forms. 
+Este proyecto es una aplicación de gestión de tareas desarrollada en C# utilizando Windows Forms.
 
 ## Resumen
 
-La aplicación permite a los usuarios crear, editar y eliminar tareas. La lógica de la aplicación se basa en la interacción entre los formularios (interfaz gráfica de usuario) y las clases (lógica de la aplicación).
+La aplicación permite a los usuarios crear y eliminar tareas. La lógica de la aplicación se basa en la interacción entre los formularios (interfaz gráfica de usuario) y las clases (lógica de la aplicación).
 
 Para una explicación más detallada de la lógica de la aplicación, las decisiones de diseño tomadas, y cómo interactúa el código con la interfaz gráfica de usuario, continúe leyendo este archivo README.
 
@@ -35,15 +36,16 @@ El proyecto está organizado en varias carpetas para mantener el código y los r
 
 2. **Forms**: Esta carpeta contiene todos los formularios de la aplicación. Cada formulario consta de dos partes principales:
 
-    - **Diseño gráfico**: Esta es la interfaz de usuario que ven los usuarios. Define la apariencia de la aplicación, incluyendo la disposición de los controles, los colores, las fuentes, etc.
+   - **Diseño gráfico**: Esta es la interfaz de usuario que ven los usuarios. Define la apariencia de la aplicación, incluyendo la disposición de los controles, los colores, las fuentes, etc.
 
-    - **Código**: Este es el código que controla el comportamiento de la aplicación. Incluye el código para interactuar con el resto del programa (como las clases en la carpeta Entidades) y el código que controla el diseño gráfico.
+   - **Código**: Este es el código que controla el comportamiento de la aplicación. Incluye el código para interactuar con el resto del programa (como las clases en la carpeta Entidades) y el código que controla el diseño gráfico.
 
 3. **Recursos**: Esta carpeta contiene todos los recursos gráficos que se utilizan en la aplicación, como iconos e imágenes. Estos recursos se utilizan para mejorar la apariencia de la aplicación y hacerla más intuitiva para los usuarios.
 
 La estructura del proyecto está diseñada para separar claramente la lógica de la aplicación (en la carpeta Entidades), la interfaz de usuario (en la carpeta Forms) y los recursos gráficos (en la carpeta Recursos). Esta organización facilita la navegación por el código y la modificación de diferentes partes de la aplicación.
 
 # 1. **Entidades**
+
 Carpeto de clases principales
 
 ### Clase Vehiculo (Vehicle.cs)
@@ -80,6 +82,17 @@ La clase `Tesla` tiene las siguientes propiedades:
 - `KmActual`: El kilometraje actual del vehículo.
 - `ProximoService`: El kilometraje en el que se debe realizar el próximo servicio.
 - `Asientos`: La cantidad de asientos en el vehículo.
+- `controlCinturones`: Una constante que representa el intervalo de control de los cinturones de seguridad.
+- `controlBaterias`: Una constante que representa el intervalo de control de las baterías.
+- `controlSistemaNavegacion`: Una constante que representa el intervalo de control del sistema de navegación.
+- `controlSistemaTraccion`: Una constante que representa el intervalo de control del sistema de tracción.
+- `controlMotor`: Una constante que representa el intervalo de control del motor.
+
+- `cantCinturones`: La cantidad de controles de cinturones de seguridad que se han realizado.
+- `cantBaterias`: La cantidad de controles de baterías que se han realizado.
+- `cantSistemaNavegacion`: La cantidad de controles del sistema de navegación que se han realizado.
+- `cantSistemaTraccion`: La cantidad de controles del sistema de tracción que se han realizado.
+- `cantMotor`: La cantidad de controles del motor que se han realizado.
 
 Además, tiene varias constantes que representan los intervalos de servicio para diferentes partes del vehículo, como los cinturones de seguridad, las baterías, el sistema de navegación, el sistema de tracción y el motor.
 
@@ -122,11 +135,12 @@ El constructor de la clase `SpaceX` toma varios parámetros, incluyendo el model
 La clase `SpaceX` también tiene un método `Escaneo()`, que devuelve un informe detallado sobre el estado del vehículo, incluyendo la cantidad de servicios realizados y los controles del sistema de propulsión y de navegación.
 
 # 2. **Forms**
+
 Carpeta de los formularios
 
 ## Form1.cs
 
-Este archivo es el código principal de la aplicación y define la interfaz de usuario y la lógica del programa. 
+Este archivo es el código principal de la aplicación y define la interfaz de usuario y la lógica del programa.
 
 ### Descripción general
 
@@ -138,7 +152,7 @@ El programa inicialmente tiene dos listas, una para cada empresa. Estas listas s
 
 ### Detalles del código
 
-El código comienza con la definición de la clase `Form1`, que hereda de la clase `Form` de la biblioteca `System.Windows.Forms`. 
+El código comienza con la definición de la clase `Form1`, que hereda de la clase `Form` de la biblioteca `System.Windows.Forms`.
 
 #### Inicio del formulario principal
 
@@ -148,7 +162,7 @@ En el constructor de `Form1`, se inicializan estas listas y se establece el tama
 
 #### Control de botones
 
-Se definen varios métodos para controlar el comportamiento de los botones de la interfaz de usuario. Estos incluyen botones para cerrar, maximizar, restaurar y minimizar el formulario. 
+Se definen varios métodos para controlar el comportamiento de los botones de la interfaz de usuario. Estos incluyen botones para cerrar, maximizar, restaurar y minimizar el formulario.
 
 Además, se importan algunas funciones de la biblioteca `user32.DLL` para permitir el diseño responsivo y el desplazamiento de la ventana.
 
@@ -204,15 +218,15 @@ Este archivo define la lógica y la interfaz de usuario para gestionar los objet
 
 ### Descripción general
 
-En este formulario, se pueden crear y eliminar objetos SpaceX en la lista recibida del formulario principal. Esta lista es donde se almacenan los cohetes. El formulario contiene toda la funcionalidad y lógica necesaria para instanciar correctamente un nuevo objeto SpaceX. 
+En este formulario, se pueden crear y eliminar objetos SpaceX en la lista recibida del formulario principal. Esta lista es donde se almacenan los cohetes. El formulario contiene toda la funcionalidad y lógica necesaria para instanciar correctamente un nuevo objeto SpaceX.
 
-Se tiene en cuenta los datos ingresados/seleccionados por el usuario y, dependiendo de ellos, se realizan cálculos para implementar lo solicitado en el proyecto. 
+Se tiene en cuenta los datos ingresados/seleccionados por el usuario y, dependiendo de ellos, se realizan cálculos para implementar lo solicitado en el proyecto.
 
-La vista de la lista actual de SpaceX se muestra en un DataGridView y se pueden agregar o eliminar elementos de esta lista. 
+La vista de la lista actual de SpaceX se muestra en un DataGridView y se pueden agregar o eliminar elementos de esta lista.
 
 ### Detalles del código
 
-El código comienza con la definición de la clase `FormSpaceX`, que hereda de la clase `Form` de la biblioteca `System.Windows.Forms`. 
+El código comienza con la definición de la clase `FormSpaceX`, que hereda de la clase `Form` de la biblioteca `System.Windows.Forms`.
 
 #### Cargar un SpaceX
 
@@ -222,7 +236,7 @@ En el constructor de `FormSpaceX`, se inicializan estas listas y se establece el
 
 #### Botón crear SpaceX y función guardarSpaceX
 
-El botón "Crear SpaceX" se encarga de hacer todas las validaciones de los campos. Si todos los campos son válidos, se llama al método `guardarSpaceX()`, que permite la instanciación de la clase SpaceX y agrega el objeto a la lista principal de SpaceX's. 
+El botón "Crear SpaceX" se encarga de hacer todas las validaciones de los campos. Si todos los campos son válidos, se llama al método `guardarSpaceX()`, que permite la instanciación de la clase SpaceX y agrega el objeto a la lista principal de SpaceX's.
 
 La función `guardarSpaceX()` tiene una condición para evaluar qué modelo de SpaceX se eligió para asignar las horas de autonomía y servicio, y así no se crean modelos con datos erróneos. También obtiene los datos de los TextBoxes y los ComboBoxes.
 
