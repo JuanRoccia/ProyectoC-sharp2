@@ -1,4 +1,4 @@
-# Proyecto C# 2 - Gestor de Tareas
+# Proyecto C# 2 - Gestor de Tareas para Elon Musk
 
 Proyecto 2 Tema 3
 
@@ -48,7 +48,7 @@ La estructura del proyecto está diseñada para separar claramente la lógica de
 
 Carpeto de clases principales
 
-### Clase Vehiculo (Vehicle.cs)
+### Clase Vehiculo (Vehiculo.cs)
 
 La clase `Vehicle.cs` es una clase abstracta que sirve como base para los diferentes tipos de vehículos que se pueden implementar en el programa. Esta clase contiene varias propiedades que son comunes a todos los vehículos, como:
 
