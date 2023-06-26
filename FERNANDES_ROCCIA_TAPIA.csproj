@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="Entidades\SpaceX.cs" />
     <Compile Include="Entidades\Tesla.cs" />
-    <Compile Include="Entidades\Vehicle.cs" />
+    <Compile Include="Entidades\Vehiculo.cs" />
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

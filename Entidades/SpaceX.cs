@@ -38,13 +38,14 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             Modelo = modelo;
             Anio = anio;
             HsVueloActual = hsVueloActual;
-            horasService = (hsVueloActual + service); // Para calcular el proximo service
             Color = color;
             Duenio = duenio;
             Autonomia = autonomia;
-            CantServices = (HsVueloActual / service); // Para mostrar la  cantidad de service total realizados
-            CantCargas = (HsVueloActual / autonomia);
             IntervaloService = service; // Para mostrar el intervalo de service corrspondiente a cada modelo
+
+            ProximoService = ((hsVueloActual / service) + 1) * service; // Para calcular el proximo service
+            CantServices = (HsVueloActual / service); // Para mostrar la  cantidad de service total realizados
+            CantCargas = (HsVueloActual / autonomia); // Cantidad de cargas de combustible realizadas
         }
 
 
@@ -57,16 +58,14 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             get { return HsVueloActual; }
             set { HsVueloActual = value; }
         }
-
-        public int ProximoService // para obtener el proximo service
-        {
-            get { return horasService; }
-        }
-
-
         #endregion
 
         #region Funcionalidades
+
+        /// <summary>
+        /// Metodo abstracto ToString() declarado en la clase padre Vehiculo, que es sobreescrito.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"SpaceX";

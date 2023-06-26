@@ -16,26 +16,25 @@ namespace FERNANDES_ROCCIA_TAPIA
     /// El programa principal va a constar de 2 vistas generales. 
     /// Una para la empresa Tesla y otra para la empresa SpaceX.
     /// Se realizaran todas las funcionalidades requeridas en el proyecto más
-    /// funciones adicionales que creímos convenientes para que la interfaz
-    /// sea amigable con el usuario.
+    /// funciones adicionales que creímos convenientes.
+    /// Se implementa una interfaz moderna y minimalista para que sea amigable con el usuario.
     /// Se crearon los botones de minimizar, maximizar, y cerrar el programa
-    /// al estilo windows, pero se creó una interfaz moderna que consta
-    /// de un formulario principal, y subformularios hijos que se mostrarán
-    /// en un panel secundario el cual se denomina "panelContenedor".
-    /// Se tomo la decisión de implementar este modelo, ya que es fácil de escalar.
+    /// al estilo windows
+    /// Form1 es el formulario principal y dentro de este se implemento un panel que se denomina "panelContenedor"
+    /// en el cual se mostrarán los formularios hijos(FormTesla y FormSpaceX).
     /// Se tuvo la idea que este código se puede reutilizar para 
     /// diferentes tipos de vehiculos y/o marcas.
     /// En este mismo formulario principal, se podrian agregar mas vistas, funcionalidades y botones.
     /// El programa inicialmente tendra dos listas una correspondiente a cada empresa,
     /// estas listas simulan los datos que estarian guardados en de una base de datos,
-    /// las listas seran enviadas como argumentos del constructor de cada formulario hijo.
+    /// las listas serán enviadas como argumentos del constructor de cada formulario hijo.
     /// Cada formulario hijo trabajará y manipulará estas listas
     /// dando de alta o eliminando algun elemento de la misma.
     ///  
     /// La definción e instancia de clases, y agregar objetos a lista
-    /// cuando se inicial el formulario es para pruebas de testeo,
+    /// cuando se inicia el formulario es para pruebas de testeo,
     /// pero no es la idea que se puedan realizar modificaciones de esta manera,
-    /// sino que toda alta, baja o modificación se realice a traves de la interfaz gráfica.
+    /// sino que toda alta o eliminación se realice a traves de la interfaz gráfica.
     /// </summary>
     public partial class Form1 : Form
     {
@@ -57,15 +56,15 @@ namespace FERNANDES_ROCCIA_TAPIA
         {
             InitializeComponent();
             listaTesla = new List<Tesla>();
-            //listaTesla.Add(tesla1);
-            //listaTesla.Add(tesla2);
-            //listaTesla.Add(tesla3);
-            //listaTesla.Add(tesla4);
+            listaTesla.Add(tesla1);
+            listaTesla.Add(tesla2);
+            listaTesla.Add(tesla3);
+            listaTesla.Add(tesla4);
             listaSpaceX = new List<SpaceX>();
-            //listaSpaceX.Add(space1);
-            //listaSpaceX.Add(space2);
-            //listaSpaceX.Add(space3);
-            //listaSpaceX.Add(space4);
+            listaSpaceX.Add(space1);
+            listaSpaceX.Add(space2);
+            listaSpaceX.Add(space3);
+            listaSpaceX.Add(space4);
 
 
             // Establecer el tamaño del formulario
@@ -145,11 +144,11 @@ namespace FERNANDES_ROCCIA_TAPIA
 
         #region Control de botones principales, y creacion de formularios hijos
         /// <summary>
-        /// Abre un formulario hijo dentro del panelContenedor que esta dentro del formulario principal.
+        /// Esta función abre un formulario hijo en el panelContenedor (dentro del formulario principal).
         /// Con el if nos aseguramos de que no haya ningún control previamente agregado 
         /// en el panelContenedor antes de agregar un nuevo control, 
         /// y si hay alguno, lo elimina. Esto es útil si se desea reemplazar 
-        /// o actualizar el contenido del contenedor con un nuevo control.
+        /// o actualizar el contenido del panelContenedor con un nuevo control.
         /// </summary>
         /// <param name="formHijo">El formulario hijo que se va a abrir.</param>
         public void AbrirFormHijo(object formHijo)

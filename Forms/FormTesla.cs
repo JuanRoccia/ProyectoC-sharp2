@@ -14,22 +14,24 @@ namespace FERNANDES_ROCCIA_TAPIA
 {
     /// <summary>
     /// 
-    /// En este formulario, se gestionara todo lo relacionado a la clase FormTesla.
-    /// Se podran dar de alta y eliminar objetos Tesla, en la lista recibida
+    /// En este formulario, se gestiona todo lo relacionado a la clase Tesla.
+    /// Se podran dar de alta y eliminar objetos Tesla de la lista recibida
     /// del formulario principal que es donde se van a ir almacenando los teslas.
-    /// Tambien contendra toda la funcionalidad, y toda la logica necesaria
+    /// También contiene toda la funcionalidad, y la lógica necesaria
     /// para que la instancia de un nuevo objeto Tesla sea correcta.
-    /// Se tendran en cuenta los datos ingresados/seleccionados
+    /// Se tendrán en cuenta los datos ingresados/seleccionados
     /// por el usuario y dependiendo de ellos, se haran calculos para 
     /// implentar lo solicitado en el proyecto.
-    /// Se tendra la vista de la lista actual de teslas en un DataGridView
-    /// y se podran dar de alta, o eliminar teslas de esta lista.
-    /// Se usara una funcion para asignar todos los datos y dar de alta un tesla,
-    /// se implementera la logica necesaria para que cada modelo de Tesla se cree
-    /// con las propiedades particulares del modelo seleccionado en un comboBox por el usuario.
+    /// Se tendrá la vista de la lista actual de teslas en un DataGridView vinculado con la lista de Teslas
+    /// y se podrán dar de alta, o eliminar teslas de esta lista.
+    /// Se usará una funcion(agregarTesla()) para asignar todos los datos y dar de alta un tesla,
+    /// con la logica necesaria para que cada modelo de Tesla se cree
+    /// con las propiedades particulares del modelo seleccionado del comboBox.
     /// Esto evita que se creen modelos que no existen, o designados por un usuario normal.
-    /// Las opciones de modelos, anios y colores solo podran modificarlo los desarrolladores,
-    /// a traves de las listas estaticas correspondientes, como asi tambien la asignacion
+    /// Por ejemplo si se elige en el comboBox "Modelo X" se asignara automaticamente en
+    /// la funcion guardarTesla() = asientos:7, autonomia:560 KMS y como service: 1000 KMS
+    /// Las opciones de modelos, anios y colores estarán predefinidos en listas estaticas,
+    /// estas listas solo podran ser modificadas por los desarrolladores, como asi tambien la asignacion
     /// de las propiedades particulares, asientos, autonomia y service.
     /// 
     /// </summary>
@@ -40,6 +42,12 @@ namespace FERNANDES_ROCCIA_TAPIA
         static string[] modelos_disponibles = { "Model X", "Model S", "Cybertruck" };
         static int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
         static string[] colores_disponibles = { "Amarillo", "Azul", "Blanco", "Bordo","Gris", "Marron", "Naranja", "Negro" };
+        /// <summary>
+        /// Esta funcion se ejecuta cuando se inicia el formulario, y se hace una validacion para constatar si la lista 
+        /// esta vacía, si esta vacia el datagridview estará vacio, caso contrario el datagrid se cargara con la información de la lista.
+        /// Además se cargaran los comboBox con las opciones predefinidas en las listas estaticas.
+        /// </summary>
+        /// <param name="listaTeslas">lista que contiene los teslas y esta declarada en el formulario principal</param>
         public FormTesla(List<Tesla> listaTeslas)
         {
             InitializeComponent();
@@ -86,12 +94,17 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
         #endregion
 
-        #region Boton crear tesla y funcion guardarTesla
+        #region Boton Guardar y funcion guardarTesla
         /// <summary>
-        /// El boton crear tesla sera el encargado de hacer todas las validaciones
+        /// El botón Guardar sera el encargado de hacer todas las validaciones
         /// de campos, sino no se podra llamar al metodo guardarTesla() que es quien 
         /// permite la instanciacion de la clase Tesla, y agrega el objeto a la lista principal
         /// de Teslas. 
+        /// Este boton controlará que si o sí se seleccione algun dato de los combobox,
+        /// que los datos ingresados en el textBox km actuales se ingresen datos del tipo correcto,
+        /// numeros que sean positivos y no mayor a 10 millones.
+        /// En el textBox Dueño se controlará que los datos ingresados sean letras u espacios,
+        /// que el tamaño mínimo sea de 5 caracteres y el máximo de 35 caracteres.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -110,7 +123,7 @@ namespace FERNANDES_ROCCIA_TAPIA
             }
             else
             {
-                errorProvider1.SetError(btnGuardar, "* Para guardar un tesla todos los campos deben estar completos y deben ser del tipo correcto.\n" +
+                errorProvider1.SetError(btnGuardar, "* Para guardar un Tesla todos los campos deben estar completos y deben ser del tipo correcto.\n" +
                                                 "! Kms. Actuales: Debe contener numeros positivos entre 0 y 10 millones.\n" +
                                                 "! Dueño: Debe contener mínimo 5 caracteres y máximo 35.");
                 btnGuardar.Focus();
@@ -118,13 +131,19 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
 
         /// <summary>
-        /// Esta funcion tendra un condicional para evaluar que modelo de Tesla se eligió
+        /// Esta funcion tendrá un condicional para evaluar que modelo de Tesla se eligió
         /// para asi asignar la autonomia(int), asientos(int), service(int) y asi no 
         /// se creen modelos con datos erroneos. Tambien obtendra los datos
         /// de los textbox y los combobox.
         /// "Modelo X: 560, 7, 1000"
         /// "Modelo S: 650, 5, 2000"
         /// "Cybertruck: 800, 6, 3000"
+        /// Tambien se tomarán y convertirán todos los datos ingresados/seleccionados por el usuario
+        /// y se guardaran en variables para ser asignadas al nuevo objeto Tesla.
+        /// Se mostrará un messageBox cuando se agregue un tesla a la lista, se refrescará
+        /// el dgv vaciandoló y cargandoló nuevamente con la lista actualizada. Y por último se hace
+        /// un clear de los campos de los textbox y combobox. 
+        /// Tambien se controlá en manejo de errores en caso de que surja alguno se mostrará un mensaje con el tipo de error.
         /// </summary>
         private void guardarTesla()
         {
@@ -191,7 +210,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// Funcion para obtener informacion y poder eliminar elementos de la lista
         /// mostrada en el datagridview, para eso se usa la funcion 
         /// CellClick del datagrid para obtener el indice
-        /// del elemento que queremos eliminar, y eliminamos por indice = id.
+        /// del elemento seleccionado que queremos eliminar, y eliminamos por indice = id.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -204,7 +223,14 @@ namespace FERNANDES_ROCCIA_TAPIA
             indiceFila = e.RowIndex;
             labelEscaneo.Visible = false;
         }
-        // Funcion para el boton eliminar
+        /// <summary>
+        /// Esta función elminara por fila seleccionada del datagidview, haciendo referencia a la celda 0, que es donde esta almacenado el ID.
+        /// Se controla que la fila seleccionada, sea una lista del dgv y en caso de ser correcto antes de eliminar el objeto
+        /// se muestra un messageBox con los botones de yes/no para confirmar o rechazar la eliminación de un Tesla.
+        /// También se controla el manejo de errores.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -223,9 +249,14 @@ namespace FERNANDES_ROCCIA_TAPIA
                     
                     }
                 }
+                else if (lista.Count == 0)
+                {
+                    errorProvider1.SetError(btnEliminar, "Error la lista esta vacía.");
+                    btnEliminar.Focus();
+                }
             }catch(Exception ex)
             {
-                MessageBox.Show("Se produjo un error al eliminar un tesla" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Se produjo un error al eliminar un Tesla. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -239,8 +270,8 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// guardado en la lista de teslas del prgorama principal.
         /// Para evitar errores de ejecucion se valida que la lista no este vacía,
         /// y en el DataGridView unicamente se permite la seleccion de filas.
-        /// Si el DTG esta vacío se mostrará un error al costado derecho 
-        /// del botón.
+        /// Si el DTG esta vacío se mostrará un error al costado derecho del botón.
+        /// Tambien se controlan las excepciones.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -263,7 +294,7 @@ namespace FERNANDES_ROCCIA_TAPIA
             catch (Exception ex)
             {
                 // Manejo de la excepción
-                MessageBox.Show("Se produjo un error al escanear un tesla. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Se produjo un error al escanear un Tesla. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -278,8 +309,9 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// Objeto que se utiliza para mostrar todos los datos a traves del 
         /// metodo sobreescrito ToString() y en el titulo de la ventana
         /// se mostrara el tesla y su ID correspondiente.
-        /// Caso que la lista este vacía se mostrara un error 
+        /// Caso que la lista este vacía se mostrará un error 
         /// al costado derecho del boton "Mostrar el tesla con más kilometraje"
+        /// Tambien se controlan las excepciones.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

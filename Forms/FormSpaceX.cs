@@ -13,23 +13,25 @@ namespace FERNANDES_ROCCIA_TAPIA
 {
     /// <summary>
     /// 
-    /// En este formulario, se gestionara todo lo relacionado a la clase FormSpaceX.
-    /// Se podran dar de alta y eliminar objetos spacex, en la lista recibida
+    /// En este formulario, se gestionará todo lo relacionado a la clase FormSpaceX.
+    /// Se podran dar de alta y eliminar objetos SpaceX's, de la lista recibida
     /// del formulario principal que es donde se van a ir almacenando los cohetes.
-    /// Tambien contendra toda la funcionalidad, y toda la logica necesaria
+    /// Tambien contendrá toda la funcionalidad, y toda la lógica necesaria
     /// para que la instancia de un nuevo objeto SpaceX sea correcta.
     /// Se tendran en cuenta los datos ingresados/seleccionados
     /// por el usuario y dependiendo de ellos, se haran calculos para 
     /// implentar lo solicitado en el proyecto.
-    /// Se tendra la vista de la lista actual de spacex en un DataGridView
+    /// Se tendra la vista de la lista actual de SpaceX's en un DataGridView vinculado a lista de SpaceX's
     /// y se podran dar de alta, o eliminar de esta lista.
-    /// Se usara una funcion para asignar todos los datos y dar de alta un cohete,
-    /// se implementera la logica necesaria para que cada modelo de SpaceX se cree
-    /// con las propiedades particulares del modelo seleccionado en un comboBox por el usuario.
+    /// Se usará una función(guardarSpaceX()) para asignar todos los datos y dar de alta un cohete,
+    /// se implementa la lógica necesaria para que cada modelo de SpaceX se cree
+    /// con las propiedades particulares del modelo seleccionado del comboBox por el usuario.
     /// Esto evita que se creen modelos que no existen, o designados por un usuario normal.
-    /// Las opciones de modelos, anios y colores solo podran modificarlo los desarrolladores,
-    /// a traves de las listas estaticas correspondientes, como asi tambien la asignacion
-    /// de las propiedades particulares, autonomia y service.
+    /// Por ejemplo si se elige en el comboBox "Falcon 9" se asignará
+    /// como autonomia:200 HS y como service: 400HS.
+    /// Las opciones de modelos, años y colores estarán predefinidos en listas estáticas,
+    /// estas listas solo podrán ser modificadas por los desarrolladores, como asi tambien la asignacion
+    /// de las propiedades particulares, asientos, autonomia y service.
     /// 
     /// </summary>
     public partial class FormSpaceX : Form
@@ -39,6 +41,11 @@ namespace FERNANDES_ROCCIA_TAPIA
         static string[] modelos_disponibles = { "Falcon 9", "Starship" };
         static int[] anios_disponibles = { 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 };
         static string[] colores_disponibles = { "Amarillo", "Azul", "Blanco", "Bordo", "Gris", "Marron", "Naranja", "Negro" };
+        /// <summary>
+        /// Esta función se ejecuta cuando se inicia el formulario, y se hace una validación para constatar si la lista 
+        /// esta vacía, si esta vacía el datagridview estará vacio, caso contrario el datagrid se cargará con la información de la lista.
+        /// Además se cargaran los comboBox con las opciones predefinidas en las listas estaticas.
+        /// </summary>
         public FormSpaceX(List<SpaceX> listaSpaceX)
         {
             InitializeComponent();
@@ -84,16 +91,20 @@ namespace FERNANDES_ROCCIA_TAPIA
         }
         #endregion
 
-        #region Boton crear SpaceX y funcion guardarSpaceX
+        #region Boton Guardar y funcion guardarSpaceX
         /// <summary>
-        /// El boton crear SpaceX sera el encargado de hacer todas las validaciones
+        /// El botón Guardar sera el encargado de hacer todas las validaciones
         /// de campos, sino no se podra llamar al metodo guardarSpaceX() que es quien 
-        /// permite la instanciacion de la clase SpaceX, y agrega el objeto a la lista principal
+        /// permite la instanciación de la clase SpaceX, y agrega el objeto a la lista principal
         /// de SpaceX's. 
+        /// Este boton controlará que si o sí se seleccione algun dato de los combobox,
+        /// que los datos ingresados en el textBox horas de vuelo actuales se ingresen datos del tipo correcto,
+        /// numeros que sean positivos y no mayor a 100 millones.
+        /// En el textBox Dueño se controlará que los datos ingresados sean letras u espacios,
+        /// que el tamaño mínimo sea de 1 caracter y el máximo de 35 caracteres.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if ((modelos.SelectedIndex >= 0) && (anios.SelectedIndex >= 0) &&
@@ -116,12 +127,17 @@ namespace FERNANDES_ROCCIA_TAPIA
             }
         }
         /// <summary>
-        /// Esta funcion tendra un condicional para evaluar que modelo de SpaceX se eligió
-        /// para asi asignar las horas de autonomia(int) y service(int) y asi no 
+        /// Esta funcion tendrá un condicional para evaluar que modelo de SpaceX se eligió
+        /// para asi asignar la autonomia(int), service(int) y así no 
         /// se creen modelos con datos erroneos. Tambien obtendra los datos
         /// de los textbox y los combobox.
-        /// </summary>
-        /// 
+        /// Tambien se tomarán y convertirán todos los datos ingresados/seleccionados por el usuario
+        /// y se guardaran en variables para ser asignadas al nuevo objeto SpaceX.
+        /// Se mostrará un messageBox cuando se agregue un SpaceX a la lista, se refrescará
+        /// el dgv vaciandoló y cargandoló nuevamente con la lista actualizada. Y por último se hace
+        /// un clear de los campos de los textbox y combobox. 
+        /// Tambien se controlá en manejo de errores en caso de que surja alguno se mostrará un mensaje con el tipo de error.
+        /// </summary> 
         private void guardarSpaceX()
         {
             try
@@ -190,7 +206,14 @@ namespace FERNANDES_ROCCIA_TAPIA
             indiceFila = e.RowIndex;
             labelEscaneo.Visible = false;
         }
-        // Funcion para el boton eliminar
+        /// <summary>
+        /// Esta función elminara por fila seleccionada del datagidview, haciendo referencia a la celda 0, que es donde esta almacenado el ID.
+        /// Se controla que la fila seleccionada, sea una lista del dgv y en caso de ser correcto antes de eliminar el objeto
+        /// se muestra un messageBox con los botones de yes/no para confirmar o rechazar la eliminación de un SpaceX.
+        /// También se controla el manejo de errores.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -208,11 +231,16 @@ namespace FERNANDES_ROCCIA_TAPIA
                         indiceFila = -1;
 
                     }
+                    else if (lista.Count == 0)
+                    {
+                        errorProvider1.SetError(btnEliminar, "Error la lista esta vacía.");
+                        btnEliminar.Focus();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Se produjo un error al eliminar un tesla" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Se produjo un error al eliminar un SpaceX. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -228,6 +256,7 @@ namespace FERNANDES_ROCCIA_TAPIA
         /// y en el DataGridView unicamente se permite la seleccion de filas.
         /// Si el DTG esta vacío se mostrará un error al costado derecho 
         /// del botón.
+        /// Tambien se controlan las excepciones.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -251,15 +280,11 @@ namespace FERNANDES_ROCCIA_TAPIA
             catch (Exception ex)
             {
                 // Manejo de la excepción
-                MessageBox.Show("Se produjo un error al escanear un tesla. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Se produjo un error al escanear un SpaceX. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
         #endregion
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

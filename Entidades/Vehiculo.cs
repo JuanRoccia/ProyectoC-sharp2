@@ -9,15 +9,14 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
 {
     /// <summary>
     /// La clase padre abstracta Vehiculo, se declara teniendo
-    /// en cuenta la futura implementacion de vehiculos que tienen propiedades en común.
+    /// en cuenta la futura implementación de vehiculos que tienen propiedades en común.
     /// Se implementa esta idea para no generar codigo, ni propiedades redundantes en el
-    /// programa, y para que esta calse pueda ser reutilizada
-    /// en futuros vehiculos y/o marcas.
-    /// Se tiene en cuenta que la autonomia, y los services seran medidos
+    /// programa, y para que esta calse pueda ser reutilizada en futuros vehiculos y/o marcas.
+    /// Se tiene en cuenta que la autonomia, y los services serán medidos
     /// en la medida especifica de cada dato, en este caso para la clase
     /// Tesla estas propiedades haran referencia a los kilometros,
     /// mientras que en la clase SpaceX hara referencia a las horas.
-    /// La propiedad cantCargas se utilizara para el enunciado 5
+    /// La propiedad cantCargas se utilizara para el enunciado 5:
     /// "Mostrar la cantidad de carga de baterias/combustible de todos los vehiculos"
     /// donde se tendra en cuenta la autonomia de cada vehiculo y dependendiendo
     /// de la autonomia y los kms, horas de vuelo del vehiculo. 
@@ -28,11 +27,11 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
     /// de las cuentas correspondientes.
     /// Todos los atributos de la clase Vehiculo son declarados privados
     /// para que unicamente puedan ser accedidos mediante sus metodos.
-    /// Con esto cumplimos con la encapsulación de la POO.
     /// </summary>
     #region Propiedades
     public abstract class Vehiculo // Clase padre
     {
+        public int ProximoService { get; set; }
         public int CantCargas { get; set; }
         public int CantServices { get; set; }
         public int IntervaloService { get; set; }
@@ -45,7 +44,7 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         #endregion
 
         /// <summary>
-        /// Se crea un metodo abstracto que si o si debera ser implementado
+        /// Se crean dos metodos abstracto que sí o sí deberán ser implementados
         /// por las clases derivadas.
         /// </summary>
         /// <returns></returns>
