@@ -50,7 +50,6 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
         private int cantNavegacion;
         private int cantTraccion;
         private int cantMotor;
-        private int kmUltimaCarga;
 
         /// <summary>
         /// Contructor, se tiene en cuenta que el modelo es de tipo string,
@@ -131,7 +130,11 @@ namespace FERNANDES_ROCCIA_TAPIA.Entidades
             // calcular el porcentaje de batería que queda
             double sobranteCarga = ((double)kmActual % Autonomia / Autonomia) * 100;
             double porcentajeBateria = Convert.ToInt32(-sobranteCarga + 100);
-
+            /// <summary>
+            /// La clase Tesla, además de implementar la funcionalidad para calcular la cantidad de cargas de batería realizadas, 
+            /// también incorpora la funcionalidad para registrar el estado de la batería durante el escaneo.
+            /// Esto proporciona un seguimiento no solo de la cantidad de cargas, sino también del porcentaje de batería restante.
+            /// </summary>
             string reporte = $"Tesla {Modelo} | ID: {Id} | Kilometros actuales: {KmActual}kms | Service cada: {IntervaloService}kms | Bateria: {porcentajeBateria}%\n" +
                 $"Se realizaron [{CantServices}] services.\n" +
                 $"({cantCinturones}) Controles de cinturones de seguridad.\n" +

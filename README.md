@@ -50,7 +50,7 @@ Carpeto de clases principales
 
 ### Clase Vehiculo (Vehiculo.cs)
 
-La clase `Vehicle.cs` es una clase abstracta que sirve como base para los diferentes tipos de vehículos que se pueden implementar en el programa. Esta clase contiene varias propiedades que son comunes a todos los vehículos, como:
+La clase `Vehiculo.cs` es una clase abstracta que sirve como base para los diferentes tipos de vehículos que se pueden implementar en el programa. Esta clase contiene varias propiedades que son comunes a todos los vehículos, como:
 
 - `CantCargas`: Cantidad de cargas que ha tenido el vehículo.
 - `CantServices`: Cantidad de servicios que ha tenido el vehículo.
@@ -62,13 +62,13 @@ La clase `Vehicle.cs` es una clase abstracta que sirve como base para los difere
 - `Duenio`: Dueño del vehículo.
 - `Marca`: Marca del vehículo.
 
-Además, la clase `Vehicle.cs` también define dos métodos abstractos: `ToString()` y `Escaneo()`. Estos métodos deben ser implementados en todas las clases que heredan de `Vehicle.cs`.
+Además, la clase `Vehiculo.cs` también define dos métodos abstractos: `ToString()` y `Escaneo()`. Estos métodos deben ser implementados en todas las clases que heredan de `Vehiculo.cs`.
 
 El propósito de esta clase es proporcionar una estructura común para todos los vehículos y evitar la redundancia de código. Al hacer que ciertas propiedades y métodos sean comunes a todos los vehículos, se facilita la implementación de nuevos tipos de vehículos en el futuro.
 
-La encapsulación es un principio clave de la programación orientada a objetos que se utiliza en esta clase. Todos los atributos de la clase `Vehicle` son privados, lo que significa que sólo pueden ser accedidos a través de sus métodos. Esto ayuda a mantener la integridad de los datos y a controlar cómo se accede a los datos y cómo se pueden modificar.
+La encapsulación es un principio clave de la programación orientada a objetos que se utiliza en esta clase. Todos los atributos de la clase `Vehiculo` son privados, lo que significa que sólo pueden ser accedidos a través de sus métodos. Esto ayuda a mantener la integridad de los datos y a controlar cómo se accede a los datos y cómo se pueden modificar.
 
-La clase `Vehicle.cs` es una pieza fundamental de la arquitectura del programa que permite una fácil expansión y mantenimiento del código.
+La clase `Vehiculo.cs` es una pieza fundamental de la arquitectura del programa que permite una fácil expansión y mantenimiento del código.
 
 ### Clase Tesla (Tesla.cs)
 
